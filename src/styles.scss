@@ -1,8 +1,4 @@
-$bodyColor: coral;
-
-body {
-  background-color: $bodyColor;
-  background-image: url(./assets/efmuuprdNMk.jpg);
-  background-size: 700px 700px;
-  background-repeat: no-repeat;
-}
+@import './styles/reset';
+@import './routes/routers-styles';
+@import './styles/header';
+@import './styles/about';
