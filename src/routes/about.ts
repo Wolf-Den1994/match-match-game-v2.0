@@ -1,6 +1,6 @@
-const image1 = require('../assets/image1.png');
-const image2 = require('../assets/image2.png');
-const image3 = require('../assets/image3.png');
+const image1 = require('../assets/image/image1.png');
+const image2 = require('../assets/image/image2.png');
+const image3 = require('../assets/image/image3.png');
 
 export const about = `
   <main class="main">

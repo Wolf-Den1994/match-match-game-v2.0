@@ -4,9 +4,9 @@ export const settings = `
     <form action="#" method="POST" class="form-card">
       <select name="card" id="select-card" class="select-card" requiared="">
         <option value="" disabled="" selected="">select game cards type</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
+        <option value="1">pets</option>
+        <option value="2">nature</option>
+        <option value="3">pets</option>
       </select>
     </form>
     <h2 class="main-title">Game cards</h2>

@@ -79,7 +79,7 @@ body {
 }
 
 .navbar-item:nth-child(1) a svg {
-  background-image: url(./assets/question.svg);
+  background-image: url(./assets/icon/question.svg);
   display: inline-block;
   background-repeat: no-repeat;
   background-position: center;
@@ -88,7 +88,7 @@ body {
 }
 
 .navbar-item:nth-child(2) a svg {
-  background-image: url(./assets/stars.svg);
+  background-image: url(./assets/icon/stars.svg);
   display: inline-block;
   background-repeat: no-repeat;
   background-position: center;
@@ -97,7 +97,7 @@ body {
 }
 
 .navbar-item:nth-child(3) a svg {
-  background-image: url(./assets/gear.svg);
+  background-image: url(./assets/icon/gear.svg);
   display: inline-block;
   background-repeat: no-repeat;
   background-position: center;
@@ -122,4 +122,75 @@ body {
   background-color: #ffffffc0;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 1px 18px rgba(0, 0, 0, 0.12),
     0px 6px 10px rgba(0, 0, 0, 0.14);
+}
+
+.form-item-register {
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  background-color: #21212114;
+  max-width: 328px;
+}
+
+.form-item-register label {
+  position: absolute;
+  left: 45px;
+  top: 23px;
+  transition: top 0.5s;
+}
+
+.form-item-register input {
+  max-width: 200px;
+  width: 100%;
+  display: block;
+  padding: 15px 82px 15px 45px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border: none;
+  border-bottom: none;
+  background: no-repeat bottom, 50% calc(100% - 1px);
+  background-size: 0 100%, 100% 100%;
+  background-image: linear-gradient(0deg, #a3a3a3 2px, #9c27b000 0), linear-gradient(0deg, #ccc 1px, #d1d1d100 0);
+}
+
+.form-item-register input:focus {
+  outline: none;
+  background-size: 100% 100%, 100% 100%;
+  transition-duration: 0.3s;
+  box-shadow: none;
+}
+
+.form-item-register > input:focus+label,
+.form-item-register > input:not(:placeholder-shown)+label {
+  top: 7px;
+  font-size: 12px;
+  color: #00000061;
+}
+
+::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.form-item-register > input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+.form-item-register svg {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url(./assets/icon/sheck_mark.svg);
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 30px;
+  top: 20%;
+}
+
+.check-hidden {
+  opacity: 0;
+}
+
+.check-visible {
+  opacity: 1;
 }

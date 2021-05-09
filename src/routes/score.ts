@@ -1,4 +1,4 @@
-const avatar1 = require('../assets/avatar1.png');
+const avatar1 = require('../assets/image/avatar1.png');
 
 export const score = `
   <main class="main">
