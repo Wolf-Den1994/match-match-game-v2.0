@@ -166,3 +166,17 @@
 .lock {
   overflow-y: hidden;
 }
+
+.invalid {
+  background-color: #eb3939;
+  cursor: default;
+}
+
+.form-submit.invalid:hover {
+  background-color: #eb3939;
+  box-shadow: none;
+}
+
+.form-item-register.warning {
+  background-color: #bd53535c;
+}

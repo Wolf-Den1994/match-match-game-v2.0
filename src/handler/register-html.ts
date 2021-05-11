@@ -7,12 +7,15 @@ export const registerHTML = `
     <h2 class="main-title">Registr new Player</h2>
     <div class="form-register-wrapper">
       <form action="#" class="form-register">
-        <div class="form-item-register">
+        <div id="div-item1" class="form-item-register">
           <input type="text" required id="user-name" placeholder="Your name">
           <label for="user-name">First Name</label>
-          <svg class="img-check-register check-hidden"></svg>
+          <svg 
+            id="img-check1" 
+            class="img-check-register check-hidden"
+          ></svg>
         </div>
-        <div class="form-item-register">
+        <div id="div-item2" class="form-item-register">
           <input 
             type="text" 
             required 
@@ -20,12 +23,18 @@ export const registerHTML = `
             placeholder="Your surname"
           >
           <label for="user-lastname">Last Name</label>
-          <svg class="img-check-register check-hidden"></svg>
+          <svg 
+            id="img-check2" 
+            class="img-check-register check-hidden"
+          ></svg>
         </div>
-        <div class="form-item-register">
+        <div id="div-item3" class="form-item-register">
           <input type="email" required id="user-email" placeholder="Your email">
           <label for="user-email">E-mail</label>
-          <svg class="img-check-register check-hidden"></svg>
+          <svg 
+            id="img-check3" 
+            class="img-check-register check-hidden"
+          ></svg>
         </div>
       </form>
       <div class="form-register-avatar">
@@ -33,7 +42,7 @@ export const registerHTML = `
       </div>
     </div>
     <div class="form-register-buttons">
-      <button class="form-submit">add user</button>
+      <button class="form-submit invalid" type="submit">add user</button>
       <button class="form-cancel">cancel</button>
     </div>
   </div>

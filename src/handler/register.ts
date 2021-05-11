@@ -1,4 +1,4 @@
-import { btnFormCancel, modal, overlay } from './register-html';
+import { modal, overlay } from './register-html';
 
 const btnRegister = document.querySelector('.btn-register');
 
@@ -6,7 +6,6 @@ window.onload = () => {
   function openModalRegister() {
     if (!modal) throw new Error('modal is not found');
     if (!overlay) throw new Error('overlay is not found');
-    if (!btnFormCancel) throw new Error('btnFormCancel is not found');
 
     if (!modal.classList.contains('open-modal')) {
       modal.classList.add('open-modal');
@@ -18,7 +17,6 @@ window.onload = () => {
   function closeModalRegister() {
     if (!modal) throw new Error('modal is not found');
     if (!overlay) throw new Error('overlay is not found');
-    if (!btnFormCancel) throw new Error('btnFormCancel is not found');
 
     if (modal.classList.contains('open-modal')) {
       modal.classList.remove('open-modal');
@@ -32,8 +30,5 @@ window.onload = () => {
   }
   if (overlay) {
     overlay.addEventListener('click', closeModalRegister);
-  }
-  if (btnFormCancel) {
-    btnFormCancel.addEventListener('click', closeModalRegister);
   }
 };
