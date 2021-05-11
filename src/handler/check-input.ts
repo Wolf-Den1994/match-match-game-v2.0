@@ -1,10 +1,9 @@
 import { isValidEmail, isValidName, isValidSurname } from '../shared/isValid';
-import { btnFormCancel } from './register-html';
+import { btnFormCancel, btnFormSubmit } from './register-html';
 
 const userName = <HTMLElement>document.getElementById('user-name');
 const userLastname = <HTMLElement>document.getElementById('user-lastname');
 const userEmail = <HTMLElement>document.getElementById('user-email');
-const btnSubmit = <HTMLElement>document.querySelector('.form-submit');
 const imagesCheck: NodeListOf<HTMLElement> = document.querySelectorAll(
   '.img-check-register',
 );
@@ -18,11 +17,13 @@ let userSurnameIsValid = false;
 let userEmailIsValid = false;
 
 function isValidate(): void {
-  if (!btnSubmit) throw new Error('Button submit is not found');
+  if (!btnFormSubmit) throw new Error('Button submit is not found');
   if (userNameIsValid && userSurnameIsValid && userEmailIsValid) {
-    btnSubmit.classList.remove('invalid');
+    btnFormSubmit.classList.remove('invalid');
+    btnFormSubmit.disabled = false;
   } else {
-    btnSubmit.classList.add('invalid');
+    btnFormSubmit.classList.add('invalid');
+    btnFormSubmit.disabled = true;
   }
 }
 
@@ -87,7 +88,11 @@ function isValidateSurname(): void {
 
 function isValidateEmail(): void {
   if (!isInputElement(userEmail)) return;
-  if (userEmail.validity.valid && isValidEmail(userEmail.value)) {
+  if (
+    userEmail.validity.valid &&
+    isValidEmail(userEmail.value) &&
+    userEmail.value.length <= 30
+  ) {
     userEmailIsValid = true;
     showIconCheck(3);
   } else {
@@ -125,7 +130,8 @@ function resetInput() {
   userNameIsValid = false;
   userSurnameIsValid = false;
   userEmailIsValid = false;
-  btnSubmit.classList.add('invalid');
+  btnFormSubmit.classList.add('invalid');
+  btnFormSubmit.disabled = true;
   ArrayDivItemInputs.forEach((div) => {
     div.classList.remove('warning');
   });

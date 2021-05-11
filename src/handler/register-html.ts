@@ -42,7 +42,13 @@ export const registerHTML = `
       </div>
     </div>
     <div class="form-register-buttons">
-      <button class="form-submit invalid" type="submit">add user</button>
+      <button 
+        class="form-submit invalid" 
+        type="submit" 
+        disabled
+      >
+        add user
+      </button>
       <button class="form-cancel">cancel</button>
     </div>
   </div>
@@ -61,5 +67,10 @@ renderingModalRegister();
 
 export const modal = document.querySelector('.modal-register');
 export const overlay = document.getElementById('overlay');
-export const btnFormCancel = document.querySelector('.form-cancel');
+export const btnFormCancel = <HTMLButtonElement>(
+  document.querySelector('.form-cancel')
+);
+export const btnFormSubmit = <HTMLButtonElement>(
+  document.querySelector('.form-submit')
+);
 export const imagesCheck = document.querySelectorAll('.img-check-register');

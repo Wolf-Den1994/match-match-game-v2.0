@@ -25,6 +25,16 @@ btnRegister.className = 'btn-register';
 btnRegister.innerHTML = `register new player`;
 header.append(btnRegister);
 
+const btnStartGame = document.createElement('button');
+btnStartGame.className = 'btn-start-game hidden';
+btnStartGame.innerHTML = `start game`;
+header.append(btnStartGame);
+
+const btnStopGame = document.createElement('button');
+btnStopGame.className = 'btn-stop-game hidden';
+btnStopGame.innerHTML = `stop game`;
+header.append(btnStopGame);
+
 const divLogo = document.createElement('div');
 divLogo.className = 'logo';
 divHeaderLeft.append(divLogo);

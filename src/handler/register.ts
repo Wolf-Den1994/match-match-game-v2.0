@@ -1,6 +1,7 @@
 import { modal, overlay } from './register-html';
 
-const btnRegister = document.querySelector('.btn-register');
+export const btnRegister = document.querySelector('.btn-register');
+export const btnStartGame = document.querySelector('.btn-start-game');
 
 window.onload = () => {
   function openModalRegister() {
