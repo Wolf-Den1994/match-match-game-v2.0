@@ -1,0 +1,168 @@
+.modal-register {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 640px;
+  width: 100%;
+  z-index: 16;
+  padding: 60px 80px 40px;
+  background-color: #FAFAFA;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+  border-radius: 6px;
+}
+
+.modal-register.open-modal {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  z-index: 10;
+}
+#overlay.open-modal {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-register > .main-title {
+  letter-spacing: 0.15px;
+}
+
+.form-register-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 95px;
+  align-self:stretch;
+}
+
+.form-item-register {
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  background-color: #21212114;
+  max-width: 328px;
+  box-shadow: 1px -1px 3px rgb(0 0 0 / 12%), 1px 1px 7px rgb(0 0 0 / 24%);
+}
+
+.form-item-register label {
+  position: absolute;
+  left: 45px;
+  top: 23px;
+  transition: top 0.5s;
+}
+
+.form-item-register input {
+  max-width: 200px;
+  width: 100%;
+  display: block;
+  padding: 15px 82px 15px 45px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border: none;
+  border-bottom: none;
+  background: no-repeat bottom, 50% calc(100% - 1px);
+  background-size: 0 100%, 100% 100%;
+  background-image: linear-gradient(0deg, #a3a3a3 2px, #9c27b000 0), linear-gradient(0deg, #ccc 1px, #d1d1d100 0);
+}
+
+.form-item-register input:focus {
+  outline: none;
+  background-size: 100% 100%, 100% 100%;
+  transition-duration: 0.3s;
+  box-shadow: none;
+}
+
+.form-item-register > input:focus+label,
+.form-item-register > input:not(:placeholder-shown)+label {
+  top: 7px;
+  font-size: 12px;
+  color: #00000061;
+}
+
+::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.form-item-register > input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+.form-item-register svg {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url(./assets/icon/sheck_mark.svg);
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 30px;
+  top: 20%;
+}
+
+.check-hidden {
+  opacity: 0;
+}
+
+.check-visible {
+  opacity: 1;
+}
+
+.form-register-buttons {
+  align-self: flex-end;
+}
+
+.form-register-buttons button {
+  text-transform: uppercase;
+  width: 110px;
+  height: 36px;
+}
+
+.form-submit {
+  background-color: #2196F3;
+  border: none;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  cursor: pointer;
+}
+
+.form-cancel {
+  background-color: #E3F2FD;
+  border: none;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+  color: #2196F3;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  cursor: pointer;
+}
+
+.form-submit:hover {
+  background-color: #0c71c4;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.22), 0px 4px 4px rgba(0, 0, 0, 0.44);
+}
+
+.form-cancel:hover {
+  background-color: #c9dfee;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.22), 0px 4px 4px rgba(0, 0, 0, 0.44);
+}
+
+.lock {
+  overflow-y: hidden;
+}
