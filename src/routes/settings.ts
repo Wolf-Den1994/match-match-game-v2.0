@@ -6,7 +6,7 @@ export const settings = `
         <option value="" disabled="" selected="">select game cards type</option>
         <option value="1">pets</option>
         <option value="2">nature</option>
-        <option value="3">pets</option>
+        <option value="3">farm</option>
       </select>
     </form>
     <h2 class="main-title">Game cards</h2>
