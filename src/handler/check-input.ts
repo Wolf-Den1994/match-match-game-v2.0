@@ -64,7 +64,11 @@ function hideIconCheck(id: number): void {
 
 function isValidateName(): void {
   if (!isInputElement(userName)) return;
-  if (userName.validity.valid && isValidName(userName.value)) {
+  if (
+    userName.validity.valid &&
+    isValidName(userName.value) &&
+    Number.isNaN(+userName.value)
+  ) {
     userNameIsValid = true;
     showIconCheck(1);
   } else {
@@ -76,7 +80,11 @@ function isValidateName(): void {
 
 function isValidateSurname(): void {
   if (!isInputElement(userLastname)) return;
-  if (userLastname.validity.valid && isValidSurname(userLastname.value)) {
+  if (
+    userLastname.validity.valid &&
+    isValidSurname(userLastname.value) &&
+    Number.isNaN(+userLastname.value)
+  ) {
     userSurnameIsValid = true;
     showIconCheck(2);
   } else {

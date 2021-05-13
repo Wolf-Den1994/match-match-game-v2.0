@@ -1,9 +1,9 @@
 export function isValidName(value: string): boolean {
-  return /^[\p{L}\p{M} ]{1,30}$/u.test(value);
+  return /^[\p{L}\p{M}\d ]{1,30}$/u.test(value);
 }
 
 export function isValidSurname(value: string): boolean {
-  return /^[\p{L}\p{M} ]{1,30}$/u.test(value);
+  return /^[\p{L}\p{M}\d ]{1,30}$/u.test(value);
 }
 
 export function isValidEmail(value: string): boolean {

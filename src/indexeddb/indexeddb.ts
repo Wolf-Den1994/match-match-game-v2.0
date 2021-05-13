@@ -12,57 +12,34 @@ function updatePerson() {
   const lastNameValue = lastName.value;
   const emailValue = email.value;
 
-  //Get a transaction
-  //default for OS list is all, default for type is read
-  let transaction = db.transaction(['people'], 'readwrite');
-  //Ask for the objectStore
-  let store = transaction.objectStore('people');
+  const transaction = db.transaction(['people'], 'readwrite');
+  const store = transaction.objectStore('people');
 
-  let person = {
+  const person = {
     name: nameValue,
     lastname: lastNameValue,
     email: emailValue,
+    score: '500',
   };
 
-  //Perform the update
-  let request = store.put(person);
-
-  request.onerror = function (e) {
-    console.log('Error', e, request.error);
-    //some type of error handler
-  };
-
-  request.onsuccess = function (e) {
-    console.log('Woot! Did it');
-  };
+  store.put(person);
 }
 
-export function indexedDBcall() {
-  // window.onload = function () {
+export function indexedDBcall(): void {
   if (!idbOK()) return;
 
   const openRequest = indexedDB.open('Wolf-Den1994', 1);
 
-  openRequest.onupgradeneeded = function () {
+  openRequest.onupgradeneeded = function upgradeneededIndexed() {
     const thisDB = openRequest.result;
-    console.log('running onupgradeneeded');
-
     if (!thisDB.objectStoreNames.contains('people')) {
       thisDB.createObjectStore('people', { keyPath: 'email' });
     }
   };
 
-  openRequest.onsuccess = function () {
-    console.log('running onsuccess');
+  openRequest.onsuccess = function successIndexed() {
     db = openRequest.result;
-
-    // Start listening for button clicks
     const submitXXX = document.querySelector('.form-submit') as HTMLElement;
     submitXXX.addEventListener('click', updatePerson);
-  };
-
-  openRequest.onerror = function (e) {
-    console.log('onerror!');
-    console.dir(e);
   };
 }
