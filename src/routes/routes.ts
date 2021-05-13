@@ -124,33 +124,38 @@ const onNavigate = (pathname: string) => {
   if (root) root.innerHTML = routes[pathname];
 };
 
-if (linkNavbarAbout)
-  linkNavbarAbout.onclick = () => {
-    navbarLinks.forEach((link) => {
-      link.className = 'navbar-link';
-    });
-    linkNavbarAbout.classList.add('active');
-    onNavigate('/');
-    return false;
-  };
-if (linkNavbarScore)
-  linkNavbarScore.onclick = () => {
-    navbarLinks.forEach((link) => {
-      link.className = 'navbar-link';
-    });
-    linkNavbarScore.classList.add('active');
-    onNavigate('/score');
-    return false;
-  };
-if (linkNavbarSettings)
-  linkNavbarSettings.onclick = () => {
-    navbarLinks.forEach((link) => {
-      link.className = 'navbar-link';
-    });
-    linkNavbarSettings.classList.add('active');
-    onNavigate('/settings');
-    return false;
-  };
+logoLink.onclick = () => {
+  navbarLinks.forEach((link) => {
+    link.className = 'navbar-link';
+  });
+  linkNavbarAbout.classList.add('active');
+  onNavigate('/');
+  return false;
+};
+linkNavbarAbout.onclick = () => {
+  navbarLinks.forEach((link) => {
+    link.className = 'navbar-link';
+  });
+  linkNavbarAbout.classList.add('active');
+  onNavigate('/');
+  return false;
+};
+linkNavbarScore.onclick = () => {
+  navbarLinks.forEach((link) => {
+    link.className = 'navbar-link';
+  });
+  linkNavbarScore.classList.add('active');
+  onNavigate('/score');
+  return false;
+};
+linkNavbarSettings.onclick = () => {
+  navbarLinks.forEach((link) => {
+    link.className = 'navbar-link';
+  });
+  linkNavbarSettings.classList.add('active');
+  onNavigate('/settings');
+  return false;
+};
 
 window.onpopstate = () => {
   if (root) root.innerHTML = routes[window.location.pathname];
