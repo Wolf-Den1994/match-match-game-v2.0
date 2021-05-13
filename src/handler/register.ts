@@ -1,3 +1,4 @@
+import { indexedDBcall } from '../indexeddb/indexeddb';
 import { modal, overlay } from './register-html';
 
 export const btnRegister = document.querySelector('.btn-register');
@@ -32,4 +33,6 @@ window.onload = () => {
   if (overlay) {
     overlay.addEventListener('click', closeModalRegister);
   }
+
+  indexedDBcall();
 };
