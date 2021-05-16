@@ -47,7 +47,7 @@
   transition: all 0.3s ease-out;
 }
 
-.card.hover .flipper {
+.card.turn .flipper {
   transform: rotateY(180deg);
 }
 

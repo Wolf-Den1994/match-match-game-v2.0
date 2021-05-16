@@ -1,5 +1,4 @@
 import { objWithSetting } from './obj-setting';
-import { ImageCategoryModal } from '../models/image-catecory-model';
 
 const imageBack = require('../assets/image/back-card.png');
 
@@ -38,39 +37,45 @@ export function renderField(cardonField: HTMLElement): void {
     wrapper.id = 'field';
     cardonField.append(wrapper);
 
-    async function getImages() {
-      const res = await fetch('./images.json');
-      const category: ImageCategoryModal[] = await res.json();
-      const peekCategory = category[+objWithSetting.card - 1];
-      const images = peekCategory.images.map(
-        (name) => `${peekCategory.category}/${name}`,
-      );
-      return images;
+    let face: string;
+    if (objWithSetting.card === '1') {
+      face = 'farm';
+    } else if (objWithSetting.card === '2') {
+      face = 'nature';
+    } else {
+      face = 'pets';
     }
 
-    const imageFace = getImages();
-    imageFace.then((res) => {
-      for (let i = 0; i <= random.length - 1; i++) {
-        const div = document.createElement('div');
-        div.className = `card cardn${random[i]}`;
-        wrapper.append(div);
+    for (let i = 0; i <= random.length - 1; i++) {
+      const div = document.createElement('div');
+      div.className = `card cardn${random[i]}`;
+      wrapper.append(div);
 
-        const fliper = document.createElement('div');
-        fliper.className = 'flipper';
-        div.append(fliper);
+      const fliper = document.createElement('div');
+      fliper.className = 'flipper';
+      div.append(fliper);
 
-        const front = document.createElement('div');
-        const back = document.createElement('div');
-        front.className = 'front';
-        front.innerHTML = `<img src="./images/${
-          res[random[i]]
-        }" alt="card" class="card__img">`;
-        back.className = 'back';
-        back.innerHTML = `<img src="${imageBack}" alt="c" class="card__img">`;
-        fliper.append(front);
-        fliper.append(back);
-      }
-    });
+      const front = document.createElement('div');
+      const back = document.createElement('div');
+      front.className = 'front';
+      front.innerHTML = `
+        <img 
+          src="./images/${face}/${random[i]}.svg" 
+          alt="card" 
+          class="card__img"
+        >
+      `;
+      back.className = 'back';
+      back.innerHTML = `
+        <img 
+          src="${imageBack}" 
+          alt="card" 
+          class="card__img"
+        >
+      `;
+      fliper.append(front);
+      fliper.append(back);
+    }
   }
   cardon();
 }
