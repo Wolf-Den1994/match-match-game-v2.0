@@ -4,4 +4,7 @@ import './handler/register';
 import './handler/check-input';
 import './handler/submit-input';
 import './indexeddb/indexeddb';
+import './game/start-game';
 import './game/field';
+import './stopwatch/stopwatch';
+import './game/render-field';

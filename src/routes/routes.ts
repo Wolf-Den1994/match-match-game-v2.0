@@ -1,3 +1,6 @@
+import { gameField } from '../game/field';
+import { objWithSetting } from '../game/obj-setting';
+import { renderField } from '../game/render-field';
 import { about } from './about';
 import { score } from './score';
 import { settings } from './settings';
@@ -10,6 +13,7 @@ const routes: IRoutes = {
   '/': about,
   '/score': score,
   '/settings': settings,
+  '/game': gameField,
 };
 
 const header = document.createElement('header');
@@ -119,11 +123,35 @@ const navbarLinks = document.querySelectorAll('.navbar-link');
 if (root) root.innerHTML = routes[window.location.pathname];
 if (linkNavbarAbout) linkNavbarAbout.classList.add('active');
 
+export function pollOfElections(): void {
+  const selectCard = document.querySelector('#select-card');
+  const selectDifficulty = document.querySelector('#select-difficulty');
+  if (selectCard instanceof HTMLSelectElement) {
+    objWithSetting.card = selectCard.value;
+  }
+  if (selectDifficulty instanceof HTMLSelectElement) {
+    objWithSetting.difficulty = selectDifficulty.value;
+  }
+  setTimeout(pollOfElections, 1000);
+}
+
 const onNavigate = (pathname: string) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
   if (root) root.innerHTML = routes[pathname];
+  if (pathname === '/game') {
+    const field = <HTMLElement>document.querySelector('.main-field');
+    renderField(field);
+  }
+  pollOfElections();
 };
 
+btnStartGame.onclick = () => {
+  navbarLinks.forEach((link) => {
+    link.className = 'navbar-link';
+  });
+  onNavigate('/game');
+  return false;
+};
 logoLink.onclick = () => {
   navbarLinks.forEach((link) => {
     link.className = 'navbar-link';

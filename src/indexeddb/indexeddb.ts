@@ -17,6 +17,9 @@ function personToBase() {
   request.onsuccess = function successIndexedbd() {
     const { result } = request;
 
+    const transactionAdd = db.transaction(['people'], 'readwrite');
+    const storeAdd = transactionAdd.objectStore('people');
+
     const name = document.querySelector('#user-name') as HTMLInputElement;
     const lastName = document.querySelector(
       '#user-lastname',
@@ -29,15 +32,15 @@ function personToBase() {
       name: nameValue,
       lastname: lastNameValue,
       email: emailValue,
-      score: '400',
+      score: '500',
     };
 
     if (result !== undefined) {
       if (person.score > result.score) {
-        store.put(person);
+        storeAdd.put(person);
       }
     } else {
-      store.add(person);
+      storeAdd.add(person);
     }
   };
 }
