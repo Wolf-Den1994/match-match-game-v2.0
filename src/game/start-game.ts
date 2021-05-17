@@ -1,5 +1,5 @@
 import { btnStartGame, btnStopGame } from '../handler/register';
-import { countTime } from '../stopwatch/stopwatch';
+// import { countTime } from '../stopwatch/stopwatch';
 import { createField } from './field';
 
 function toRunStartGame() {
@@ -11,7 +11,7 @@ function toRunStartGame() {
     btnStopGame.classList.remove('hidden');
 
     createField();
-    countTime();
+    // countTime();
   }
 }
 

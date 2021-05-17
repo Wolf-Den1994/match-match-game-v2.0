@@ -1,13 +1,16 @@
-export function countTime(): void {
-  let flag = false;
-  const hour = <HTMLElement>document.getElementById('hour');
-  const min = <HTMLElement>document.getElementById('min');
-  const sec = <HTMLElement>document.getElementById('sec');
-  const buttonS = <HTMLButtonElement>document.getElementById('start');
-  const buttonStop = <HTMLButtonElement>document.getElementById('stop');
+export class CountTime {
+  flag: number | null | void;
 
-  function work() {
-    if (flag) return;
+  constructor() {
+    this.flag = null;
+    this.work = this.work.bind(this);
+  }
+
+  work(): void {
+    const hour = <HTMLElement>document.getElementById('hour');
+    const min = <HTMLElement>document.getElementById('min');
+    const sec = <HTMLElement>document.getElementById('sec');
+    if (this.flag === undefined) return;
     let s = parseInt(sec.innerHTML, 10);
     s += 1;
     if (s < 10) {
@@ -39,16 +42,11 @@ export function countTime(): void {
     }
   }
 
-  function stop() {
-    flag = true;
-    window.clearInterval();
+  stop(): void {
+    this.flag = window.clearInterval();
   }
 
-  function start() {
-    flag = false;
-    window.setInterval(work, 1000);
+  start(): void {
+    this.flag = window.setInterval(this.work, 1000);
   }
-
-  buttonS.addEventListener('click', start);
-  buttonStop.addEventListener('click', stop);
 }

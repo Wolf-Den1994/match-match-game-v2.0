@@ -8,3 +8,5 @@ import './game/start-game';
 import './game/field';
 import './stopwatch/stopwatch';
 import './game/render-field';
+import './game/follow-card';
+import './game/memorize';

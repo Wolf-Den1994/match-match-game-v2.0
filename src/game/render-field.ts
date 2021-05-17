@@ -1,4 +1,6 @@
 import { objWithSetting } from './obj-setting';
+import { toMemorizeCards } from './memorize';
+import { followTheCard } from './follow-card';
 
 const imageBack = require('../assets/image/back-card.png');
 
@@ -39,16 +41,16 @@ export function renderField(cardonField: HTMLElement): void {
 
     let face: string;
     if (objWithSetting.card === '1') {
-      face = 'farm';
+      face = 'pets';
     } else if (objWithSetting.card === '2') {
       face = 'nature';
     } else {
-      face = 'pets';
+      face = 'farm';
     }
 
     for (let i = 0; i <= random.length - 1; i++) {
       const div = document.createElement('div');
-      div.className = `card cardn${random[i]}`;
+      div.className = `card cardn${random[i]} turn`;
       wrapper.append(div);
 
       const fliper = document.createElement('div');
@@ -60,7 +62,7 @@ export function renderField(cardonField: HTMLElement): void {
       front.className = 'front';
       front.innerHTML = `
         <img 
-          src="./images/${face}/${random[i]}.svg" 
+          src="${imageBack}" 
           alt="card" 
           class="card__img"
         >
@@ -68,7 +70,7 @@ export function renderField(cardonField: HTMLElement): void {
       back.className = 'back';
       back.innerHTML = `
         <img 
-          src="${imageBack}" 
+          src="./images/${face}/${random[i]}.svg" 
           alt="card" 
           class="card__img"
         >
@@ -78,4 +80,6 @@ export function renderField(cardonField: HTMLElement): void {
     }
   }
   cardon();
+  toMemorizeCards();
+  followTheCard(); // вызывать лучше в мемеоризе после 30 сек с тамймеро вместе
 }
