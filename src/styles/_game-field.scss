@@ -39,6 +39,7 @@
   opacity: 1;
   visibility: visible;
   transition: 0.5s opacity, 0.5s visibility;
+  position: relative;
 }
 
 .card:hover {
@@ -90,6 +91,22 @@
   height: 100px;
 }
 
-.paint-green {
-  filter: hue-rotate(90deg);
+.paint-green:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #0ACF83b3;
+}
+
+.paint-red:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #f24e1e80;;
 }

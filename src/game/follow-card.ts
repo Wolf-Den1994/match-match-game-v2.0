@@ -1,6 +1,7 @@
+import { congratulateTheWinner } from '../final/final';
 import { time } from './memorize';
 import { objWithSetting } from './obj-setting';
-import { paintGreen } from './paint';
+import { paintGreen, paintRed } from './paint';
 import { reverseBack } from './reverse';
 
 function final() {
@@ -14,6 +15,7 @@ function final() {
   });
   if (count === +objWithSetting.difficulty * +objWithSetting.difficulty) {
     time.stop();
+    congratulateTheWinner();
     return;
   }
   count = 0;
@@ -81,8 +83,12 @@ export function followTheCard(): void {
             // reverseBack(arrCards);
           } else {
             // console.log('reverse');
+            paintRed(firstItem, item);
             reverseBack(arrCards);
           }
+          // setTimeout(() => {
+          //   item.classList.remove('paint-red');
+          // }, 1300);
           count = 0;
           firstItem = null;
         }
