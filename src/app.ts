@@ -1,4 +1,5 @@
 import './styles.scss';
+import './header/header';
 import './routes/routes';
 import './handler/register';
 import './handler/check-input';
@@ -10,3 +11,4 @@ import './stopwatch/stopwatch';
 import './game/render-field';
 import './game/follow-card';
 import './game/memorize';
+import './final/final-html';
