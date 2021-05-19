@@ -1,7 +1,6 @@
-import { CountTime } from '../stopwatch/stopwatch';
+import { time } from '../stopwatch/stopwatch';
 import { followTheCard } from './follow-card';
 
-export const time = new CountTime();
 // let count = 0;
 
 export function toMemorizeCards(): void {

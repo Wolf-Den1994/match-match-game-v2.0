@@ -12,3 +12,4 @@ import './game/render-field';
 import './game/follow-card';
 import './game/memorize';
 import './final/final-html';
+import './final/button-ok';

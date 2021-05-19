@@ -1,3 +1,4 @@
+import { btnFinal } from '../final/final-html';
 import { gameField } from '../game/field';
 import { objWithSetting } from '../game/obj-setting';
 import { renderField } from '../game/render-field';
@@ -77,6 +78,14 @@ function goHome() {
   return false;
 }
 
+function goScore() {
+  deleteClassNameAtLink();
+  linkNavbarScore.classList.add('active');
+  onNavigate('/score');
+  callFnStopGame();
+  return false;
+}
+
 btnStartGame.onclick = () => {
   deleteClassNameAtLink();
   onNavigate('/game');
@@ -91,12 +100,11 @@ logoLink.onclick = () => {
 linkNavbarAbout.onclick = () => {
   goHome();
 };
+btnFinal.onclick = () => {
+  goScore();
+};
 linkNavbarScore.onclick = () => {
-  deleteClassNameAtLink();
-  linkNavbarScore.classList.add('active');
-  onNavigate('/score');
-  callFnStopGame();
-  return false;
+  goScore();
 };
 linkNavbarSettings.onclick = () => {
   deleteClassNameAtLink();

@@ -1,5 +1,5 @@
 import { congratulateTheWinner } from '../final/final';
-// import { time } from './memorize';
+import { time } from '../stopwatch/stopwatch';
 import { objWithSetting } from './obj-setting';
 import { paintGreen, paintRed } from './paint';
 import { reverseBack } from './reverse';
@@ -14,7 +14,7 @@ function final() {
     }
   });
   if (count === +objWithSetting.difficulty * +objWithSetting.difficulty) {
-    // time.stop();
+    time.stop();
     congratulateTheWinner();
     return;
   }

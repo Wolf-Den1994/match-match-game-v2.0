@@ -1,19 +1,16 @@
-const root = document.getElementById('root');
+export const modalCongratulate = document.createElement('div');
+modalCongratulate.className = 'modal-congratulate';
+document.body.append(modalCongratulate);
 
-if (!root) throw new Error('root is not found');
+const congratulateText = document.createElement('p');
+congratulateText.className = 'congratulate-text';
+congratulateText.innerHTML = `
+    Congratulations! You successfully found all the matches. 
+    Your time is <span class="congratulate-time"></span>.
+  `;
+modalCongratulate.append(congratulateText);
 
-const finalHTML = `
-  <div class="modal-congratulate">
-    <p class="congratulate-text">
-      Congratulations! You successfully found all the matches. 
-      Your time is <span class="congratulate-time"></span>.
-    </p>
-    <button class="congratulate-button">ok</button>
-  </div>
-`;
-
-function renderingModalCongratulate() {
-  if (!root) throw new Error('root is not found');
-  root.insertAdjacentHTML('beforebegin', finalHTML);
-}
-renderingModalCongratulate();
+export const btnFinal = document.createElement('button');
+btnFinal.className = 'congratulate-button';
+btnFinal.innerHTML = 'ok';
+modalCongratulate.append(btnFinal);

@@ -53,3 +53,5 @@ export class CountTime {
     this.flag = window.setInterval(this.work, 1000);
   }
 }
+
+export const time = new CountTime();
