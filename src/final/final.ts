@@ -1,3 +1,5 @@
+import { toScore } from '../score/to-score';
+
 export function congratulateTheWinner(): void {
   const modalCongratulate = document.querySelector('.modal-congratulate');
   const timeFromSpan = document.querySelector('.congratulate-time');
@@ -13,13 +15,16 @@ export function congratulateTheWinner(): void {
   if (!min) throw new Error('min is not found');
   if (!sec) throw new Error('sec is not found');
 
+  const h = hour.innerText;
+  const m = min.innerText;
+  const s = sec.innerText;
+
   modalCongratulate.classList.add('open-modal');
   overlay.classList.add('open-modal');
 
-  timeFromSpan.innerHTML = `
-    ${hour.innerText}:${min.innerText}:${sec.innerText}
-  `;
+  timeFromSpan.innerHTML = `${h}:${m}:${s}`;
 
   // отправить в бд очки и юзера (только сейчас! а не в Indexeddb.ts)
   // или передавать в Indexeddb.ts объект и уже записывать там !!!
+  toScore(h, m, s);
 }

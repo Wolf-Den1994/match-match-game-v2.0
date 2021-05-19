@@ -1,8 +1,14 @@
 import { congratulateTheWinner } from '../final/final';
 import { time } from '../stopwatch/stopwatch';
+import { objCountComparison } from './obj-count';
 import { objWithSetting } from './obj-setting';
 import { paintGreen, paintRed } from './paint';
 import { reverseBack } from './reverse';
+
+// let countComparison = 0;
+// export { countComparison };
+// let countErroneousСomparison = 0;
+// export { countErroneousСomparison };
 
 function final() {
   let count = 0;
@@ -61,6 +67,7 @@ export function followTheCard(): void {
         }
         if (count === 2) {
           count = 0;
+          objCountComparison.countComparison++;
           const secondCard = item.className
             .split(' ')[1]
             .slice(-2)
@@ -83,6 +90,7 @@ export function followTheCard(): void {
             // reverseBack(arrCards);
           } else {
             // console.log('reverse');
+            objCountComparison.countErroneousСomparison++;
             paintRed(firstItem, item);
             reverseBack(arrCards);
           }

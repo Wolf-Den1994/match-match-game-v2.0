@@ -1,6 +1,15 @@
+import { btnFinal } from '../final/final-html';
+
 function idbOK() {
   return 'indexedDB' in window && !/iPad|iPhone|iPod/.test(navigator.platform);
 }
+
+export const person = {
+  name: 'nameValue',
+  lastname: 'lastNameValue',
+  email: 'emailValue',
+  score: '500',
+};
 
 let db: IDBDatabase;
 
@@ -28,12 +37,9 @@ function personToBase() {
     const lastNameValue = lastName.value;
     const emailValue = email.value;
 
-    const person = {
-      name: nameValue,
-      lastname: lastNameValue,
-      email: emailValue,
-      score: '500',
-    };
+    person.name = nameValue;
+    person.lastname = lastNameValue;
+    person.email = emailValue;
 
     if (result !== undefined) {
       if (person.score > result.score) {
@@ -59,7 +65,8 @@ export function indexedDBcall(): void {
 
   openRequest.onsuccess = function successIndexed() {
     db = openRequest.result;
-    const submitXXX = document.querySelector('.form-submit') as HTMLElement;
-    submitXXX.addEventListener('click', personToBase);
+    // const submitXXX = document.querySelector('.form-submit') as HTMLElement;
+    // submitXXX.addEventListener('click', personToBase);
+    btnFinal.addEventListener('click', personToBase);
   };
 }
