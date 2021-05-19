@@ -1,8 +1,8 @@
-.main {
+.main-score {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto 70px;
-  padding: 30px 100px;
+  padding: 30px 10px;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 5px;
 }
@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 25px;
 }
 
 .player-info {
@@ -35,7 +36,10 @@
 }
 
 .player-name {
-  font-weight: 500;
+  font-family: 'Roboto', 'Arial', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.1px;
   margin-bottom: 7px;
 }
 
@@ -43,6 +47,6 @@
   font-weight: 500;
 }
 
-#score-l {
+.score {
   color: #2196F3;
 }

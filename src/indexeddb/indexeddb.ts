@@ -1,10 +1,17 @@
 import { btnFinal } from '../final/final-html';
+import { linkNavbarScore } from '../header/header';
+
+const avatarEmpry = require('../assets/image/avatar-ellipse.png');
 
 function idbOK() {
   return 'indexedDB' in window && !/iPad|iPhone|iPod/.test(navigator.platform);
 }
 
-export const person = {
+interface IObjPerson {
+  [key: string]: string;
+}
+
+export const person: IObjPerson = {
   name: 'nameValue',
   lastname: 'lastNameValue',
   email: 'emailValue',
@@ -12,6 +19,67 @@ export const person = {
 };
 
 let db: IDBDatabase;
+
+function sortByAge(arr: IObjPerson[]) {
+  arr.sort((a: IObjPerson, b: IObjPerson) => (a.score < b.score ? 1 : -1));
+}
+
+function putPeopleInTheTable() {
+  let output = '';
+  if (linkNavbarScore.classList.contains('active')) {
+    const transaction = db.transaction(['people'], 'readonly');
+    const people = transaction.objectStore('people');
+    const cursor = people.openCursor();
+    const data: IObjPerson[] = [];
+
+    cursor.onsuccess = function successIDB() {
+      const res = cursor.result;
+
+      if (res) {
+        data.push(res.value);
+        res.continue();
+      } else {
+        sortByAge(data);
+      }
+    };
+
+    transaction.oncomplete = function completeIDB() {
+      output += '<div class="main-title">Best players</div>';
+
+      const len = data.length <= 10 ? data.length : 10;
+
+      for (let i = 0; i < len; i++) {
+        output += `
+          <div class="player">
+            <div class="player-info">
+              <div class="player-avatar">
+                <img src="${avatarEmpry}" alt="avatar">
+              </div>
+              <div class="player-description">
+                <p class="player-name">${data[i].name} ${data[i].lastname}</p>
+                <p class="player-email">${data[i].email}</p>
+              </div>
+            </div>
+            <div class="player-score">
+              <span>Score: </span>
+              <span 
+                id="score-${i - 1}" 
+                class="score"
+              >
+                ${data[i].score}
+              </span>
+            </div>
+          </div>
+        `;
+      }
+
+      localStorage.setItem('points', output);
+
+      const mainDiv = <HTMLDivElement>document.querySelector('.main-score');
+      mainDiv.innerHTML = output;
+    };
+  }
+}
 
 function personToBase() {
   const email = document.querySelector('#user-email') as HTMLInputElement;
@@ -29,6 +97,9 @@ function personToBase() {
     const transactionAdd = db.transaction(['people'], 'readwrite');
     const storeAdd = transactionAdd.objectStore('people');
 
+    const transactionPoint = db.transaction(['points'], 'readwrite');
+    const storePoint = transactionPoint.objectStore('points');
+
     const name = document.querySelector('#user-name') as HTMLInputElement;
     const lastName = document.querySelector(
       '#user-lastname',
@@ -44,11 +115,16 @@ function personToBase() {
     if (result !== undefined) {
       if (person.score > result.score) {
         storeAdd.put(person);
+        storePoint.put(person);
       }
     } else {
       storeAdd.add(person);
+      storePoint.add(person);
     }
   };
+  setTimeout(() => {
+    putPeopleInTheTable();
+  }, 600);
 }
 
 export function indexedDBcall(): void {
@@ -61,12 +137,18 @@ export function indexedDBcall(): void {
     if (!thisDB.objectStoreNames.contains('people')) {
       thisDB.createObjectStore('people', { keyPath: 'email' });
     }
+
+    if (!thisDB.objectStoreNames.contains('points')) {
+      thisDB.createObjectStore('points', {
+        keyPath: 'score',
+        autoIncrement: true,
+      });
+    }
   };
 
   openRequest.onsuccess = function successIndexed() {
     db = openRequest.result;
-    // const submitXXX = document.querySelector('.form-submit') as HTMLElement;
-    // submitXXX.addEventListener('click', personToBase);
     btnFinal.addEventListener('click', personToBase);
+    linkNavbarScore.addEventListener('click', putPeopleInTheTable);
   };
 }

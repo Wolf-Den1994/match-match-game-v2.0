@@ -1,5 +1,5 @@
 import { objCountComparison } from '../game/obj-count';
-import { indexedDBcall, person } from '../indexeddb/indexeddb';
+import { person } from '../indexeddb/indexeddb';
 
 export function toScore(hour: string, min: string, sec: string): void {
   const time = `${hour}:${min}:${sec}`;
@@ -19,5 +19,5 @@ export function toScore(hour: string, min: string, sec: string): void {
     timeResult * 10;
   person.score = `${scoreValue}`;
   // return timeResult;
-  indexedDBcall();
+  // indexedDBcall();
 }
