@@ -1,5 +1,5 @@
 export class CountTime {
-  flag: number | null | void;
+  flag: number | null;
 
   constructor() {
     this.flag = null;
@@ -43,10 +43,13 @@ export class CountTime {
   }
 
   stop(): void {
-    this.flag = window.clearInterval();
+    if (this.flag) {
+      window.clearInterval(this.flag);
+    }
   }
 
   start(): void {
+    this.stop();
     this.flag = window.setInterval(this.work, 1000);
   }
 }

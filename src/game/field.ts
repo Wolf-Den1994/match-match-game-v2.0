@@ -38,15 +38,15 @@ export function createField(): void {
   sec.innerHTML = '00';
   stopwatch.append(sec);
 
-  const buttonS = document.createElement('button');
-  buttonS.id = 'start';
-  buttonS.innerHTML = 'start';
-  stopwatch.append(buttonS);
+  // const buttonS = document.createElement('button');
+  // buttonS.id = 'start';
+  // buttonS.innerHTML = 'start';
+  // stopwatch.append(buttonS);
 
-  const buttonStop = document.createElement('button');
-  buttonStop.id = 'stop';
-  buttonStop.innerHTML = 'stop';
-  stopwatch.append(buttonStop);
+  // const buttonStop = document.createElement('button');
+  // buttonStop.id = 'stop';
+  // buttonStop.innerHTML = 'stop';
+  // stopwatch.append(buttonStop);
 
   // renderField(field);
 }

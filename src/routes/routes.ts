@@ -3,11 +3,13 @@ import { objWithSetting } from '../game/obj-setting';
 import { renderField } from '../game/render-field';
 import {
   btnStartGame,
+  btnStopGame,
   linkNavbarAbout,
   linkNavbarScore,
   linkNavbarSettings,
   logoLink,
 } from '../header/header';
+import { stopGame } from '../stop/stop-game';
 import { about } from './about';
 import { score } from './score';
 import { settings } from './settings';
@@ -61,10 +63,17 @@ function deleteClassNameAtLink() {
   });
 }
 
+function callFnStopGame() {
+  if (!btnStopGame.classList.contains('hidden')) {
+    stopGame();
+  }
+}
+
 function goHome() {
   deleteClassNameAtLink();
   linkNavbarAbout.classList.add('active');
   onNavigate('/');
+  callFnStopGame();
   return false;
 }
 
@@ -72,6 +81,9 @@ btnStartGame.onclick = () => {
   deleteClassNameAtLink();
   onNavigate('/game');
   return false;
+};
+btnStopGame.onclick = () => {
+  goHome();
 };
 logoLink.onclick = () => {
   goHome();
@@ -83,12 +95,14 @@ linkNavbarScore.onclick = () => {
   deleteClassNameAtLink();
   linkNavbarScore.classList.add('active');
   onNavigate('/score');
+  callFnStopGame();
   return false;
 };
 linkNavbarSettings.onclick = () => {
   deleteClassNameAtLink();
   linkNavbarSettings.classList.add('active');
   onNavigate('/settings');
+  callFnStopGame();
   return false;
 };
 

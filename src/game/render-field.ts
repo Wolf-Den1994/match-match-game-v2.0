@@ -1,6 +1,6 @@
 import { objWithSetting } from './obj-setting';
 import { toMemorizeCards } from './memorize';
-import { followTheCard } from './follow-card';
+// import { followTheCard } from './follow-card';
 
 const imageBack = require('../assets/image/back-card.png');
 
@@ -81,5 +81,6 @@ export function renderField(cardonField: HTMLElement): void {
   }
   cardon();
   toMemorizeCards();
-  followTheCard(); // вызывать лучше в мемеоризе после 30 сек с тамймеро вместе
+  // вызывать лучше в мемеоризе после 30 сек с тамймеро вместе
+  // followTheCard();
 }

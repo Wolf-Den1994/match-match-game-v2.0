@@ -16,7 +16,7 @@ btnStartGame.className = 'btn-start-game hidden';
 btnStartGame.innerHTML = `start game`;
 header.append(btnStartGame);
 
-const btnStopGame = document.createElement('button');
+export const btnStopGame = document.createElement('button');
 btnStopGame.className = 'btn-stop-game hidden';
 btnStopGame.innerHTML = `stop game`;
 header.append(btnStopGame);
