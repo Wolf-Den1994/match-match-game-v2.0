@@ -1,0 +1,19 @@
+[[redirects]]
+  from = "/about"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/score"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/settings"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/game"
+  to = "/"
+  status = 301
