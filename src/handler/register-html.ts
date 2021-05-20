@@ -58,7 +58,7 @@ export const overlayHTML = `
   <div class="overlay" id="overlay"></div>
 `;
 
-function renderingModalRegister() {
+function renderingModalRegister(): void {
   if (!root) throw new Error('root is not found');
   root.insertAdjacentHTML('beforebegin', registerHTML);
   root.insertAdjacentHTML('afterend', overlayHTML);

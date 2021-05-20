@@ -45,7 +45,7 @@ export function pollOfElections(): void {
   if (selectDifficulty instanceof HTMLSelectElement) {
     objWithSetting.difficulty = selectDifficulty.value;
   }
-  setTimeout(pollOfElections, 1000);
+  setTimeout(pollOfElections, 500);
 }
 
 const onNavigate = (pathname: string) => {
@@ -58,19 +58,19 @@ const onNavigate = (pathname: string) => {
   pollOfElections();
 };
 
-function deleteClassNameAtLink() {
+function deleteClassNameAtLink(): void {
   navbarLinks.forEach((link) => {
     link.className = 'navbar-link';
   });
 }
 
-function callFnStopGame() {
+function callFnStopGame(): void {
   if (!btnStopGame.classList.contains('hidden')) {
     stopGame();
   }
 }
 
-function goHome() {
+function goHome(): boolean {
   deleteClassNameAtLink();
   linkNavbarAbout.classList.add('active');
   onNavigate('/');
@@ -78,7 +78,7 @@ function goHome() {
   return false;
 }
 
-function goScore() {
+function goScore(): boolean {
   deleteClassNameAtLink();
   linkNavbarScore.classList.add('active');
   onNavigate('/score');

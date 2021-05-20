@@ -1,7 +1,7 @@
 import { btnRegister, btnStartGame } from './register';
 import { btnFormSubmit, modal, overlay } from './register-html';
 
-function handlerUserRegistration() {
+function handlerUserRegistration(): void {
   if (!modal) throw new Error('modal is not found');
   if (!overlay) throw new Error('overlay is not found');
   if (!btnRegister) throw new Error('Button Register is not found');

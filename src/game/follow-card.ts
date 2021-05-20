@@ -5,12 +5,10 @@ import { objWithSetting } from './obj-setting';
 import { paintGreen, paintRed } from './paint';
 import { reverseBack } from './reverse';
 
-// let countComparison = 0;
-// export { countComparison };
-// let countErroneousСomparison = 0;
-// export { countErroneousСomparison };
+const CALL_FN_FINAL = 500;
+const TURN_ON_THE_MOUSE = 1300;
 
-function final() {
+function final(): void {
   let count = 0;
   const cards = document.getElementsByClassName('card');
   const arrCards = Array.prototype.slice.call(cards);
@@ -25,11 +23,10 @@ function final() {
     return;
   }
   count = 0;
-  setTimeout(final, 500);
+  setTimeout(final, CALL_FN_FINAL);
 }
 
 export function followTheCard(): void {
-  // вызывать лучше в мемеоризе после 30 сек с тамймеро вместе
   const cardonField = <HTMLElement>document.getElementById('field');
   const cards = document.getElementsByClassName('card');
   const arrCards: HTMLElement[] = Array.prototype.slice.call(cards);
@@ -41,15 +38,12 @@ export function followTheCard(): void {
     const back = <HTMLElement>target.parentElement;
     const flipper = <HTMLElement>back.parentElement;
     const card = <HTMLElement>flipper.parentElement;
-    // console.log('card', card);
     if (card.classList.contains('card')) {
       card.classList.add('turn');
       arrCards.forEach((item: HTMLElement) => {
-        // console.log('item', item)
         if (item.classList.contains('turn')) {
           count++;
         }
-        // console.log(count);
         if (item.classList.contains('turn') && count !== 2) {
           firstCard = item.className
             .split(' ')[1]
@@ -62,7 +56,6 @@ export function followTheCard(): void {
               return +elem;
             })
             .join('');
-          // console.log('firstCard', firstCard);
           firstItem = item;
         }
         if (count === 2) {
@@ -82,21 +75,14 @@ export function followTheCard(): void {
           cardonField.style.pointerEvents = 'none';
           setTimeout(() => {
             cardonField.style.pointerEvents = 'auto';
-          }, 1300);
-          // console.log('firstCard', firstCard, 'secondCard',secondCard)
+          }, TURN_ON_THE_MOUSE);
           if (firstCard === secondCard) {
-            // console.log('paint');
             paintGreen(firstItem, item);
-            // reverseBack(arrCards);
           } else {
-            // console.log('reverse');
             objCountComparison.countErroneousСomparison++;
             paintRed(firstItem, item);
             reverseBack(arrCards);
           }
-          // setTimeout(() => {
-          //   item.classList.remove('paint-red');
-          // }, 1300);
           count = 0;
           firstItem = null;
         }

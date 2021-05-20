@@ -1,6 +1,5 @@
 import { objWithSetting } from './obj-setting';
 import { toMemorizeCards } from './memorize';
-// import { followTheCard } from './follow-card';
 
 const imageBack = require('../assets/image/back-card.png');
 
@@ -8,12 +7,8 @@ export function renderField(cardonField: HTMLElement): void {
   function generatorRandom() {
     const array: number[] = [];
     let result: number[] = [];
-    for (
-      let i = 1;
-      i <= (+objWithSetting.difficulty * +objWithSetting.difficulty) / 2;
-      i++
-    )
-      array.push(i);
+    const diff = +objWithSetting.difficulty;
+    for (let i = 1; i <= (diff * diff) / 2; i++) array.push(i);
     function shuffleArray(arr: number[]) {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -32,8 +27,6 @@ export function renderField(cardonField: HTMLElement): void {
 
   function cardon() {
     const random = generatorRandom();
-    // console.log(random, objWithSetting);
-
     const wrapper = document.createElement('div');
     wrapper.className = 'field';
     wrapper.id = 'field';
@@ -81,6 +74,4 @@ export function renderField(cardonField: HTMLElement): void {
   }
   cardon();
   toMemorizeCards();
-  // вызывать лучше в мемеоризе после 30 сек с тамймеро вместе
-  // followTheCard();
 }

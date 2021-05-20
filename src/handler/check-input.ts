@@ -1,6 +1,7 @@
 import { isValidEmail, isValidName, isValidSurname } from '../shared/isValid';
 import { btnFormCancel, btnFormSubmit } from './register-html';
 
+const MAX_LENGTH_EMAIL = 30;
 const userName = <HTMLElement>document.getElementById('user-name');
 const userLastname = <HTMLElement>document.getElementById('user-lastname');
 const userEmail = <HTMLElement>document.getElementById('user-email');
@@ -12,6 +13,11 @@ const divItemInputs: NodeListOf<HTMLElement> = document.querySelectorAll(
   '.form-item-register',
 );
 const ArrayDivItemInputs: HTMLElement[] = Array.from(divItemInputs);
+// const paragsError: NodeListOf<HTMLElement> = document.querySelectorAll(
+//   '.form-error-register',
+// );
+// const ArrayDivItemInputs
+// <p id="error-check1" class="form-error-register">enter valid data</p>
 let userNameIsValid = false;
 let userSurnameIsValid = false;
 let userEmailIsValid = false;
@@ -63,6 +69,7 @@ function hideIconCheck(id: number): void {
 }
 
 function isValidateName(): void {
+  const VALID_NAME = 1;
   if (!isInputElement(userName)) return;
   if (
     userName.validity.valid &&
@@ -70,15 +77,16 @@ function isValidateName(): void {
     Number.isNaN(+userName.value)
   ) {
     userNameIsValid = true;
-    showIconCheck(1);
+    showIconCheck(VALID_NAME);
   } else {
     userNameIsValid = false;
-    hideIconCheck(1);
+    hideIconCheck(VALID_NAME);
   }
   isValidate();
 }
 
 function isValidateSurname(): void {
+  const VALID_SURNAME = 2;
   if (!isInputElement(userLastname)) return;
   if (
     userLastname.validity.valid &&
@@ -86,26 +94,27 @@ function isValidateSurname(): void {
     Number.isNaN(+userLastname.value)
   ) {
     userSurnameIsValid = true;
-    showIconCheck(2);
+    showIconCheck(VALID_SURNAME);
   } else {
     userSurnameIsValid = false;
-    hideIconCheck(2);
+    hideIconCheck(VALID_SURNAME);
   }
   isValidate();
 }
 
 function isValidateEmail(): void {
+  const VALID_EMAIL = 3;
   if (!isInputElement(userEmail)) return;
   if (
     userEmail.validity.valid &&
     isValidEmail(userEmail.value) &&
-    userEmail.value.length <= 30
+    userEmail.value.length <= MAX_LENGTH_EMAIL
   ) {
     userEmailIsValid = true;
-    showIconCheck(3);
+    showIconCheck(VALID_EMAIL);
   } else {
     userEmailIsValid = false;
-    hideIconCheck(3);
+    hideIconCheck(VALID_EMAIL);
   }
   isValidate();
 }
@@ -122,7 +131,7 @@ userEmail.addEventListener('input', () => {
   isValidateEmail();
 });
 
-function resetInput() {
+function resetInput(): void {
   if (isInputElement(userName)) {
     userName.value = '';
   }

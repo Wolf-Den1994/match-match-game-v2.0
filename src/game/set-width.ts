@@ -1,10 +1,13 @@
 import { objWithSetting } from './obj-setting';
 
-function setClasses(arr: HTMLElement[]) {
+const EASY_DIFF = 4;
+const MIDDLE_DIFF = 6;
+
+function setClasses(arr: HTMLElement[]): void {
   arr.forEach((card) => {
-    if (+objWithSetting.difficulty === 4) {
+    if (+objWithSetting.difficulty === EASY_DIFF) {
       card.classList.add('easy');
-    } else if (+objWithSetting.difficulty === 6) {
+    } else if (+objWithSetting.difficulty === MIDDLE_DIFF) {
       card.classList.add('middle');
     } else {
       card.classList.add('hard');

@@ -1,5 +1,3 @@
-// import { renderField } from './render-field';
-
 export const gameField = `
   <main class='main-field'></main>
 `;
@@ -37,16 +35,4 @@ export function createField(): void {
   sec.id = 'sec';
   sec.innerHTML = '00';
   stopwatch.append(sec);
-
-  // const buttonS = document.createElement('button');
-  // buttonS.id = 'start';
-  // buttonS.innerHTML = 'start';
-  // stopwatch.append(buttonS);
-
-  // const buttonStop = document.createElement('button');
-  // buttonStop.id = 'stop';
-  // buttonStop.innerHTML = 'stop';
-  // stopwatch.append(buttonStop);
-
-  // renderField(field);
 }

@@ -19,7 +19,7 @@ window.onload = () => {
     }
   }
 
-  function closeModalRegister() {
+  function closeModalRegister(): void {
     if (!modal) throw new Error('modal is not found');
     if (!overlay) throw new Error('overlay is not found');
 

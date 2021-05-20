@@ -24,7 +24,5 @@ export function congratulateTheWinner(): void {
 
   timeFromSpan.innerHTML = `${h}:${m}:${s}`;
 
-  // отправить в бд очки и юзера (только сейчас! а не в Indexeddb.ts)
-  // или передавать в Indexeddb.ts объект и уже записывать там !!!
   toScore(h, m, s);
 }

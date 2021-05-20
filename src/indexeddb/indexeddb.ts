@@ -1,9 +1,14 @@
 import { btnFinal } from '../final/final-html';
 import { linkNavbarScore } from '../header/header';
 
+const MAX_OUTPUT_TO_SCORE = 10;
+const nameDB = 'Wolf-Den1994';
+const versionDB = 1;
 const avatarEmpry = require('../assets/image/avatar-ellipse.png');
 
-function idbOK() {
+let db: IDBDatabase;
+
+function idbOK(): boolean {
   return 'indexedDB' in window && !/iPad|iPhone|iPod/.test(navigator.platform);
 }
 
@@ -12,19 +17,17 @@ interface IObjPerson {
 }
 
 export const person: IObjPerson = {
-  name: 'nameValue',
-  lastname: 'lastNameValue',
-  email: 'emailValue',
-  score: '500',
+  name: '',
+  lastname: '',
+  email: '',
+  score: '',
 };
 
-let db: IDBDatabase;
-
-function sortByAge(arr: IObjPerson[]) {
+function sortByAge(arr: IObjPerson[]): void {
   arr.sort((a: IObjPerson, b: IObjPerson) => (a.score < b.score ? 1 : -1));
 }
 
-function putPeopleInTheTable() {
+function putPeopleInTheTable(): void {
   let output = '';
   if (linkNavbarScore.classList.contains('active')) {
     const transaction = db.transaction(['people'], 'readonly');
@@ -46,7 +49,8 @@ function putPeopleInTheTable() {
     transaction.oncomplete = function completeIDB() {
       output += '<div class="main-title">Best players</div>';
 
-      const len = data.length <= 10 ? data.length : 10;
+      const len =
+        data.length <= MAX_OUTPUT_TO_SCORE ? data.length : MAX_OUTPUT_TO_SCORE;
 
       for (let i = 0; i < len; i++) {
         output += `
@@ -81,7 +85,7 @@ function putPeopleInTheTable() {
   }
 }
 
-function personToBase() {
+function personToBase(): void {
   const email = document.querySelector('#user-email') as HTMLInputElement;
   const key = email.value;
   if (key === '') return;
@@ -130,7 +134,7 @@ function personToBase() {
 export function indexedDBcall(): void {
   if (!idbOK()) return;
 
-  const openRequest = indexedDB.open('Wolf-Den1994', 1);
+  const openRequest = indexedDB.open(nameDB, versionDB);
 
   openRequest.onupgradeneeded = function upgradeneededIndexed() {
     const thisDB = openRequest.result;
