@@ -7,7 +7,7 @@ export function renderField(cardonField: HTMLElement): void {
   function generatorRandom() {
     const array: number[] = [];
     let result: number[] = [];
-    const diff = +objWithSetting.difficulty;
+    const diff = objWithSetting.difficulty;
     for (let i = 1; i <= (diff * diff) / 2; i++) array.push(i);
     function shuffleArray(arr: number[]) {
       for (let i = arr.length - 1; i > 0; i--) {

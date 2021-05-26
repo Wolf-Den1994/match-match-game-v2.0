@@ -43,7 +43,7 @@ export function pollOfElections(): void {
     objWithSetting.card = selectCard.value;
   }
   if (selectDifficulty instanceof HTMLSelectElement) {
-    objWithSetting.difficulty = selectDifficulty.value;
+    objWithSetting.difficulty = +selectDifficulty.value;
   }
   setTimeout(pollOfElections, 500);
 }

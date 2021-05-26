@@ -5,9 +5,9 @@ const MIDDLE_DIFF = 6;
 
 function setClasses(arr: HTMLElement[]): void {
   arr.forEach((card) => {
-    if (+objWithSetting.difficulty === EASY_DIFF) {
+    if (objWithSetting.difficulty === EASY_DIFF) {
       card.classList.add('easy');
-    } else if (+objWithSetting.difficulty === MIDDLE_DIFF) {
+    } else if (objWithSetting.difficulty === MIDDLE_DIFF) {
       card.classList.add('middle');
     } else {
       card.classList.add('hard');

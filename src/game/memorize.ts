@@ -2,7 +2,7 @@ import { time } from '../stopwatch/stopwatch';
 import { followTheCard } from './follow-card';
 import { setWidth } from './set-width';
 
-const TIME_TO_MEMORIZE = 30000;
+const TIME_TO_MEMORIZE = 3000;
 
 export function toMemorizeCards(): void {
   const cards = document.getElementsByClassName('card');

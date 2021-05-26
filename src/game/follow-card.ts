@@ -17,7 +17,7 @@ function final(): void {
       count++;
     }
   });
-  if (count === +objWithSetting.difficulty * +objWithSetting.difficulty) {
+  if (count === objWithSetting.difficulty * objWithSetting.difficulty) {
     time.stop();
     congratulateTheWinner();
     return;
@@ -26,7 +26,7 @@ function final(): void {
   setTimeout(final, CALL_FN_FINAL);
 }
 
-function getNumberCard(elem: string) {
+function getNumberCard(elem: string): string {
   const cardNumber = elem
     .split(' ')[1]
     .slice(-2)
