@@ -4,12 +4,12 @@ import { toMemorizeCards } from './memorize';
 const imageBack = require('../assets/image/back-card.png');
 
 export function renderField(cardonField: HTMLElement): void {
-  function generatorRandom() {
+  function generatorRandom(): number[] {
     const array: number[] = [];
     let result: number[] = [];
     const diff = objWithSetting.difficulty;
     for (let i = 1; i <= (diff * diff) / 2; i++) array.push(i);
-    function shuffleArray(arr: number[]) {
+    function shuffleArray(arr: number[]): number[] {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -19,13 +19,13 @@ export function renderField(cardonField: HTMLElement): void {
     for (let i = 0; i < 2; i++) {
       result = [...result, ...shuffleArray(array)];
     }
-    const resultRanodm = result.sort(
+    const resultRandom = result.sort(
       () => Math.round(Math.random() * 100) - 50,
     );
-    return resultRanodm;
+    return resultRandom;
   }
 
-  function cardon() {
+  function cardon(): void {
     const random = generatorRandom();
     const wrapper = document.createElement('div');
     wrapper.className = 'field';
