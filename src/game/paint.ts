@@ -6,10 +6,10 @@ export function paintGreen(
   firstItem: HTMLElement | null,
   secondItem: HTMLElement,
 ): void {
-  function workWithClassList(item: HTMLElement): void {
-    item.classList.add('paint-green');
-    item.classList.remove('turn');
-    item.classList.add('turnface');
+  function workWithClassList(elem: HTMLElement): void {
+    elem.classList.add('paint-green');
+    elem.classList.remove('turn');
+    elem.classList.add('turnface');
   }
   setTimeout(() => {
     if (firstItem) {
@@ -23,16 +23,22 @@ export function paintRed(
   firstItem: HTMLElement | null,
   secondItem: HTMLElement,
 ): void {
+  function addRedColor(elem: HTMLElement): void {
+    elem.classList.add('paint-red');
+  }
+  function removeRedColor(elem: HTMLElement): void {
+    elem.classList.remove('paint-red');
+  }
   setTimeout(() => {
     if (firstItem) {
-      firstItem.classList.add('paint-red');
+      addRedColor(firstItem);
     }
-    secondItem.classList.add('paint-red');
+    addRedColor(secondItem);
   }, TIME_AFTER_WHICH_IN_RED);
   setTimeout(() => {
     if (firstItem) {
-      firstItem.classList.remove('paint-red');
+      removeRedColor(firstItem);
     }
-    secondItem.classList.remove('paint-red');
+    removeRedColor(secondItem);
   }, TIME_AFTER_WHICH_TO_REMOVE_RED);
 }
