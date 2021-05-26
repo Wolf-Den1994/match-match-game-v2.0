@@ -26,6 +26,21 @@ function final(): void {
   setTimeout(final, CALL_FN_FINAL);
 }
 
+function getNumberCard(elem: string) {
+  const cardNumber = elem
+    .split(' ')[1]
+    .slice(-2)
+    .split('')
+    .map((item: string | number) => {
+      if (!Number.isNaN(+item)) {
+        return +item;
+      }
+      return +item;
+    })
+    .join('');
+  return cardNumber;
+}
+
 export function followTheCard(): void {
   const cardonField = <HTMLElement>document.getElementById('field');
   const cards = document.getElementsByClassName('card');
@@ -45,33 +60,13 @@ export function followTheCard(): void {
           count++;
         }
         if (item.classList.contains('turn') && count !== 2) {
-          firstCard = item.className
-            .split(' ')[1]
-            .slice(-2)
-            .split('')
-            .map((elem: string | number) => {
-              if (!Number.isNaN(+elem)) {
-                return +elem;
-              }
-              return +elem;
-            })
-            .join('');
+          firstCard = getNumberCard(item.className);
           firstItem = item;
         }
         if (count === 2) {
           count = 0;
           objCountComparison.countComparison++;
-          const secondCard = item.className
-            .split(' ')[1]
-            .slice(-2)
-            .split('')
-            .map((elem: string | number) => {
-              if (!Number.isNaN(+elem)) {
-                return +elem;
-              }
-              return +elem;
-            })
-            .join('');
+          const secondCard = getNumberCard(item.className);
           cardonField.style.pointerEvents = 'none';
           setTimeout(() => {
             cardonField.style.pointerEvents = 'auto';
