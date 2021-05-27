@@ -1,3 +1,5 @@
+import { getObjPeriod } from '../game/field';
+
 export class CountTime {
   flag: number | null;
 
@@ -7,36 +9,34 @@ export class CountTime {
   }
 
   work(): void {
-    const hour = <HTMLElement>document.getElementById('hour');
-    const min = <HTMLElement>document.getElementById('min');
-    const sec = <HTMLElement>document.getElementById('sec');
+    const period = getObjPeriod();
     if (this.flag === undefined) return;
-    let s = parseInt(sec.innerHTML, 10);
+    let s = parseInt(period.sec.innerHTML, 10);
     s += 1;
     if (s < 10) {
-      sec.innerHTML = `0${s}`;
+      period.sec.innerHTML = `0${s}`;
     } else {
-      sec.innerHTML = `${s}`;
+      period.sec.innerHTML = `${s}`;
     }
     if (s === 60) {
       s = 0;
-      sec.innerHTML = `0${s}`;
-      let m = parseInt(min.innerHTML, 10);
+      period.sec.innerHTML = `0${s}`;
+      let m = parseInt(period.min.innerHTML, 10);
       m += 1;
       if (m < 10) {
-        min.innerHTML = `0${m}`;
+        period.min.innerHTML = `0${m}`;
       } else {
-        min.innerHTML = `${m}`;
+        period.min.innerHTML = `${m}`;
       }
       if (m === 60) {
         m = 0;
-        min.innerHTML = `0${m}`;
-        let h = parseInt(hour.innerHTML, 10);
+        period.min.innerHTML = `0${m}`;
+        let h = parseInt(period.hour.innerHTML, 10);
         h += 1;
         if (h < 10) {
-          hour.innerHTML = `0${h}`;
+          period.hour.innerHTML = `0${h}`;
         } else {
-          hour.innerHTML = `${h}`;
+          period.hour.innerHTML = `${h}`;
         }
       }
     }

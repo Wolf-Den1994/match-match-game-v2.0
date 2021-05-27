@@ -36,3 +36,21 @@ export function createField(): void {
   sec.innerHTML = '00';
   stopwatch.append(sec);
 }
+
+interface IPeriod {
+  hour: HTMLElement;
+  min: HTMLElement;
+  sec: HTMLElement;
+}
+
+export function getObjPeriod(): IPeriod {
+  const hour = <HTMLElement>document.getElementById('hour');
+  const min = <HTMLElement>document.getElementById('min');
+  const sec = <HTMLElement>document.getElementById('sec');
+
+  return {
+    hour,
+    min,
+    sec,
+  };
+}
