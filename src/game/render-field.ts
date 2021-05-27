@@ -32,13 +32,31 @@ export function renderField(cardonField: HTMLElement): void {
     wrapper.id = 'field';
     cardonField.append(wrapper);
 
+    enum FaceType {
+      Pets = 'pets',
+      Nature = 'nature',
+      Farm = 'farm',
+    }
+
+    enum CardNumber {
+      Pets = '1',
+      Nature = '2',
+      Farm = '3',
+    }
+
+    enum StateCard {
+      Front = 'front',
+      Back = 'back',
+      Flipper = 'flipper',
+    }
+
     let face: string;
-    if (objWithSetting.card === '1') {
-      face = 'pets';
-    } else if (objWithSetting.card === '2') {
-      face = 'nature';
+    if (objWithSetting.card === CardNumber.Pets) {
+      face = FaceType.Pets;
+    } else if (objWithSetting.card === CardNumber.Nature) {
+      face = FaceType.Nature;
     } else {
-      face = 'farm';
+      face = FaceType.Farm;
     }
 
     for (let i = 0; i <= random.length - 1; i++) {
@@ -47,12 +65,12 @@ export function renderField(cardonField: HTMLElement): void {
       wrapper.append(div);
 
       const fliper = document.createElement('div');
-      fliper.className = 'flipper';
+      fliper.className = StateCard.Flipper;
       div.append(fliper);
 
       const front = document.createElement('div');
       const back = document.createElement('div');
-      front.className = 'front';
+      front.className = StateCard.Front;
       front.innerHTML = `
         <img 
           src="${imageBack}" 
@@ -60,7 +78,7 @@ export function renderField(cardonField: HTMLElement): void {
           class="card__img"
         >
       `;
-      back.className = 'back';
+      back.className = StateCard.Back;
       back.innerHTML = `
         <img 
           src="./images/${face}/${random[i]}.svg" 
