@@ -1,6 +1,6 @@
 import { congratulateTheWinner } from '../final/final';
 import { time } from '../stopwatch/stopwatch';
-import { cardDivs } from '../utils/utils';
+import { getObjArrsCard } from '../utils/utils';
 import { objCountComparison } from './obj-count';
 import { objWithSetting } from './obj-setting';
 import { paintGreen, paintRed } from './paint';
@@ -11,8 +11,8 @@ const TURN_ON_THE_MOUSE = 1300;
 
 function final(): void {
   let count = 0;
-  const arrCards = Array.prototype.slice.call(cardDivs);
-  arrCards.forEach((item) => {
+  const objArrsCard = getObjArrsCard();
+  objArrsCard.arrCards.forEach((item) => {
     if (item.classList.contains('paint-green')) {
       count++;
     }
@@ -43,7 +43,7 @@ function getNumberCard(elem: string): string {
 
 export function followTheCard(): void {
   const cardonField = <HTMLElement>document.getElementById('field');
-  const arrCards: HTMLElement[] = Array.prototype.slice.call(cardDivs);
+  const objArrsCard = getObjArrsCard();
   let count = 0;
   let firstCard: null | string = null;
   let firstItem: null | HTMLElement = null;
@@ -54,7 +54,7 @@ export function followTheCard(): void {
     const card = <HTMLElement>flipper.parentElement;
     if (card.classList.contains('card')) {
       card.classList.add('turn');
-      arrCards.forEach((item: HTMLElement) => {
+      objArrsCard.arrCards.forEach((item: HTMLElement) => {
         if (item.classList.contains('turn')) {
           count++;
         }
@@ -75,7 +75,7 @@ export function followTheCard(): void {
           } else {
             objCountComparison.countErroneousСomparison++;
             paintRed(firstItem, item);
-            reverseBack(arrCards);
+            reverseBack(objArrsCard.arrCards);
           }
           count = 0;
           firstItem = null;
