@@ -1,5 +1,6 @@
 import { congratulateTheWinner } from '../final/final';
 import { time } from '../stopwatch/stopwatch';
+import { cardDivs } from '../utils/utils';
 import { objCountComparison } from './obj-count';
 import { objWithSetting } from './obj-setting';
 import { paintGreen, paintRed } from './paint';
@@ -10,8 +11,7 @@ const TURN_ON_THE_MOUSE = 1300;
 
 function final(): void {
   let count = 0;
-  const cards = document.getElementsByClassName('card');
-  const arrCards = Array.prototype.slice.call(cards);
+  const arrCards = Array.prototype.slice.call(cardDivs);
   arrCards.forEach((item) => {
     if (item.classList.contains('paint-green')) {
       count++;
@@ -43,8 +43,7 @@ function getNumberCard(elem: string): string {
 
 export function followTheCard(): void {
   const cardonField = <HTMLElement>document.getElementById('field');
-  const cards = document.getElementsByClassName('card');
-  const arrCards: HTMLElement[] = Array.prototype.slice.call(cards);
+  const arrCards: HTMLElement[] = Array.prototype.slice.call(cardDivs);
   let count = 0;
   let firstCard: null | string = null;
   let firstItem: null | HTMLElement = null;

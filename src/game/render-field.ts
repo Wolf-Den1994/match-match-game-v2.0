@@ -1,5 +1,6 @@
 import { objWithSetting } from './obj-setting';
 import { toMemorizeCards } from './memorize';
+import { CardNumber, FaceType, StateCard } from '../utils/enum';
 
 const imageBack = require('../assets/image/back-card.png');
 
@@ -31,24 +32,6 @@ export function renderField(cardonField: HTMLElement): void {
     wrapper.className = 'field';
     wrapper.id = 'field';
     cardonField.append(wrapper);
-
-    enum FaceType {
-      Pets = 'pets',
-      Nature = 'nature',
-      Farm = 'farm',
-    }
-
-    enum CardNumber {
-      Pets = '1',
-      Nature = '2',
-      Farm = '3',
-    }
-
-    enum StateCard {
-      Front = 'front',
-      Back = 'back',
-      Flipper = 'flipper',
-    }
 
     let face: string;
     if (objWithSetting.card === CardNumber.Pets) {
