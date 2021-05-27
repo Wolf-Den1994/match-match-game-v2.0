@@ -11,5 +11,5 @@ export function toScore(hour: string, min: string, sec: string): void {
       objCountComparison.countErroneousСomparison) *
       100 -
     timeResult * 10;
-  person.score = `${scoreValue}`;
+  person.score = scoreValue > 0 ? `${scoreValue}` : `0`;
 }
