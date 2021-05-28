@@ -1,4 +1,4 @@
-import { getObjPeriod } from '../game/field';
+import { getObjPeriod } from '../game/field-time';
 import { toScore } from '../score/to-score';
 
 export function congratulateTheWinner(): void {

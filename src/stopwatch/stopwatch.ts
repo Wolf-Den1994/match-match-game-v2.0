@@ -1,4 +1,4 @@
-import { getObjPeriod } from '../game/field';
+import { getObjPeriod } from '../game/field-time';
 
 export class CountTime {
   flag: number | null;

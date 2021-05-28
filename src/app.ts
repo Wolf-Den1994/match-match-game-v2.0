@@ -6,7 +6,7 @@ import './handler/check-input';
 import './handler/submit-input';
 import './indexeddb/indexeddb';
 import './game/start-game';
-import './game/field';
+import './game/field-time';
 import './stopwatch/stopwatch';
 import './game/render-field';
 import './game/follow-card';

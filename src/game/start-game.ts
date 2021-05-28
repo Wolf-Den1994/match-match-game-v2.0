@@ -1,5 +1,5 @@
 import { btnStartGame, btnStopGame } from '../handler/register';
-import { createField } from './field';
+import { createField } from './field-time';
 
 function toRunStartGame(): void {
   if (!btnStartGame) throw new Error('Button Start Game is not found');

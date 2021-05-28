@@ -1,5 +1,5 @@
 import { btnFinal } from '../final/final-html';
-import { gameField } from '../game/field';
+import { gameField } from '../game/field-time';
 import { objWithSetting } from '../game/obj-setting';
 import { renderField } from '../game/render-field';
 import {
