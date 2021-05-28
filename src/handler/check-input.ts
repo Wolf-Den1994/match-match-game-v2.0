@@ -1,10 +1,13 @@
-import { isValidEmail, isValidName, isValidSurname } from '../shared/isValid';
+import {
+  checkingConditionValidEmail,
+  checkingConditionValidName,
+  checkingConditionValidSurname,
+} from '../shared/checkig-user';
 import { isInputElement } from '../utils/errors';
 import { getObjElemsRegister } from '../utils/reg-utils';
 import { toNumber } from '../utils/toNumber';
 import { btnFormCancel, btnFormSubmit } from './register-html';
 
-const MAX_LENGTH_EMAIL = 30;
 let userNameIsValid = false;
 let userSurnameIsValid = false;
 let userEmailIsValid = false;
@@ -58,18 +61,6 @@ function hideIconCheck(id: number): void {
   });
 }
 
-function checkingConditionValidName(): boolean {
-  if (!isInputElement(objElemsReg.userName)) return false;
-  if (
-    objElemsReg.userName.validity.valid &&
-    isValidName(objElemsReg.userName.value) &&
-    Number.isNaN(toNumber(objElemsReg.userName.value))
-  ) {
-    return true;
-  }
-  return false;
-}
-
 function isValidateName(): void {
   const VALID_NAME = 1;
   if (checkingConditionValidName()) {
@@ -82,18 +73,6 @@ function isValidateName(): void {
   isValidate();
 }
 
-function checkingConditionValidSurname(): boolean {
-  if (!isInputElement(objElemsReg.userLastname)) return false;
-  if (
-    objElemsReg.userLastname.validity.valid &&
-    isValidSurname(objElemsReg.userLastname.value) &&
-    Number.isNaN(toNumber(objElemsReg.userLastname.value))
-  ) {
-    return true;
-  }
-  return false;
-}
-
 function isValidateSurname(): void {
   const VALID_SURNAME = 2;
   if (checkingConditionValidSurname()) {
@@ -104,18 +83,6 @@ function isValidateSurname(): void {
     hideIconCheck(VALID_SURNAME);
   }
   isValidate();
-}
-
-function checkingConditionValidEmail(): boolean {
-  if (!isInputElement(objElemsReg.userEmail)) return false;
-  if (
-    objElemsReg.userEmail.validity.valid &&
-    isValidEmail(objElemsReg.userEmail.value) &&
-    objElemsReg.userEmail.value.length <= MAX_LENGTH_EMAIL
-  ) {
-    return true;
-  }
-  return false;
 }
 
 function isValidateEmail(): void {
