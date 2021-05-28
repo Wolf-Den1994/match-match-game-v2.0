@@ -4,7 +4,7 @@ const avatarEllipseHTML = require('../assets/image/avatar-ellipse.png');
 
 export const registerHTML = `
   <div class="modal-register">
-    <h2 class="main-title">Registr new Player</h2>
+    <h2 class="main-title">New Player Registration</h2>
     <div class="form-register-wrapper">
       <form action="#" class="form-register">
         <div id="div-item1" class="form-item-register">

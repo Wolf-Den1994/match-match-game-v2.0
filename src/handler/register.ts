@@ -11,25 +11,33 @@ export const btnStopGame = <HTMLButtonElement>(
   document.querySelector('.btn-stop-game')
 );
 
+export function openModalRegister(): void {
+  modal.classList.add('open-modal');
+  overlay.classList.add('open-modal');
+  document.body.classList.add('lock');
+}
+
+export function closeModalRegister(): void {
+  modal.classList.remove('open-modal');
+  overlay.classList.remove('open-modal');
+  document.body.classList.remove('lock');
+}
+
 window.onload = () => {
-  function openModalRegister() {
+  function checkOpenModalRegister(): void {
     if (!modal.classList.contains('open-modal')) {
-      modal.classList.add('open-modal');
-      overlay.classList.add('open-modal');
-      document.body.classList.add('lock');
+      openModalRegister();
     }
   }
 
-  function closeModalRegister(): void {
+  function checkCloseModalRegister(): void {
     if (modal.classList.contains('open-modal')) {
-      modal.classList.remove('open-modal');
-      overlay.classList.remove('open-modal');
-      document.body.classList.remove('lock');
+      closeModalRegister();
     }
   }
 
-  btnRegister.addEventListener('click', openModalRegister);
-  overlay.addEventListener('click', closeModalRegister);
+  btnRegister.addEventListener('click', checkOpenModalRegister);
+  overlay.addEventListener('click', checkCloseModalRegister);
 
   indexedDBcall();
 };
