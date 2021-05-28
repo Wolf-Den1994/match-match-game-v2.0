@@ -1,4 +1,5 @@
 import { isValidEmail, isValidName, isValidSurname } from '../shared/isValid';
+import { isInputElement } from '../utils/errors';
 import { getObjElemsRegister } from '../utils/reg-utils';
 import { btnFormCancel, btnFormSubmit } from './register-html';
 
@@ -10,7 +11,6 @@ let userEmailIsValid = false;
 const objElemsReg = getObjElemsRegister();
 
 function isValidate(): void {
-  if (!btnFormSubmit) throw new Error('Button submit is not found');
   if (userNameIsValid && userSurnameIsValid && userEmailIsValid) {
     btnFormSubmit.classList.remove('invalid');
     btnFormSubmit.disabled = false;
@@ -18,11 +18,6 @@ function isValidate(): void {
     btnFormSubmit.classList.add('invalid');
     btnFormSubmit.disabled = true;
   }
-}
-
-function isInputElement(elem: HTMLElement | null): elem is HTMLInputElement {
-  if (!elem) throw new Error('Element is not found');
-  return elem.tagName === 'INPUT';
 }
 
 function showIconCheck(id: number): void {

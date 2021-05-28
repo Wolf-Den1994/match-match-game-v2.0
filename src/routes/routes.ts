@@ -33,8 +33,8 @@ root.innerHTML = routes[window.location.pathname];
 
 const navbarLinks = document.querySelectorAll('.navbar-link');
 
-if (root) root.innerHTML = routes[window.location.pathname];
-if (linkNavbarAbout) linkNavbarAbout.classList.add('active');
+root.innerHTML = routes[window.location.pathname];
+linkNavbarAbout.classList.add('active');
 
 export function pollOfElections(): void {
   const selectCard = document.querySelector('#select-card');
@@ -115,5 +115,5 @@ linkNavbarSettings.onclick = () => {
 };
 
 window.onpopstate = () => {
-  if (root) root.innerHTML = routes[window.location.pathname];
+  root.innerHTML = routes[window.location.pathname];
 };

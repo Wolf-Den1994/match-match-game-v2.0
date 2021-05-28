@@ -64,14 +64,13 @@ export const overlayHTML = `
 `;
 
 function renderingModalRegister(): void {
-  if (!root) throw new Error('root is not found');
   root.insertAdjacentHTML('beforebegin', registerHTML);
   root.insertAdjacentHTML('afterend', overlayHTML);
 }
 renderingModalRegister();
 
-export const modal = document.querySelector('.modal-register');
-export const overlay = document.getElementById('overlay');
+export const modal = <HTMLElement>document.querySelector('.modal-register');
+export const overlay = <HTMLElement>document.getElementById('overlay');
 export const btnFormCancel = <HTMLButtonElement>(
   document.querySelector('.form-cancel')
 );

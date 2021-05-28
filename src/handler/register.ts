@@ -1,17 +1,18 @@
 import { indexedDBcall } from '../indexeddb/indexeddb';
 import { modal, overlay } from './register-html';
 
-export const btnRegister = document.querySelector('.btn-register');
-export const btnStartGame = document.querySelector('.btn-start-game');
+export const btnRegister = <HTMLButtonElement>(
+  document.querySelector('.btn-register')
+);
+export const btnStartGame = <HTMLButtonElement>(
+  document.querySelector('.btn-start-game')
+);
 export const btnStopGame = <HTMLButtonElement>(
   document.querySelector('.btn-stop-game')
 );
 
 window.onload = () => {
   function openModalRegister() {
-    if (!modal) throw new Error('modal is not found');
-    if (!overlay) throw new Error('overlay is not found');
-
     if (!modal.classList.contains('open-modal')) {
       modal.classList.add('open-modal');
       overlay.classList.add('open-modal');
@@ -20,9 +21,6 @@ window.onload = () => {
   }
 
   function closeModalRegister(): void {
-    if (!modal) throw new Error('modal is not found');
-    if (!overlay) throw new Error('overlay is not found');
-
     if (modal.classList.contains('open-modal')) {
       modal.classList.remove('open-modal');
       overlay.classList.remove('open-modal');
@@ -30,12 +28,8 @@ window.onload = () => {
     }
   }
 
-  if (btnRegister) {
-    btnRegister.addEventListener('click', openModalRegister);
-  }
-  if (overlay) {
-    overlay.addEventListener('click', closeModalRegister);
-  }
+  btnRegister.addEventListener('click', openModalRegister);
+  overlay.addEventListener('click', closeModalRegister);
 
   indexedDBcall();
 };
