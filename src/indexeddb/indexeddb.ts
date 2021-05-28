@@ -35,7 +35,7 @@ function putPeopleInTheTable(): void {
     const cursor = people.openCursor();
     const data: IObjPerson[] = [];
 
-    cursor.onsuccess = function successIDB() {
+    cursor.onsuccess = function successIDB(): void {
       const res = cursor.result;
 
       if (res) {
@@ -46,7 +46,7 @@ function putPeopleInTheTable(): void {
       }
     };
 
-    transaction.oncomplete = function completeIDB() {
+    transaction.oncomplete = function completeIDB(): void {
       output += '<div class="main-title">Best players</div>';
 
       const len =
@@ -95,7 +95,7 @@ function personToBase(): void {
 
   const request = store.get(key);
 
-  request.onsuccess = function successIndexedbd() {
+  request.onsuccess = function successIndexedbd(): void {
     const { result } = request;
 
     const transactionAdd = db.transaction(['people'], 'readwrite');
@@ -136,7 +136,7 @@ export function indexedDBcall(): void {
 
   const openRequest = indexedDB.open(nameDB, versionDB);
 
-  openRequest.onupgradeneeded = function upgradeneededIndexed() {
+  openRequest.onupgradeneeded = function upgradeneededIndexed(): void {
     const thisDB = openRequest.result;
     if (!thisDB.objectStoreNames.contains('people')) {
       thisDB.createObjectStore('people', { keyPath: 'email' });
@@ -150,7 +150,7 @@ export function indexedDBcall(): void {
     }
   };
 
-  openRequest.onsuccess = function successIndexed() {
+  openRequest.onsuccess = function successIndexed(): void {
     db = openRequest.result;
     btnFinal.addEventListener('click', personToBase);
     linkNavbarScore.addEventListener('click', putPeopleInTheTable);

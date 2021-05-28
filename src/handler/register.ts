@@ -41,7 +41,7 @@ window.onload = () => {
 
   indexedDBcall();
 
-  function removeListener() {
+  function removeListener(): void {
     btnRegister.removeEventListener('click', checkOpenModalRegister);
     overlay.removeEventListener('click', checkCloseModalRegister);
   }
