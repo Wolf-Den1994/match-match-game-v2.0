@@ -11,8 +11,15 @@ let userEmailIsValid = false;
 
 const objElemsReg = getObjElemsRegister();
 
-function isValidate(): void {
+function isValidateUser(): boolean {
   if (userNameIsValid && userSurnameIsValid && userEmailIsValid) {
+    return true;
+  }
+  return false;
+}
+
+function isValidate(): void {
+  if (isValidateUser()) {
     btnFormSubmit.classList.remove('invalid');
     btnFormSubmit.disabled = false;
   } else {
@@ -51,14 +58,21 @@ function hideIconCheck(id: number): void {
   });
 }
 
-function isValidateName(): void {
-  const VALID_NAME = 1;
-  if (!isInputElement(objElemsReg.userName)) return;
+function checkingConditionValidName(): boolean {
+  if (!isInputElement(objElemsReg.userName)) return false;
   if (
     objElemsReg.userName.validity.valid &&
     isValidName(objElemsReg.userName.value) &&
     Number.isNaN(toNumber(objElemsReg.userName.value))
   ) {
+    return true;
+  }
+  return false;
+}
+
+function isValidateName(): void {
+  const VALID_NAME = 1;
+  if (checkingConditionValidName()) {
     userNameIsValid = true;
     showIconCheck(VALID_NAME);
   } else {
@@ -68,14 +82,21 @@ function isValidateName(): void {
   isValidate();
 }
 
-function isValidateSurname(): void {
-  const VALID_SURNAME = 2;
-  if (!isInputElement(objElemsReg.userLastname)) return;
+function checkingConditionValidSurname(): boolean {
+  if (!isInputElement(objElemsReg.userLastname)) return false;
   if (
     objElemsReg.userLastname.validity.valid &&
     isValidSurname(objElemsReg.userLastname.value) &&
     Number.isNaN(toNumber(objElemsReg.userLastname.value))
   ) {
+    return true;
+  }
+  return false;
+}
+
+function isValidateSurname(): void {
+  const VALID_SURNAME = 2;
+  if (checkingConditionValidSurname()) {
     userSurnameIsValid = true;
     showIconCheck(VALID_SURNAME);
   } else {
@@ -85,14 +106,21 @@ function isValidateSurname(): void {
   isValidate();
 }
 
-function isValidateEmail(): void {
-  const VALID_EMAIL = 3;
-  if (!isInputElement(objElemsReg.userEmail)) return;
+function checkingConditionValidEmail(): boolean {
+  if (!isInputElement(objElemsReg.userEmail)) return false;
   if (
     objElemsReg.userEmail.validity.valid &&
     isValidEmail(objElemsReg.userEmail.value) &&
     objElemsReg.userEmail.value.length <= MAX_LENGTH_EMAIL
   ) {
+    return true;
+  }
+  return false;
+}
+
+function isValidateEmail(): void {
+  const VALID_EMAIL = 3;
+  if (checkingConditionValidEmail()) {
     userEmailIsValid = true;
     showIconCheck(VALID_EMAIL);
   } else {
