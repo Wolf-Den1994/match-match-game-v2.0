@@ -11,6 +11,7 @@ import {
   logoLink,
 } from '../header/header';
 import { stopGame } from '../stop/stop-game';
+import { toNumber } from '../utils/toNumber';
 import { about } from './about';
 import { score } from './score';
 import { settings } from './settings';
@@ -43,7 +44,7 @@ export function pollOfElections(): void {
     objWithSetting.card = selectCard.value;
   }
   if (selectDifficulty instanceof HTMLSelectElement) {
-    objWithSetting.difficulty = +selectDifficulty.value;
+    objWithSetting.difficulty = toNumber(selectDifficulty.value);
   }
   setTimeout(pollOfElections, 500);
 }

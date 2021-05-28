@@ -1,6 +1,7 @@
 import { isValidEmail, isValidName, isValidSurname } from '../shared/isValid';
 import { isInputElement } from '../utils/errors';
 import { getObjElemsRegister } from '../utils/reg-utils';
+import { toNumber } from '../utils/toNumber';
 import { btnFormCancel, btnFormSubmit } from './register-html';
 
 const MAX_LENGTH_EMAIL = 30;
@@ -22,13 +23,13 @@ function isValidate(): void {
 
 function showIconCheck(id: number): void {
   objElemsReg.ArrayImagesCheck.forEach((image) => {
-    const idImage: number = +image.id.slice(-1);
+    const idImage: number = toNumber(image.id.slice(-1));
     if (idImage === id) {
       image.classList.remove('check-hidden');
     }
   });
   objElemsReg.ArrayDivItemInputs.forEach((div) => {
-    const idDiv: number = +div.id.slice(-1);
+    const idDiv: number = toNumber(div.id.slice(-1));
     if (idDiv === id) {
       div.classList.remove('warning');
     }
@@ -37,13 +38,13 @@ function showIconCheck(id: number): void {
 
 function hideIconCheck(id: number): void {
   objElemsReg.ArrayImagesCheck.forEach((image) => {
-    const idImage: number = +image.id.slice(-1);
+    const idImage: number = toNumber(image.id.slice(-1));
     if (idImage === id) {
       image.classList.add('check-hidden');
     }
   });
   objElemsReg.ArrayDivItemInputs.forEach((div) => {
-    const idDiv: number = +div.id.slice(-1);
+    const idDiv: number = toNumber(div.id.slice(-1));
     if (idDiv === id) {
       div.classList.add('warning');
     }
@@ -56,7 +57,7 @@ function isValidateName(): void {
   if (
     objElemsReg.userName.validity.valid &&
     isValidName(objElemsReg.userName.value) &&
-    Number.isNaN(+objElemsReg.userName.value)
+    Number.isNaN(toNumber(objElemsReg.userName.value))
   ) {
     userNameIsValid = true;
     showIconCheck(VALID_NAME);
@@ -73,7 +74,7 @@ function isValidateSurname(): void {
   if (
     objElemsReg.userLastname.validity.valid &&
     isValidSurname(objElemsReg.userLastname.value) &&
-    Number.isNaN(+objElemsReg.userLastname.value)
+    Number.isNaN(toNumber(objElemsReg.userLastname.value))
   ) {
     userSurnameIsValid = true;
     showIconCheck(VALID_SURNAME);

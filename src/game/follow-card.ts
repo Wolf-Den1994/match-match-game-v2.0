@@ -1,5 +1,6 @@
 import { congratulateTheWinner } from '../final/final';
 import { time } from '../stopwatch/stopwatch';
+import { toNumber } from '../utils/toNumber';
 import { getObjArrsCard } from '../utils/utils';
 import { objCountComparison } from './obj-count';
 import { objWithSetting } from './obj-setting';
@@ -32,10 +33,10 @@ function getNumberCard(elem: string): string {
     .slice(-2)
     .split('')
     .map((item: string | number) => {
-      if (!Number.isNaN(+item)) {
-        return +item;
+      if (!Number.isNaN(toNumber(item))) {
+        return toNumber(item);
       }
-      return +item;
+      return toNumber(item);
     })
     .join('');
   return cardNumber;
