@@ -1,5 +1,5 @@
 import { indexedDBcall } from '../indexeddb/indexeddb';
-import { modal, overlay } from './register-html';
+import { btnFormSubmit, modal, overlay } from './register-html';
 
 export const btnRegister = <HTMLButtonElement>(
   document.querySelector('.btn-register')
@@ -40,4 +40,11 @@ window.onload = () => {
   overlay.addEventListener('click', checkCloseModalRegister);
 
   indexedDBcall();
+
+  function removeListener() {
+    btnRegister.removeEventListener('click', checkOpenModalRegister);
+    overlay.removeEventListener('click', checkCloseModalRegister);
+  }
+
+  btnFormSubmit.addEventListener('click', removeListener);
 };

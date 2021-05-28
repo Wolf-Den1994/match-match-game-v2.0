@@ -61,7 +61,7 @@ function hideIconCheck(id: number): void {
   });
 }
 
-function isValidateName(): void {
+export function isValidateName(): void {
   const VALID_NAME = 1;
   if (checkingConditionValidName()) {
     userNameIsValid = true;
@@ -73,7 +73,7 @@ function isValidateName(): void {
   isValidate();
 }
 
-function isValidateSurname(): void {
+export function isValidateSurname(): void {
   const VALID_SURNAME = 2;
   if (checkingConditionValidSurname()) {
     userSurnameIsValid = true;
@@ -85,7 +85,7 @@ function isValidateSurname(): void {
   isValidate();
 }
 
-function isValidateEmail(): void {
+export function isValidateEmail(): void {
   const VALID_EMAIL = 3;
   if (checkingConditionValidEmail()) {
     userEmailIsValid = true;
@@ -109,7 +109,7 @@ objElemsReg.userEmail.addEventListener('input', () => {
   isValidateEmail();
 });
 
-function resetInput(): void {
+export function resetInput(): void {
   if (isInputElement(objElemsReg.userName)) {
     objElemsReg.userName.value = '';
   }
@@ -132,6 +132,4 @@ function resetInput(): void {
   });
 }
 
-if (btnFormCancel) {
-  btnFormCancel.addEventListener('click', resetInput);
-}
+btnFormCancel.addEventListener('click', resetInput);

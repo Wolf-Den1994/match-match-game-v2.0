@@ -1,4 +1,6 @@
 import { btnStartGame, btnStopGame } from '../handler/register';
+import { btnFormSubmit } from '../handler/register-html';
+import { handlerUserRegistration } from '../handler/submit-input';
 import { createField } from './field-time';
 
 function toRunStartGame(): void {
@@ -8,6 +10,7 @@ function toRunStartGame(): void {
 
     createField();
   }
+  btnFormSubmit.removeEventListener('click', handlerUserRegistration);
 }
 
 btnStartGame.addEventListener('click', toRunStartGame);
