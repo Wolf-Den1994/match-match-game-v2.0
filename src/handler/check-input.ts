@@ -1,23 +1,15 @@
 import { isValidEmail, isValidName, isValidSurname } from '../shared/isValid';
-import { btnFormCancel, btnFormSubmit } from './register-html';
+import {
+  ArrayDivItemInputs,
+  ArrayImagesCheck,
+  btnFormCancel,
+  btnFormSubmit,
+  userEmail,
+  userLastname,
+  userName,
+} from './register-html';
 
 const MAX_LENGTH_EMAIL = 30;
-const userName = <HTMLElement>document.getElementById('user-name');
-const userLastname = <HTMLElement>document.getElementById('user-lastname');
-const userEmail = <HTMLElement>document.getElementById('user-email');
-const imagesCheck: NodeListOf<HTMLElement> = document.querySelectorAll(
-  '.img-check-register',
-);
-const ArrayImagesCheck: HTMLElement[] = Array.from(imagesCheck);
-const divItemInputs: NodeListOf<HTMLElement> = document.querySelectorAll(
-  '.form-item-register',
-);
-const ArrayDivItemInputs: HTMLElement[] = Array.from(divItemInputs);
-// const paragsError: NodeListOf<HTMLElement> = document.querySelectorAll(
-//   '.form-error-register',
-// );
-// const ArrayDivItemInputs
-// <p id="error-check1" class="form-error-register">enter valid data</p>
 let userNameIsValid = false;
 let userSurnameIsValid = false;
 let userEmailIsValid = false;

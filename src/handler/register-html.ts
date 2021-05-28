@@ -78,4 +78,22 @@ export const btnFormCancel = <HTMLButtonElement>(
 export const btnFormSubmit = <HTMLButtonElement>(
   document.querySelector('.form-submit')
 );
-export const imagesCheck = document.querySelectorAll('.img-check-register');
+
+export const userName = <HTMLElement>document.getElementById('user-name');
+export const userLastname = <HTMLElement>(
+  document.getElementById('user-lastname')
+);
+export const userEmail = <HTMLElement>document.getElementById('user-email');
+export const imagesCheck: NodeListOf<HTMLElement> = document.querySelectorAll(
+  '.img-check-register',
+);
+export const ArrayImagesCheck: HTMLElement[] = Array.from(imagesCheck);
+export const divItemInputs: NodeListOf<HTMLElement> = document.querySelectorAll(
+  '.form-item-register',
+);
+export const ArrayDivItemInputs: HTMLElement[] = Array.from(divItemInputs);
+// export const pError: NodeListOf<HTMLElement> = document.querySelectorAll(
+//   '.form-error-register',
+// );
+// export const ArrayDivItemInputs
+// <p id="error-check1" class="form-error-register">enter valid data</p>
