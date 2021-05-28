@@ -31,34 +31,32 @@ function isValidate(): void {
   }
 }
 
-function showIconCheck(id: number): void {
-  objElemsReg.ArrayImagesCheck.forEach((image) => {
-    const idImage: number = toNumber(image.id.slice(-1));
+function changeOfState(
+  arr: HTMLElement[],
+  id: number,
+  className: string,
+  isRemove: boolean,
+): void {
+  arr.forEach((elem) => {
+    const idImage: number = toNumber(elem.id.slice(-1));
     if (idImage === id) {
-      image.classList.remove('check-hidden');
-    }
-  });
-  objElemsReg.ArrayDivItemInputs.forEach((div) => {
-    const idDiv: number = toNumber(div.id.slice(-1));
-    if (idDiv === id) {
-      div.classList.remove('warning');
+      if (isRemove) {
+        elem.classList.remove(className);
+      } else {
+        elem.classList.add(className);
+      }
     }
   });
 }
 
+function showIconCheck(id: number): void {
+  changeOfState(objElemsReg.ArrayImagesCheck, id, 'check-hidden', true);
+  changeOfState(objElemsReg.ArrayDivItemInputs, id, 'warning', true);
+}
+
 function hideIconCheck(id: number): void {
-  objElemsReg.ArrayImagesCheck.forEach((image) => {
-    const idImage: number = toNumber(image.id.slice(-1));
-    if (idImage === id) {
-      image.classList.add('check-hidden');
-    }
-  });
-  objElemsReg.ArrayDivItemInputs.forEach((div) => {
-    const idDiv: number = toNumber(div.id.slice(-1));
-    if (idDiv === id) {
-      div.classList.add('warning');
-    }
-  });
+  changeOfState(objElemsReg.ArrayImagesCheck, id, 'check-hidden', false);
+  changeOfState(objElemsReg.ArrayDivItemInputs, id, 'warning', false);
 }
 
 export function isValidateName(): void {
