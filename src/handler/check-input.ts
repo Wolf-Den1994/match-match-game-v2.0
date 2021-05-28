@@ -1,18 +1,13 @@
 import { isValidEmail, isValidName, isValidSurname } from '../shared/isValid';
-import {
-  ArrayDivItemInputs,
-  ArrayImagesCheck,
-  btnFormCancel,
-  btnFormSubmit,
-  userEmail,
-  userLastname,
-  userName,
-} from './register-html';
+import { getObjElemsRegister } from '../utils/reg-utils';
+import { btnFormCancel, btnFormSubmit } from './register-html';
 
 const MAX_LENGTH_EMAIL = 30;
 let userNameIsValid = false;
 let userSurnameIsValid = false;
 let userEmailIsValid = false;
+
+const objElemsReg = getObjElemsRegister();
 
 function isValidate(): void {
   if (!btnFormSubmit) throw new Error('Button submit is not found');
@@ -31,13 +26,13 @@ function isInputElement(elem: HTMLElement | null): elem is HTMLInputElement {
 }
 
 function showIconCheck(id: number): void {
-  ArrayImagesCheck.forEach((image) => {
+  objElemsReg.ArrayImagesCheck.forEach((image) => {
     const idImage: number = +image.id.slice(-1);
     if (idImage === id) {
       image.classList.remove('check-hidden');
     }
   });
-  ArrayDivItemInputs.forEach((div) => {
+  objElemsReg.ArrayDivItemInputs.forEach((div) => {
     const idDiv: number = +div.id.slice(-1);
     if (idDiv === id) {
       div.classList.remove('warning');
@@ -46,13 +41,13 @@ function showIconCheck(id: number): void {
 }
 
 function hideIconCheck(id: number): void {
-  ArrayImagesCheck.forEach((image) => {
+  objElemsReg.ArrayImagesCheck.forEach((image) => {
     const idImage: number = +image.id.slice(-1);
     if (idImage === id) {
       image.classList.add('check-hidden');
     }
   });
-  ArrayDivItemInputs.forEach((div) => {
+  objElemsReg.ArrayDivItemInputs.forEach((div) => {
     const idDiv: number = +div.id.slice(-1);
     if (idDiv === id) {
       div.classList.add('warning');
@@ -62,11 +57,11 @@ function hideIconCheck(id: number): void {
 
 function isValidateName(): void {
   const VALID_NAME = 1;
-  if (!isInputElement(userName)) return;
+  if (!isInputElement(objElemsReg.userName)) return;
   if (
-    userName.validity.valid &&
-    isValidName(userName.value) &&
-    Number.isNaN(+userName.value)
+    objElemsReg.userName.validity.valid &&
+    isValidName(objElemsReg.userName.value) &&
+    Number.isNaN(+objElemsReg.userName.value)
   ) {
     userNameIsValid = true;
     showIconCheck(VALID_NAME);
@@ -79,11 +74,11 @@ function isValidateName(): void {
 
 function isValidateSurname(): void {
   const VALID_SURNAME = 2;
-  if (!isInputElement(userLastname)) return;
+  if (!isInputElement(objElemsReg.userLastname)) return;
   if (
-    userLastname.validity.valid &&
-    isValidSurname(userLastname.value) &&
-    Number.isNaN(+userLastname.value)
+    objElemsReg.userLastname.validity.valid &&
+    isValidSurname(objElemsReg.userLastname.value) &&
+    Number.isNaN(+objElemsReg.userLastname.value)
   ) {
     userSurnameIsValid = true;
     showIconCheck(VALID_SURNAME);
@@ -96,11 +91,11 @@ function isValidateSurname(): void {
 
 function isValidateEmail(): void {
   const VALID_EMAIL = 3;
-  if (!isInputElement(userEmail)) return;
+  if (!isInputElement(objElemsReg.userEmail)) return;
   if (
-    userEmail.validity.valid &&
-    isValidEmail(userEmail.value) &&
-    userEmail.value.length <= MAX_LENGTH_EMAIL
+    objElemsReg.userEmail.validity.valid &&
+    isValidEmail(objElemsReg.userEmail.value) &&
+    objElemsReg.userEmail.value.length <= MAX_LENGTH_EMAIL
   ) {
     userEmailIsValid = true;
     showIconCheck(VALID_EMAIL);
@@ -111,29 +106,29 @@ function isValidateEmail(): void {
   isValidate();
 }
 
-userName.addEventListener('input', () => {
+objElemsReg.userName.addEventListener('input', () => {
   isValidateName();
 });
 
-userLastname.addEventListener('input', () => {
+objElemsReg.userLastname.addEventListener('input', () => {
   isValidateSurname();
 });
 
-userEmail.addEventListener('input', () => {
+objElemsReg.userEmail.addEventListener('input', () => {
   isValidateEmail();
 });
 
 function resetInput(): void {
-  if (isInputElement(userName)) {
-    userName.value = '';
+  if (isInputElement(objElemsReg.userName)) {
+    objElemsReg.userName.value = '';
   }
-  if (isInputElement(userLastname)) {
-    userLastname.value = '';
+  if (isInputElement(objElemsReg.userLastname)) {
+    objElemsReg.userLastname.value = '';
   }
-  if (isInputElement(userEmail)) {
-    userEmail.value = '';
+  if (isInputElement(objElemsReg.userEmail)) {
+    objElemsReg.userEmail.value = '';
   }
-  ArrayImagesCheck.forEach((image) => {
+  objElemsReg.ArrayImagesCheck.forEach((image) => {
     image.classList.add('check-hidden');
   });
   userNameIsValid = false;
@@ -141,7 +136,7 @@ function resetInput(): void {
   userEmailIsValid = false;
   btnFormSubmit.classList.add('invalid');
   btnFormSubmit.disabled = true;
-  ArrayDivItemInputs.forEach((div) => {
+  objElemsReg.ArrayDivItemInputs.forEach((div) => {
     div.classList.remove('warning');
   });
 }
