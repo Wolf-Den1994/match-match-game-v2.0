@@ -15,6 +15,12 @@ export const registerHTML = `
             class="img-check-register check-hidden"
           ></svg>
         </div>
+        <p 
+          id="error-check1" 
+          class="form-error-register check-hidden"
+        >
+          enter valid data
+        </p>
         <div id="div-item2" class="form-item-register">
           <input 
             type="text" 
@@ -28,6 +34,12 @@ export const registerHTML = `
             class="img-check-register check-hidden"
           ></svg>
         </div>
+        <p 
+          id="error-check2" 
+          class="form-error-register check-hidden"
+        >
+          enter valid data
+        </p>
         <div id="div-item3" class="form-item-register">
           <input type="email" required id="user-email" placeholder="Your email">
           <label for="user-email">E-mail</label>
@@ -36,6 +48,12 @@ export const registerHTML = `
             class="img-check-register check-hidden"
           ></svg>
         </div>
+        <p 
+          id="error-check3" 
+          class="form-error-register check-hidden"
+        >
+          enter valid data
+        </p>
       </form>
       <div class="form-register-avatar">
         <img 
@@ -77,9 +95,3 @@ export const btnFormCancel = <HTMLButtonElement>(
 export const btnFormSubmit = <HTMLButtonElement>(
   document.querySelector('.form-submit')
 );
-
-// export const pError: NodeListOf<HTMLElement> = document.querySelectorAll(
-//   '.form-error-register',
-// );
-// export const ArrayDivItemInputs
-// <p id="error-check1" class="form-error-register">enter valid data</p>

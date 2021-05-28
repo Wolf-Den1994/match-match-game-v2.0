@@ -52,11 +52,13 @@ function changeOfState(
 function showIconCheck(id: number): void {
   changeOfState(objElemsReg.ArrayImagesCheck, id, 'check-hidden', true);
   changeOfState(objElemsReg.ArrayDivItemInputs, id, 'warning', true);
+  changeOfState(objElemsReg.ArraypErrors, id, 'check-hidden', false);
 }
 
 function hideIconCheck(id: number): void {
   changeOfState(objElemsReg.ArrayImagesCheck, id, 'check-hidden', false);
   changeOfState(objElemsReg.ArrayDivItemInputs, id, 'warning', false);
+  changeOfState(objElemsReg.ArraypErrors, id, 'check-hidden', true);
 }
 
 export function isValidateName(): void {

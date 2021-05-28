@@ -6,6 +6,8 @@ interface IElemsReg {
   ArrayImagesCheck: HTMLElement[];
   divItemInputs: NodeListOf<HTMLElement>;
   ArrayDivItemInputs: HTMLElement[];
+  pError: NodeListOf<HTMLElement>;
+  ArraypErrors: HTMLElement[];
 }
 
 export function getObjElemsRegister(): IElemsReg {
@@ -21,6 +23,11 @@ export function getObjElemsRegister(): IElemsReg {
   );
   const ArrayDivItemInputs: HTMLElement[] = Array.from(divItemInputs);
 
+  const pError: NodeListOf<HTMLElement> = document.querySelectorAll(
+    '.form-error-register',
+  );
+  const ArraypErrors: HTMLElement[] = Array.from(pError);
+
   return {
     userName,
     userLastname,
@@ -29,5 +36,7 @@ export function getObjElemsRegister(): IElemsReg {
     ArrayImagesCheck,
     divItemInputs,
     ArrayDivItemInputs,
+    pError,
+    ArraypErrors,
   };
 }
