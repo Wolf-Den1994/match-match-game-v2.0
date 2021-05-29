@@ -1,5 +1,13 @@
 import './styles.scss';
 import './header/header';
+import './header/divs';
+import './header/buttons';
+import './header/div-avatar';
+import './header/logo';
+import './header/navbar';
+import './header/navbar-about';
+import './header/navbar-score';
+import './header/navbar-settings';
 import './routes/routes';
 import './handler/register';
 import './handler/check-input';

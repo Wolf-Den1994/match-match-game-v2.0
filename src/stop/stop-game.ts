@@ -1,4 +1,4 @@
-import { btnStartGame, btnStopGame } from '../header/header';
+import { btnStartGame, btnStopGame } from '../header/buttons';
 import { time } from '../stopwatch/stopwatch';
 
 export function stopGame(): void {

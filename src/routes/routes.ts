@@ -2,14 +2,11 @@ import { btnFinal } from '../final/final-html';
 import { gameField } from '../game/field-time';
 import { objWithSetting } from '../game/obj-setting';
 import { renderField } from '../game/render-field';
-import {
-  btnStartGame,
-  btnStopGame,
-  linkNavbarAbout,
-  linkNavbarScore,
-  linkNavbarSettings,
-  logoLink,
-} from '../header/header';
+import { btnStartGame, btnStopGame } from '../header/buttons';
+import { logoLink } from '../header/logo';
+import { linkNavbarAbout } from '../header/navbar-about';
+import { linkNavbarScore } from '../header/navbar-score';
+import { linkNavbarSettings } from '../header/navbar-settings';
 import { stopGame } from '../stop/stop-game';
 import { toNumber } from '../utils/toNumber';
 import { about } from './about';

@@ -1,4 +1,4 @@
-import { divAvatar } from '../header/header';
+import { divAvatar } from '../header/div-avatar';
 import { person } from '../indexeddb/indexeddb';
 
 const input = <HTMLInputElement>document.querySelector('#user-avatar');

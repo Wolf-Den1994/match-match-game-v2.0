@@ -1,5 +1,5 @@
 import { btnFinal } from '../final/final-html';
-import { linkNavbarScore } from '../header/header';
+import { linkNavbarScore } from '../header/navbar-score';
 
 const MAX_OUTPUT_TO_SCORE = 10;
 const nameDB = 'Wolf-Den1994';

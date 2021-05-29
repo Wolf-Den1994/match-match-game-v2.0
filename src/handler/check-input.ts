@@ -14,15 +14,15 @@ let userEmailIsValid = false;
 
 const objElemsReg = getObjElemsRegister();
 
-function isValidateUser(): boolean {
+const checkUser = function isValidateUser(): boolean {
   if (userNameIsValid && userSurnameIsValid && userEmailIsValid) {
     return true;
   }
   return false;
-}
+};
 
 function isValidate(): void {
-  if (isValidateUser()) {
+  if (checkUser()) {
     btnFormSubmit.classList.remove('invalid');
     btnFormSubmit.disabled = false;
   } else {
