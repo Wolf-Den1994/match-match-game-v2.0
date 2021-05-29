@@ -16,6 +16,8 @@ import { about } from './about';
 import { score } from './score';
 import { settings } from './settings';
 
+const TIME_CALL_FN_POLLOFEL = 500;
+
 interface IRoutes {
   [key: string]: string;
 }
@@ -46,7 +48,7 @@ export function pollOfElections(): void {
   if (selectDifficulty instanceof HTMLSelectElement) {
     objWithSetting.difficulty = toNumber(selectDifficulty.value);
   }
-  setTimeout(pollOfElections, 500);
+  setTimeout(pollOfElections, TIME_CALL_FN_POLLOFEL);
 }
 
 const onNavigate = (pathname: string) => {

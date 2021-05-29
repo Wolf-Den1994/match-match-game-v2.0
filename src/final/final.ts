@@ -4,14 +4,14 @@ import { addClassList } from '../utils/add-class';
 import { OPEN_MODAL } from '../utils/consts';
 
 export function congratulateTheWinner(): void {
-  const modalCongratulate = document.querySelector('.modal-congratulate');
-  const timeFromSpan = document.querySelector('.congratulate-time');
-  const overlay = document.getElementById('overlay');
+  const modalCongratulate = <HTMLElement>(
+    document.querySelector('.modal-congratulate')
+  );
+  const timeFromSpan = <HTMLElement>(
+    document.querySelector('.congratulate-time')
+  );
+  const overlay = <HTMLElement>document.getElementById('overlay');
   const time = getObjPeriod();
-
-  if (!modalCongratulate) throw new Error('modal final is not found');
-  if (!timeFromSpan) throw new Error('span from time is not found');
-  if (!overlay) throw new Error('overlay is not found');
 
   const h = time.hour.innerText;
   const m = time.min.innerText;

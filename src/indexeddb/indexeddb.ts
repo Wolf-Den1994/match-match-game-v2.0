@@ -2,6 +2,7 @@ import { btnFinal } from '../final/final-html';
 import { linkNavbarScore } from '../header/navbar-score';
 import { checkClass } from '../utils/check-class';
 
+const TIME_AFTER_WHICH_CALL_FN_PUT = 600;
 const MAX_OUTPUT_TO_SCORE = 10;
 const nameDB = 'Wolf-Den1994';
 const versionDB = 1;
@@ -93,7 +94,7 @@ function putPeopleInTheTable(): void {
 function personToBase(): void {
   const email = document.querySelector('#user-email') as HTMLInputElement;
   const key = email.value;
-  if (key === '') return;
+  if (!key) return;
 
   const transaction = db.transaction(['people'], 'readonly');
   const store = transaction.objectStore('people');
@@ -133,7 +134,7 @@ function personToBase(): void {
   };
   setTimeout(() => {
     putPeopleInTheTable();
-  }, 600);
+  }, TIME_AFTER_WHICH_CALL_FN_PUT);
 }
 
 export function indexedDBcall(): void {

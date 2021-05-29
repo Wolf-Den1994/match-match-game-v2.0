@@ -14,13 +14,172 @@
   background-color: #FAFAFA;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
   border-radius: 6px;
+
+  &.open-modal {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .main-title {
+    letter-spacing: 0.15px;
+  }
+
+  .form-register-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 95px;
+    align-self:stretch;
+
+    .form-register {
+      .form-item-register {
+        margin-bottom: 10px;
+        position: relative;
+        padding-top: 20px;
+        background-color: #21212114;
+        max-width: 328px;
+        box-shadow: 1px -1px 3px rgb(0 0 0 / 12%), 1px 1px 7px rgb(0 0 0 / 24%);
+  
+        label {
+          position: absolute;
+          left: 45px;
+          top: 23px;
+          transition: top 0.5s;
+        }
+  
+        input {
+          max-width: 190px;
+          width: 100%;
+          display: block;
+          padding: 15px 82px 15px 45px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border: none;
+          border-bottom: none;
+          background: no-repeat bottom, 50% calc(100% - 1px);
+          background-size: 0 100%, 100% 100%;
+          background-image: linear-gradient(0deg, #a3a3a3 2px, #9c27b000 0), linear-gradient(0deg, #ccc 1px, #d1d1d100 0);
+          
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover, 
+            &:-webkit-autofill:focus, 
+            &:-webkit-autofill:active {
+            box-shadow: 0 0 0 100px #e9e9e9 inset;
+          }
+  
+          &:focus {
+            outline: none;
+            background-size: 100% 100%, 100% 100%;
+            transition-duration: 0.3s;
+            box-shadow: none;
+          }
+  
+          &:focus+label,
+          &:not(:placeholder-shown)+label {
+            top: 7px;
+            font-size: 12px;
+            color: #00000061;
+          }
+  
+          &:focus::-webkit-input-placeholder {
+            opacity: 1;
+          }
+        }
+  
+        svg {
+          display: inline-block;
+          background-repeat: no-repeat;
+          background-image: url(./assets/icon/sheck_mark.svg);
+          background-position: center;
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          right: 30px;
+          top: 20%;
+        }
+
+        &.warning {
+          box-shadow: 0 0 0 100px #bd53535c inset;
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover, 
+          input:-webkit-autofill:focus, 
+          input:-webkit-autofill:active {
+            box-shadow: 0 0 0 100px #bd53535c inset;
+          }
+        }
+      }
+  
+      .form-error-register {
+        margin: 0px 0 10px 25px;
+        color: #eb3939;
+      }
+    }
+  
+    .form-register-avatar {
+      .label-user-avatar {
+        cursor: pointer;
+        height: 198px;
+        width: 198px;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: inline-block;
+        background-size: contain;
+        border-radius: 50%;
+      }
+      
+      .form-user-avatar {
+        display: none;
+      }
+    }
+  }
+
+  .form-register-buttons {
+    align-self: flex-end;
+
+    button {
+      text-transform: uppercase;
+      width: 110px;
+      height: 36px;
+      font-weight: 500;
+      letter-spacing: 1.25px;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+      border-radius: 4px;
+    }
+
+    .form-submit {
+      background-color: #2196F3;
+      color: white;
+
+      &:hover {
+        background-color: #0c71c4;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.22), 0px 4px 4px rgba(0, 0, 0, 0.44);
+      }
+
+      &.invalid {
+        background-color: #eb3939;
+        cursor: default;
+      }
+
+      &.invalid:hover {
+        background-color: #eb3939;
+        box-shadow: none;
+      }
+    }
+    
+    .form-cancel {
+      background-color: #E3F2FD;
+      color: #2196F3;
+
+      &:hover {
+        background-color: #c9dfee;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.22), 0px 4px 4px rgba(0, 0, 0, 0.44);
+      }
+    }
+  }
 }
 
-.modal-register.open-modal {
-  transform: translate(-50%, -50%) scale(1);
-}
-
-#overlay {
+.overlay {
   position: fixed;
   opacity: 0;
   transition: 0.2s ease-in-out;
@@ -31,113 +190,15 @@
   background-color: rgba(0, 0, 0, 0.25);
   pointer-events: none;
   z-index: 10;
-}
-#overlay.open-modal {
-  opacity: 1;
-  pointer-events: all;
-}
 
-.modal-register > .main-title {
-  letter-spacing: 0.15px;
-}
-
-.form-register-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 95px;
-  align-self:stretch;
-}
-
-.form-error-register {
-  margin: 0px 0 10px 25px;
-  color: #eb3939;
-}
-
-.form-item-register {
-  margin-bottom: 10px;
-  position: relative;
-  padding-top: 20px;
-  background-color: #21212114;
-  max-width: 328px;
-  box-shadow: 1px -1px 3px rgb(0 0 0 / 12%), 1px 1px 7px rgb(0 0 0 / 24%);
-}
-
-.form-item-register label {
-  position: absolute;
-  left: 45px;
-  top: 23px;
-  transition: top 0.5s;
-}
-
-.form-item-register input {
-  max-width: 190px;
-  width: 100%;
-  display: block;
-  padding: 15px 82px 15px 45px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border: none;
-  border-bottom: none;
-  background: no-repeat bottom, 50% calc(100% - 1px);
-  background-size: 0 100%, 100% 100%;
-  background-image: linear-gradient(0deg, #a3a3a3 2px, #9c27b000 0), linear-gradient(0deg, #ccc 1px, #d1d1d100 0);
-}
-
-.form-item-register input:-webkit-autofill,
-.form-item-register input:-webkit-autofill:hover, 
-.form-item-register input:-webkit-autofill:focus, 
-.form-item-register input:-webkit-autofill:active {
- box-shadow: 0 0 0 100px #e9e9e9 inset;
-}
-
-.form-item-register input:focus {
-  outline: none;
-  background-size: 100% 100%, 100% 100%;
-  transition-duration: 0.3s;
-  box-shadow: none;
-}
-
-.form-item-register > input:focus+label,
-.form-item-register > input:not(:placeholder-shown)+label {
-  top: 7px;
-  font-size: 12px;
-  color: #00000061;
+  &.open-modal {
+    opacity: 1;
+    pointer-events: all;
+  }
 }
 
 ::-webkit-input-placeholder {
   opacity: 0;
-}
-
-.form-item-register > input:focus::-webkit-input-placeholder {
-  opacity: 1;
-}
-
-.form-item-register svg {
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-image: url(./assets/icon/sheck_mark.svg);
-  background-position: center;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  right: 30px;
-  top: 20%;
-}
-
-.label-user-avatar {
-  cursor: pointer;
-  height: 198px;
-  width: 198px;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: inline-block;
-  background-size: contain;
-  border-radius: 50%;
-}
-
-.form-user-avatar {
-  display: none;
 }
 
 .check-hidden {
@@ -148,68 +209,6 @@
   opacity: 1;
 }
 
-.form-register-buttons {
-  align-self: flex-end;
-}
-
-.form-register-buttons button {
-  text-transform: uppercase;
-  width: 110px;
-  height: 36px;
-}
-
-.form-submit {
-  background-color: #2196F3;
-  border: none;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
-  border-radius: 4px;
-  color: white;
-  font-weight: 500;
-  letter-spacing: 1.25px;
-  cursor: pointer;
-}
-
-.form-cancel {
-  background-color: #E3F2FD;
-  border: none;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
-  border-radius: 4px;
-  color: #2196F3;
-  font-weight: 500;
-  letter-spacing: 1.25px;
-  cursor: pointer;
-}
-
-.form-submit:hover {
-  background-color: #0c71c4;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.22), 0px 4px 4px rgba(0, 0, 0, 0.44);
-}
-
-.form-cancel:hover {
-  background-color: #c9dfee;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.22), 0px 4px 4px rgba(0, 0, 0, 0.44);
-}
-
 .lock {
   overflow-y: hidden;
-}
-
-.invalid {
-  background-color: #eb3939;
-  cursor: default;
-}
-
-.form-submit.invalid:hover {
-  background-color: #eb3939;
-  box-shadow: none;
-}
-
-.form-item-register.warning {
-  box-shadow: 0 0 0 100px #bd53535c inset;
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus, 
-  input:-webkit-autofill:active {
-    box-shadow: 0 0 0 100px #bd53535c inset;
-  }
 }

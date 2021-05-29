@@ -4,6 +4,8 @@ export const score = `
   </main>
 `;
 
+const TIME_AFTER_WHICH_SCORE_APPEAR = 500;
+
 setTimeout(() => {
   const mainDiv = document.querySelector('.main-score');
   if (mainDiv) {
@@ -12,4 +14,4 @@ setTimeout(() => {
       mainDiv.innerHTML = output;
     }
   }
-}, 500);
+}, TIME_AFTER_WHICH_SCORE_APPEAR);

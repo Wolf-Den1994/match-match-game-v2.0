@@ -5,61 +5,57 @@
   margin: 0 auto;
   background: #ffffff;
   box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.24), 0px 9px 18px rgba(0, 0, 0, 0.18);
-}
 
-.main-title {
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
+  .main-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
 
-.form-card,
-.form-difficulty {
-  border-bottom: 2px solid #bdbdbd;
-  max-width: 250px;
-  width: 100%;
-  margin: 0 0 39px;
-}
+  .form-card,
+  .form-difficulty {
+    border-bottom: 2px solid #bdbdbd;
+    max-width: 250px;
+    width: 100%;
+    margin: 0 0 39px;
 
-.select-card,
-.select-difficulty {
-  border: none;
-  padding: 9px 45px 9px 20px;
-  margin: 0 0 9px;
-  display: block;
-  color: gray;
-  font-family: 'Roboto', 'Arial', sans-serif;
-  font-weight: normal;
-  text-align: center;
-  font-size: 16px;
-  line-height: 19px;
-  appearance: none;
-  background-image: url(./assets/icon/arrow_drop_down.svg);
-  background-repeat: no-repeat, repeat;
-  background-position: right 0.6em top 50%, 0 0;
-  outline: none;
-  cursor: pointer;
-}
+    .select-card,
+    .select-difficulty {
+      border: none;
+      padding: 9px 45px 9px 20px;
+      margin: 0 0 9px;
+      display: block;
+      color: gray;
+      font-family: 'Roboto', 'Arial', sans-serif;
+      font-weight: normal;
+      text-align: center;
+      font-size: 16px;
+      line-height: 19px;
+      appearance: none;
+      background-image: url(./assets/icon/arrow_drop_down.svg);
+      background-repeat: no-repeat, repeat;
+      background-position: right 0.6em top 50%, 0 0;
+      outline: none;
+      cursor: pointer;
 
-.select-card option,
-.select-difficulty option {
-  cursor: pointer;
-}
+      option {
+        cursor: pointer;
+      }
 
-.select-card:required:invalid,
-.select-difficulty:required:invalid {
-  color: gray;
-}
+      &:required:invalid {
+        color: gray;
+      }
 
-.select-card option[value=''][disabled],
-.select-difficulty option[value=''][disabled] {
-  color: gray;
-  display: none;
-}
+      option[value=''][disabled] {
+        color: gray;
+        display: none;
+      }
 
-.select-card option,
-.select-difficulty option {
-  color: black;
+      option {
+        color: black;
+      }
+    }
+  }
 }
 
 @media (max-width: 1090px) {
