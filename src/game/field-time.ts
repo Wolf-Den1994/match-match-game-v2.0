@@ -1,3 +1,5 @@
+import { TIME } from '../utils/consts';
+
 export const gameField = `
   <main class='main-field'></main>
 `;
@@ -5,8 +7,8 @@ export const gameField = `
 export function createField(): void {
   const field = <HTMLElement>document.querySelector('.main-field');
   const wrapper = document.createElement('section');
-  wrapper.className = 'time';
-  wrapper.id = 'time';
+  wrapper.className = TIME;
+  wrapper.id = TIME;
   if (field) field.prepend(wrapper);
 
   const stopwatch = document.createElement('div');

@@ -1,7 +1,7 @@
 import { congratulateTheWinner } from '../final/final';
 import { time } from '../stopwatch/stopwatch';
 import { checkClass } from '../utils/check-class';
-import { zero } from '../utils/consts';
+import { PAINT_GREEN, TURN, zero } from '../utils/consts';
 import { PointerEvent } from '../utils/enum';
 import { toNumber } from '../utils/toNumber';
 import { getObjArrsCard } from '../utils/utils';
@@ -18,7 +18,7 @@ function final(): void {
   let count = zero;
   const objArrsCard = getObjArrsCard();
   objArrsCard.arrCards.forEach((item) => {
-    if (checkClass(item, 'paint-green')) {
+    if (checkClass(item, PAINT_GREEN)) {
       count++;
     }
   });
@@ -58,12 +58,12 @@ export function followTheCard(): void {
     const flipper = <HTMLElement>back.parentElement;
     const card = <HTMLElement>flipper.parentElement;
     if (checkClass(card, 'card')) {
-      card.classList.add('turn');
+      card.classList.add(TURN);
       objArrsCard.arrCards.forEach((item: HTMLElement) => {
-        if (checkClass(item, 'turn')) {
+        if (checkClass(item, TURN)) {
           count++;
         }
-        if (checkClass(item, 'turn') && count !== TWO_CARD) {
+        if (checkClass(item, TURN) && count !== TWO_CARD) {
           firstCard = getNumberCard(item.className);
           firstItem = item;
         }

@@ -1,5 +1,6 @@
 import { getObjPeriod } from '../game/field-time';
 import { toScore } from '../score/to-score';
+import { OPEN_MODAL } from '../utils/consts';
 
 export function congratulateTheWinner(): void {
   const modalCongratulate = document.querySelector('.modal-congratulate');
@@ -15,8 +16,8 @@ export function congratulateTheWinner(): void {
   const m = time.min.innerText;
   const s = time.sec.innerText;
 
-  modalCongratulate.classList.add('open-modal');
-  overlay.classList.add('open-modal');
+  modalCongratulate.classList.add(OPEN_MODAL);
+  overlay.classList.add(OPEN_MODAL);
 
   timeFromSpan.innerHTML = `${h}:${m}:${s}`;
 

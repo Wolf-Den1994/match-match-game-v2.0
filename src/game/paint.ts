@@ -1,3 +1,5 @@
+import { PAINT_GREEN, PAINT_RED, TURN } from '../utils/consts';
+
 const TIME_AFTER_WHICH_IN_GREEN = 1000;
 const TIME_AFTER_WHICH_IN_RED = 500;
 const TIME_AFTER_WHICH_TO_REMOVE_RED = 1520;
@@ -7,8 +9,8 @@ export function paintGreen(
   secondItem: HTMLElement,
 ): void {
   function workWithClassList(elem: HTMLElement): void {
-    elem.classList.add('paint-green');
-    elem.classList.remove('turn');
+    elem.classList.add(PAINT_GREEN);
+    elem.classList.remove(TURN);
     elem.classList.add('turnface');
   }
   setTimeout(() => {
@@ -24,10 +26,10 @@ export function paintRed(
   secondItem: HTMLElement,
 ): void {
   function addRedColor(elem: HTMLElement): void {
-    elem.classList.add('paint-red');
+    elem.classList.add(PAINT_RED);
   }
   function removeRedColor(elem: HTMLElement): void {
-    elem.classList.remove('paint-red');
+    elem.classList.remove(PAINT_RED);
   }
   setTimeout(() => {
     if (firstItem) {

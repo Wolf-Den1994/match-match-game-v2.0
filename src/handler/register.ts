@@ -1,5 +1,6 @@
 import { indexedDBcall } from '../indexeddb/indexeddb';
 import { checkClass } from '../utils/check-class';
+import { LOCK, OPEN_MODAL } from '../utils/consts';
 import { btnFormSubmit, modal, overlay } from './register-html';
 
 export const btnRegister = <HTMLButtonElement>(
@@ -13,26 +14,26 @@ export const btnStopGame = <HTMLButtonElement>(
 );
 
 export function openModalRegister(): void {
-  modal.classList.add('open-modal');
-  overlay.classList.add('open-modal');
-  document.body.classList.add('lock');
+  modal.classList.add(OPEN_MODAL);
+  overlay.classList.add(OPEN_MODAL);
+  document.body.classList.add(LOCK);
 }
 
 export function closeModalRegister(): void {
-  modal.classList.remove('open-modal');
-  overlay.classList.remove('open-modal');
-  document.body.classList.remove('lock');
+  modal.classList.remove(OPEN_MODAL);
+  overlay.classList.remove(OPEN_MODAL);
+  document.body.classList.remove(LOCK);
 }
 
 window.onload = () => {
   function checkOpenModalRegister(): void {
-    if (!checkClass(modal, 'open-modal')) {
+    if (!checkClass(modal, OPEN_MODAL)) {
       openModalRegister();
     }
   }
 
   function checkCloseModalRegister(): void {
-    if (checkClass(modal, 'open-modal')) {
+    if (checkClass(modal, OPEN_MODAL)) {
       closeModalRegister();
     }
   }

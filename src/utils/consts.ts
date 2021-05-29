@@ -1,1 +1,13 @@
 export const zero = 0;
+export const FIELD = 'field';
+export const OPEN_MODAL = 'open-modal';
+export const TIME = 'time';
+export const TURN = 'turn';
+export const PAINT_GREEN = 'paint-green';
+export const PAINT_RED = 'paint-red';
+export const HIDDEN = 'hidden';
+export const INVALID = 'invalid';
+export const CHECK_HIDDEN = 'check-hidden';
+export const WARNING = 'warning';
+export const LOCK = 'lock';
+export const ACTIVE = 'active';

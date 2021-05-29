@@ -1,6 +1,7 @@
 import { objWithSetting } from './obj-setting';
 import { toMemorizeCards } from './memorize';
 import { CardNumber, FaceType, StateCard } from '../utils/enum';
+import { FIELD } from '../utils/consts';
 
 const imageBack = require('../assets/image/back-card.png');
 
@@ -29,8 +30,8 @@ export function renderField(cardonField: HTMLElement): void {
   function cardon(): void {
     const random = generatorRandom();
     const wrapper = document.createElement('div');
-    wrapper.className = 'field';
-    wrapper.id = 'field';
+    wrapper.className = FIELD;
+    wrapper.id = FIELD;
     cardonField.append(wrapper);
 
     let face: string;

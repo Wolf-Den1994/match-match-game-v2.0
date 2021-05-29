@@ -3,6 +3,7 @@ import {
   checkingConditionValidName,
   checkingConditionValidSurname,
 } from '../shared/checkig-user';
+import { CHECK_HIDDEN, INVALID, WARNING } from '../utils/consts';
 import { isInputElement } from '../utils/errors';
 import { getObjElemsRegister } from '../utils/reg-utils';
 import { toNumber } from '../utils/toNumber';
@@ -23,10 +24,10 @@ const checkUser = function isValidateUser(): boolean {
 
 function isValidate(): void {
   if (checkUser()) {
-    btnFormSubmit.classList.remove('invalid');
+    btnFormSubmit.classList.remove(INVALID);
     btnFormSubmit.disabled = false;
   } else {
-    btnFormSubmit.classList.add('invalid');
+    btnFormSubmit.classList.add(INVALID);
     btnFormSubmit.disabled = true;
   }
 }
@@ -50,15 +51,15 @@ function changeOfState(
 }
 
 function showIconCheck(id: number): void {
-  changeOfState(objElemsReg.ArrayImagesCheck, id, 'check-hidden', true);
-  changeOfState(objElemsReg.ArrayDivItemInputs, id, 'warning', true);
-  changeOfState(objElemsReg.ArraypErrors, id, 'check-hidden', false);
+  changeOfState(objElemsReg.ArrayImagesCheck, id, CHECK_HIDDEN, true);
+  changeOfState(objElemsReg.ArrayDivItemInputs, id, WARNING, true);
+  changeOfState(objElemsReg.ArraypErrors, id, CHECK_HIDDEN, false);
 }
 
 function hideIconCheck(id: number): void {
-  changeOfState(objElemsReg.ArrayImagesCheck, id, 'check-hidden', false);
-  changeOfState(objElemsReg.ArrayDivItemInputs, id, 'warning', false);
-  changeOfState(objElemsReg.ArraypErrors, id, 'check-hidden', true);
+  changeOfState(objElemsReg.ArrayImagesCheck, id, CHECK_HIDDEN, false);
+  changeOfState(objElemsReg.ArrayDivItemInputs, id, WARNING, false);
+  changeOfState(objElemsReg.ArraypErrors, id, CHECK_HIDDEN, true);
 }
 
 export function isValidateName(): void {
@@ -120,15 +121,15 @@ export function resetInput(): void {
     objElemsReg.userEmail.value = '';
   }
   objElemsReg.ArrayImagesCheck.forEach((image) => {
-    image.classList.add('check-hidden');
+    image.classList.add(CHECK_HIDDEN);
   });
   userNameIsValid = false;
   userSurnameIsValid = false;
   userEmailIsValid = false;
-  btnFormSubmit.classList.add('invalid');
+  btnFormSubmit.classList.add(INVALID);
   btnFormSubmit.disabled = true;
   objElemsReg.ArrayDivItemInputs.forEach((div) => {
-    div.classList.remove('warning');
+    div.classList.remove(WARNING);
   });
 }
 
