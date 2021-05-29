@@ -23,11 +23,11 @@ input.onchange = () => {
   imageLoad().then((res) => {
     const userPhoto = `${res}`;
     localStorage.setItem('avatar', userPhoto);
-    const x = localStorage.getItem('avatar');
+    const avatar = localStorage.getItem('avatar');
     divAvatar.classList.remove('hide');
     label.children[0]?.remove();
-    person.avatar = `${x}`;
-    divAvatar.style.backgroundImage = `url('${x}')`;
-    label.style.backgroundImage = `url('${x}')`;
+    person.avatar = `${avatar}`;
+    divAvatar.style.backgroundImage = `url('${avatar}')`;
+    label.style.backgroundImage = `url('${avatar}')`;
   });
 };
