@@ -8,11 +8,13 @@ import { objWithSetting } from './obj-setting';
 import { paintGreen, paintRed } from './paint';
 import { reverseBack } from './reverse';
 
-const CALL_FN_FINAL = 500;
-const TURN_ON_THE_MOUSE = 1300;
+const TIME_CALL_FN_FINAL = 500;
+const TIME_TURN_ON_THE_MOUSE = 1300;
+const COUNTER_TO_ZERO = 0;
+const TWO_CARD = 2;
 
 function final(): void {
-  let count = 0;
+  let count = COUNTER_TO_ZERO;
   const objArrsCard = getObjArrsCard();
   objArrsCard.arrCards.forEach((item) => {
     if (checkClass(item, 'paint-green')) {
@@ -24,8 +26,8 @@ function final(): void {
     congratulateTheWinner();
     return;
   }
-  count = 0;
-  setTimeout(final, CALL_FN_FINAL);
+  count = COUNTER_TO_ZERO;
+  setTimeout(final, TIME_CALL_FN_FINAL);
 }
 
 function getNumberCard(elem: string): string {
@@ -46,7 +48,7 @@ function getNumberCard(elem: string): string {
 export function followTheCard(): void {
   const cardonField = <HTMLElement>document.getElementById('field');
   const objArrsCard = getObjArrsCard();
-  let count = 0;
+  let count = COUNTER_TO_ZERO;
   let firstCard: null | string = null;
   let firstItem: null | HTMLElement = null;
   cardonField.addEventListener('click', (event) => {
@@ -60,18 +62,18 @@ export function followTheCard(): void {
         if (checkClass(item, 'turn')) {
           count++;
         }
-        if (checkClass(item, 'turn') && count !== 2) {
+        if (checkClass(item, 'turn') && count !== TWO_CARD) {
           firstCard = getNumberCard(item.className);
           firstItem = item;
         }
-        if (count === 2) {
-          count = 0;
+        if (count === TWO_CARD) {
+          count = COUNTER_TO_ZERO;
           objCountComparison.countComparison++;
           const secondCard = getNumberCard(item.className);
           cardonField.style.pointerEvents = 'none';
           setTimeout(() => {
             cardonField.style.pointerEvents = 'auto';
-          }, TURN_ON_THE_MOUSE);
+          }, TIME_TURN_ON_THE_MOUSE);
           if (firstCard === secondCard) {
             paintGreen(firstItem, item);
           } else {
@@ -79,11 +81,11 @@ export function followTheCard(): void {
             paintRed(firstItem, item);
             reverseBack(objArrsCard.arrCards);
           }
-          count = 0;
+          count = COUNTER_TO_ZERO;
           firstItem = null;
         }
       });
-      count = 0;
+      count = COUNTER_TO_ZERO;
     }
   });
   cardonField.addEventListener('click', final, { once: true });

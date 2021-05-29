@@ -9,6 +9,7 @@ export class CountTime {
   }
 
   work(): void {
+    const CLOCK_FACE = 60;
     const period = getObjPeriod();
     if (this.flag === undefined) return;
     let s = parseInt(period.sec.innerHTML, 10);
@@ -18,7 +19,7 @@ export class CountTime {
     } else {
       period.sec.innerHTML = `${s}`;
     }
-    if (s === 60) {
+    if (s === CLOCK_FACE) {
       s = 0;
       period.sec.innerHTML = `0${s}`;
       let m = parseInt(period.min.innerHTML, 10);
@@ -28,7 +29,7 @@ export class CountTime {
       } else {
         period.min.innerHTML = `${m}`;
       }
-      if (m === 60) {
+      if (m === CLOCK_FACE) {
         m = 0;
         period.min.innerHTML = `0${m}`;
         let h = parseInt(period.hour.innerHTML, 10);
@@ -49,8 +50,9 @@ export class CountTime {
   }
 
   start(): void {
+    const TIME_CALL_FN_WORK = 1000;
     this.stop();
-    this.flag = window.setInterval(this.work, 1000);
+    this.flag = window.setInterval(this.work, TIME_CALL_FN_WORK);
   }
 }
 

@@ -1,3 +1,2 @@
-export const checkClass = (elem: HTMLElement, elemClass: string): boolean => {
-  return elem.classList.contains(elemClass);
-};
+export const checkClass = (elem: HTMLElement, elemClass: string): boolean =>
+  elem.classList.contains(elemClass);
