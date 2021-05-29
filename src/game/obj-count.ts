@@ -1,8 +1,10 @@
+import { zero } from '../utils/consts';
+
 interface IObjCount {
   [key: string]: number;
 }
 
 export const objCountComparison: IObjCount = {
-  countComparison: 0,
-  countErroneousСomparison: 0,
+  countComparison: zero,
+  countErroneousСomparison: zero,
 };
