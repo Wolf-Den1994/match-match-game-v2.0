@@ -1,3 +1,4 @@
+import { addClassList } from '../utils/add-class';
 import { Difficulty } from '../utils/enum';
 import { getObjArrsCard } from '../utils/utils';
 import { objWithSetting } from './obj-setting';
@@ -8,11 +9,11 @@ const MIDDLE_DIFF = 6;
 function setClasses(arr: HTMLElement[]): void {
   arr.forEach((card) => {
     if (objWithSetting.difficulty === EASY_DIFF) {
-      card.classList.add(Difficulty.Easy);
+      addClassList(card, Difficulty.Easy);
     } else if (objWithSetting.difficulty === MIDDLE_DIFF) {
-      card.classList.add(Difficulty.Middle);
+      addClassList(card, Difficulty.Middle);
     } else {
-      card.classList.add(Difficulty.Hard);
+      addClassList(card, Difficulty.Hard);
     }
   });
 }

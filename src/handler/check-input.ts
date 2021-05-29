@@ -3,9 +3,11 @@ import {
   checkingConditionValidName,
   checkingConditionValidSurname,
 } from '../shared/checkig-user';
+import { addClassList } from '../utils/add-class';
 import { CHECK_HIDDEN, INVALID, WARNING } from '../utils/consts';
 import { isInputElement } from '../utils/errors';
 import { getObjElemsRegister } from '../utils/reg-utils';
+import { removeClassList } from '../utils/remove-class';
 import { toNumber } from '../utils/toNumber';
 import { btnFormCancel, btnFormSubmit } from './register-html';
 
@@ -24,10 +26,10 @@ const checkUser = function isValidateUser(): boolean {
 
 function isValidate(): void {
   if (checkUser()) {
-    btnFormSubmit.classList.remove(INVALID);
+    removeClassList(btnFormSubmit, INVALID);
     btnFormSubmit.disabled = false;
   } else {
-    btnFormSubmit.classList.add(INVALID);
+    addClassList(btnFormSubmit, INVALID);
     btnFormSubmit.disabled = true;
   }
 }
@@ -42,9 +44,9 @@ function changeOfState(
     const idImage: number = toNumber(elem.id.slice(-1));
     if (idImage === id) {
       if (isRemove) {
-        elem.classList.remove(className);
+        removeClassList(elem, className);
       } else {
-        elem.classList.add(className);
+        addClassList(elem, className);
       }
     }
   });
@@ -121,15 +123,15 @@ export function resetInput(): void {
     objElemsReg.userEmail.value = '';
   }
   objElemsReg.ArrayImagesCheck.forEach((image) => {
-    image.classList.add(CHECK_HIDDEN);
+    addClassList(image, CHECK_HIDDEN);
   });
   userNameIsValid = false;
   userSurnameIsValid = false;
   userEmailIsValid = false;
-  btnFormSubmit.classList.add(INVALID);
+  addClassList(btnFormSubmit, INVALID);
   btnFormSubmit.disabled = true;
   objElemsReg.ArrayDivItemInputs.forEach((div) => {
-    div.classList.remove(WARNING);
+    removeClassList(div, WARNING);
   });
 }
 

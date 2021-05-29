@@ -3,12 +3,12 @@ import { btnFormSubmit } from '../handler/register-html';
 import { handlerUserRegistration } from '../handler/submit-input';
 import { checkClass } from '../utils/check-class';
 import { HIDDEN } from '../utils/consts';
+import { updateClassList } from '../utils/update-class';
 import { createField } from './field-time';
 
 function toRunStartGame(): void {
   if (checkClass(btnStopGame, HIDDEN)) {
-    btnStartGame.classList.add(HIDDEN);
-    btnStopGame.classList.remove(HIDDEN);
+    updateClassList(btnStartGame, btnStopGame, HIDDEN);
 
     createField();
   }

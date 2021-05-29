@@ -1,6 +1,7 @@
 import { divAvatar } from '../header/div-avatar';
 import { person } from '../indexeddb/indexeddb';
 import { zero } from '../utils/consts';
+import { removeClassList } from '../utils/remove-class';
 
 const input = <HTMLInputElement>document.querySelector('#user-avatar');
 const label = <HTMLLabelElement>document.querySelector('.label-user-avatar');
@@ -25,7 +26,7 @@ input.onchange = () => {
     const userPhoto = `${res}`;
     localStorage.setItem('avatar', userPhoto);
     const avatar = localStorage.getItem('avatar');
-    divAvatar.classList.remove('hide');
+    removeClassList(divAvatar, 'hide');
     label.children[zero]?.remove();
     person.avatar = `${avatar}`;
     divAvatar.style.backgroundImage = `url('${avatar}')`;

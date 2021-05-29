@@ -1,6 +1,7 @@
 import { checkClass } from '../utils/check-class';
 import { HIDDEN, OPEN_MODAL } from '../utils/consts';
 import { getObjElemsRegister } from '../utils/reg-utils';
+import { updateClassList } from '../utils/update-class';
 import {
   isValidateEmail,
   isValidateName,
@@ -16,8 +17,7 @@ export function handlerUserRegistration(): void {
   if (checkClass(modal, OPEN_MODAL)) {
     closeModalRegister();
     if (checkClass(btnStartGame, HIDDEN)) {
-      btnRegister.classList.add(HIDDEN);
-      btnStartGame.classList.remove(HIDDEN);
+      updateClassList(btnRegister, btnStartGame, HIDDEN);
     }
   }
   objElemsReg.userName.removeEventListener('input', () => {

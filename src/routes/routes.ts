@@ -8,6 +8,7 @@ import { linkNavbarAbout } from '../header/navbar-about';
 import { linkNavbarScore } from '../header/navbar-score';
 import { linkNavbarSettings } from '../header/navbar-settings';
 import { stopGame } from '../stop/stop-game';
+import { addClassList } from '../utils/add-class';
 import { checkClass } from '../utils/check-class';
 import { ACTIVE, HIDDEN } from '../utils/consts';
 import { toNumber } from '../utils/toNumber';
@@ -34,7 +35,7 @@ root.innerHTML = routes[window.location.pathname];
 const navbarLinks = document.querySelectorAll('.navbar-link');
 
 root.innerHTML = routes[window.location.pathname];
-linkNavbarAbout.classList.add(ACTIVE);
+addClassList(linkNavbarAbout, ACTIVE);
 
 export function pollOfElections(): void {
   const selectCard = document.querySelector('#select-card');
@@ -72,7 +73,7 @@ function callFnStopGame(): void {
 
 function goHome(): boolean {
   deleteClassNameAtLink();
-  linkNavbarAbout.classList.add(ACTIVE);
+  addClassList(linkNavbarAbout, ACTIVE);
   onNavigate('/');
   callFnStopGame();
   return false;
@@ -80,7 +81,7 @@ function goHome(): boolean {
 
 function goScore(): boolean {
   deleteClassNameAtLink();
-  linkNavbarScore.classList.add(ACTIVE);
+  addClassList(linkNavbarScore, ACTIVE);
   onNavigate('/score');
   callFnStopGame();
   return false;
@@ -108,7 +109,7 @@ linkNavbarScore.onclick = () => {
 };
 linkNavbarSettings.onclick = () => {
   deleteClassNameAtLink();
-  linkNavbarSettings.classList.add(ACTIVE);
+  addClassList(linkNavbarSettings, ACTIVE);
   onNavigate('/settings');
   callFnStopGame();
   return false;

@@ -1,5 +1,6 @@
 import { congratulateTheWinner } from '../final/final';
 import { time } from '../stopwatch/stopwatch';
+import { addClassList } from '../utils/add-class';
 import { checkClass } from '../utils/check-class';
 import { PAINT_GREEN, TURN, zero } from '../utils/consts';
 import { PointerEvent } from '../utils/enum';
@@ -58,7 +59,7 @@ export function followTheCard(): void {
     const flipper = <HTMLElement>back.parentElement;
     const card = <HTMLElement>flipper.parentElement;
     if (checkClass(card, 'card')) {
-      card.classList.add(TURN);
+      addClassList(card, TURN);
       objArrsCard.arrCards.forEach((item: HTMLElement) => {
         if (checkClass(item, TURN)) {
           count++;
