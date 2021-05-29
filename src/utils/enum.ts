@@ -21,3 +21,8 @@ export enum StateCard {
   Back = 'back',
   Flipper = 'flipper',
 }
+
+export enum PointerEvent {
+  None = 'none',
+  Auto = 'auto',
+}

@@ -1,6 +1,7 @@
 import { congratulateTheWinner } from '../final/final';
 import { time } from '../stopwatch/stopwatch';
 import { checkClass } from '../utils/check-class';
+import { PointerEvent } from '../utils/enum';
 import { toNumber } from '../utils/toNumber';
 import { getObjArrsCard } from '../utils/utils';
 import { objCountComparison } from './obj-count';
@@ -70,9 +71,9 @@ export function followTheCard(): void {
           count = COUNTER_TO_ZERO;
           objCountComparison.countComparison++;
           const secondCard = getNumberCard(item.className);
-          cardonField.style.pointerEvents = 'none';
+          cardonField.style.pointerEvents = PointerEvent.None;
           setTimeout(() => {
-            cardonField.style.pointerEvents = 'auto';
+            cardonField.style.pointerEvents = PointerEvent.Auto;
           }, TIME_TURN_ON_THE_MOUSE);
           if (firstCard === secondCard) {
             paintGreen(firstItem, item);
