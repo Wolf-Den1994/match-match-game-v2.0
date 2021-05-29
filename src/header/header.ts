@@ -6,20 +6,28 @@ const divHeaderLeft = document.createElement('div');
 divHeaderLeft.className = 'header-left';
 header.append(divHeaderLeft);
 
+const divHeaderRight = document.createElement('div');
+divHeaderRight.className = 'header-right';
+header.append(divHeaderRight);
+
 const btnRegister = document.createElement('button');
 btnRegister.className = 'btn-register';
 btnRegister.innerHTML = `register new player`;
-header.append(btnRegister);
+divHeaderRight.append(btnRegister);
 
 export const btnStartGame = document.createElement('button');
 btnStartGame.className = 'btn-start-game hidden';
 btnStartGame.innerHTML = `start game`;
-header.append(btnStartGame);
+divHeaderRight.append(btnStartGame);
 
 export const btnStopGame = document.createElement('button');
 btnStopGame.className = 'btn-stop-game hidden';
 btnStopGame.innerHTML = `stop game`;
-header.append(btnStopGame);
+divHeaderRight.append(btnStopGame);
+
+export const divAvatar = document.createElement('div');
+divAvatar.className = 'header-avatar hide';
+divHeaderRight.append(divAvatar);
 
 const divLogo = document.createElement('div');
 divLogo.className = 'logo';

@@ -27,6 +27,14 @@ body {
   align-items: center;
 }
 
+.header-right {
+  max-width: 260px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .logo {
   display: flex;
   max-width: 80px;
@@ -135,5 +143,18 @@ body {
 .btn-register.hidden,
 .btn-start-game.hidden,
 .btn-stop-game.hidden  {
+  display: none;
+}
+
+.header-avatar {
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  display: inline-block;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.hide {
   display: none;
 }

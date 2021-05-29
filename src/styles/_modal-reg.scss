@@ -125,8 +125,18 @@
   top: 20%;
 }
 
-.form-user-avatar {
+.label-user-avatar {
   cursor: pointer;
+  height: 198px;
+  width: 198px;
+  background-position: center;
+  display: inline-block;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.form-user-avatar {
+  display: none;
 }
 
 .check-hidden {

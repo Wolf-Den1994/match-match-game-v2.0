@@ -56,9 +56,14 @@ export const registerHTML = `
         </p>
       </form>
       <div class="form-register-avatar">
-        <img 
+        <label for="user-avatar" class="label-user-avatar">
+          <img 
           src="${avatarEllipseHTML}" 
           alt="load-avatar"
+          >
+        </label>
+        <input 
+          type="file" 
           id="user-avatar"
           class="form-user-avatar"
         >

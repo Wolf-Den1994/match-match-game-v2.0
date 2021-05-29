@@ -21,6 +21,7 @@ export const person: IObjPerson = {
   lastname: '',
   email: '',
   score: '',
+  avatar: '',
 };
 
 function sortByAge(arr: IObjPerson[]): void {
@@ -57,7 +58,10 @@ function putPeopleInTheTable(): void {
           <div class="player">
             <div class="player-info">
               <div class="player-avatar">
-                <img src="${avatarEmpry}" alt="avatar">
+                <img 
+                  src="${data[i].avatar ? data[i].avatar : avatarEmpry}" 
+                  alt="avatar"
+                >
               </div>
               <div class="player-description">
                 <p class="player-name">${data[i].name} ${data[i].lastname}</p>
