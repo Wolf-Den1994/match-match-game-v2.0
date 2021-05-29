@@ -1,3 +1,4 @@
+import { checkClass } from '../utils/check-class';
 import { getObjElemsRegister } from '../utils/reg-utils';
 import {
   isValidateEmail,
@@ -11,9 +12,9 @@ import { btnFormCancel, btnFormSubmit, modal } from './register-html';
 const objElemsReg = getObjElemsRegister();
 
 export function handlerUserRegistration(): void {
-  if (modal.classList.contains('open-modal')) {
+  if (checkClass(modal, 'open-modal')) {
     closeModalRegister();
-    if (btnStartGame.classList.contains('hidden')) {
+    if (checkClass(btnStartGame, 'hidden')) {
       btnRegister.classList.add('hidden');
       btnStartGame.classList.remove('hidden');
     }

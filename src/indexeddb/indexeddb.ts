@@ -1,5 +1,6 @@
 import { btnFinal } from '../final/final-html';
 import { linkNavbarScore } from '../header/navbar-score';
+import { checkClass } from '../utils/check-class';
 
 const MAX_OUTPUT_TO_SCORE = 10;
 const nameDB = 'Wolf-Den1994';
@@ -30,7 +31,7 @@ function sortByAge(arr: IObjPerson[]): void {
 
 function putPeopleInTheTable(): void {
   let output = '';
-  if (linkNavbarScore.classList.contains('active')) {
+  if (checkClass(linkNavbarScore, 'active')) {
     const transaction = db.transaction(['people'], 'readonly');
     const people = transaction.objectStore('people');
     const cursor = people.openCursor();

@@ -8,6 +8,7 @@ import { linkNavbarAbout } from '../header/navbar-about';
 import { linkNavbarScore } from '../header/navbar-score';
 import { linkNavbarSettings } from '../header/navbar-settings';
 import { stopGame } from '../stop/stop-game';
+import { checkClass } from '../utils/check-class';
 import { toNumber } from '../utils/toNumber';
 import { about } from './about';
 import { score } from './score';
@@ -63,7 +64,7 @@ function deleteClassNameAtLink(): void {
 }
 
 function callFnStopGame(): void {
-  if (!btnStopGame.classList.contains('hidden')) {
+  if (!checkClass(btnStopGame, 'hidden')) {
     stopGame();
   }
 }

@@ -1,5 +1,6 @@
 import { congratulateTheWinner } from '../final/final';
 import { time } from '../stopwatch/stopwatch';
+import { checkClass } from '../utils/check-class';
 import { toNumber } from '../utils/toNumber';
 import { getObjArrsCard } from '../utils/utils';
 import { objCountComparison } from './obj-count';
@@ -14,7 +15,7 @@ function final(): void {
   let count = 0;
   const objArrsCard = getObjArrsCard();
   objArrsCard.arrCards.forEach((item) => {
-    if (item.classList.contains('paint-green')) {
+    if (checkClass(item, 'paint-green')) {
       count++;
     }
   });
@@ -53,13 +54,13 @@ export function followTheCard(): void {
     const back = <HTMLElement>target.parentElement;
     const flipper = <HTMLElement>back.parentElement;
     const card = <HTMLElement>flipper.parentElement;
-    if (card.classList.contains('card')) {
+    if (checkClass(card, 'card')) {
       card.classList.add('turn');
       objArrsCard.arrCards.forEach((item: HTMLElement) => {
-        if (item.classList.contains('turn')) {
+        if (checkClass(item, 'turn')) {
           count++;
         }
-        if (item.classList.contains('turn') && count !== 2) {
+        if (checkClass(item, 'turn') && count !== 2) {
           firstCard = getNumberCard(item.className);
           firstItem = item;
         }

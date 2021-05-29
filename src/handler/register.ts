@@ -1,4 +1,5 @@
 import { indexedDBcall } from '../indexeddb/indexeddb';
+import { checkClass } from '../utils/check-class';
 import { btnFormSubmit, modal, overlay } from './register-html';
 
 export const btnRegister = <HTMLButtonElement>(
@@ -25,13 +26,13 @@ export function closeModalRegister(): void {
 
 window.onload = () => {
   function checkOpenModalRegister(): void {
-    if (!modal.classList.contains('open-modal')) {
+    if (!checkClass(modal, 'open-modal')) {
       openModalRegister();
     }
   }
 
   function checkCloseModalRegister(): void {
-    if (modal.classList.contains('open-modal')) {
+    if (checkClass(modal, 'open-modal')) {
       closeModalRegister();
     }
   }
