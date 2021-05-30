@@ -15,7 +15,7 @@ const TIME_CALL_FN_FINAL = 500;
 const TIME_TURN_ON_THE_MOUSE = 1300;
 const TWO_CARD = 2;
 
-function final(): void {
+const final = function isFinal(): void {
   let count = zero;
   const objArrsCard = getObjArrsCard();
   objArrsCard.arrCards.forEach((item) => {
@@ -30,9 +30,9 @@ function final(): void {
   }
   count = zero;
   setTimeout(final, TIME_CALL_FN_FINAL);
-}
+};
 
-function getNumberCard(elem: string): string {
+const getNumberCard = function numberCard(elem: string): string {
   const cardNumber = elem
     .split(' ')[1]
     .slice(-2)
@@ -45,9 +45,9 @@ function getNumberCard(elem: string): string {
     })
     .join('');
   return cardNumber;
-}
+};
 
-export function followTheCard(): void {
+export const followTheCard = function followCard(): void {
   const cardonField = <HTMLElement>document.getElementById('field');
   const objArrsCard = getObjArrsCard();
   let count = zero;
@@ -91,4 +91,4 @@ export function followTheCard(): void {
     }
   });
   cardonField.addEventListener('click', final, { once: true });
-}
+};

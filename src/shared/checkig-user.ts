@@ -6,7 +6,7 @@ import { isValidEmail, isValidName, isValidSurname } from './isValid';
 const objElemsReg = getObjElemsRegister();
 const MAX_LENGTH_EMAIL = 30;
 
-export function checkingConditionValidName(): boolean {
+export const checkingConditionValidName = function checkName(): boolean {
   if (!isInputElement(objElemsReg.userName)) return false;
   if (
     objElemsReg.userName.validity.valid &&
@@ -16,9 +16,9 @@ export function checkingConditionValidName(): boolean {
     return true;
   }
   return false;
-}
+};
 
-export function checkingConditionValidSurname(): boolean {
+export const checkingConditionValidSurname = function checkSurname(): boolean {
   if (!isInputElement(objElemsReg.userLastname)) return false;
   if (
     objElemsReg.userLastname.validity.valid &&
@@ -28,9 +28,9 @@ export function checkingConditionValidSurname(): boolean {
     return true;
   }
   return false;
-}
+};
 
-export function checkingConditionValidEmail(): boolean {
+export const checkingConditionValidEmail = function checkEmail(): boolean {
   if (!isInputElement(objElemsReg.userEmail)) return false;
   if (
     objElemsReg.userEmail.validity.valid &&
@@ -40,4 +40,4 @@ export function checkingConditionValidEmail(): boolean {
     return true;
   }
   return false;
-}
+};

@@ -24,7 +24,7 @@ const checkUser = function isValidateUser(): boolean {
   return false;
 };
 
-function isValidate(): void {
+const isValidate = function validate(): void {
   if (checkUser()) {
     removeClassList(btnFormSubmit, INVALID);
     btnFormSubmit.disabled = false;
@@ -32,9 +32,9 @@ function isValidate(): void {
     addClassList(btnFormSubmit, INVALID);
     btnFormSubmit.disabled = true;
   }
-}
+};
 
-function changeOfState(
+const changeOfState = function changeState(
   arr: HTMLElement[],
   id: number,
   className: string,
@@ -50,21 +50,21 @@ function changeOfState(
       }
     }
   });
-}
+};
 
-function showIconCheck(id: number): void {
+const showIconCheck = function showIcon(id: number): void {
   changeOfState(objElemsReg.ArrayImagesCheck, id, CHECK_HIDDEN, true);
   changeOfState(objElemsReg.ArrayDivItemInputs, id, WARNING, true);
   changeOfState(objElemsReg.ArraypErrors, id, CHECK_HIDDEN, false);
-}
+};
 
-function hideIconCheck(id: number): void {
+const hideIconCheck = function hideIcon(id: number): void {
   changeOfState(objElemsReg.ArrayImagesCheck, id, CHECK_HIDDEN, false);
   changeOfState(objElemsReg.ArrayDivItemInputs, id, WARNING, false);
   changeOfState(objElemsReg.ArraypErrors, id, CHECK_HIDDEN, true);
-}
+};
 
-export function isValidateName(): void {
+export const isValidateName = function validateName(): void {
   const VALID_NAME = 1;
   if (checkingConditionValidName()) {
     userNameIsValid = true;
@@ -74,9 +74,9 @@ export function isValidateName(): void {
     hideIconCheck(VALID_NAME);
   }
   isValidate();
-}
+};
 
-export function isValidateSurname(): void {
+export const isValidateSurname = function validateSurname(): void {
   const VALID_SURNAME = 2;
   if (checkingConditionValidSurname()) {
     userSurnameIsValid = true;
@@ -86,9 +86,9 @@ export function isValidateSurname(): void {
     hideIconCheck(VALID_SURNAME);
   }
   isValidate();
-}
+};
 
-export function isValidateEmail(): void {
+export const isValidateEmail = function validateEmail(): void {
   const VALID_EMAIL = 3;
   if (checkingConditionValidEmail()) {
     userEmailIsValid = true;
@@ -98,7 +98,7 @@ export function isValidateEmail(): void {
     hideIconCheck(VALID_EMAIL);
   }
   isValidate();
-}
+};
 
 objElemsReg.userName.addEventListener('input', () => {
   isValidateName();
@@ -112,7 +112,7 @@ objElemsReg.userEmail.addEventListener('input', () => {
   isValidateEmail();
 });
 
-export function resetInput(): void {
+export const resetInput = function resetAllInputs(): void {
   if (isInputElement(objElemsReg.userName)) {
     objElemsReg.userName.value = '';
   }
@@ -133,6 +133,6 @@ export function resetInput(): void {
   objElemsReg.ArrayDivItemInputs.forEach((div) => {
     removeClassList(div, WARNING);
   });
-}
+};
 
 btnFormCancel.addEventListener('click', resetInput);

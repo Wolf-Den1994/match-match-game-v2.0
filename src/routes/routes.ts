@@ -39,7 +39,7 @@ const navbarLinks = document.querySelectorAll('.navbar-link');
 root.innerHTML = routes[window.location.pathname];
 addClassList(linkNavbarAbout, ACTIVE);
 
-export function pollOfElections(): void {
+export const pollOfElections = function pollElections(): void {
   const selectCard = document.querySelector('#select-card');
   const selectDifficulty = document.querySelector('#select-difficulty');
   if (selectCard instanceof HTMLSelectElement) {
@@ -49,7 +49,7 @@ export function pollOfElections(): void {
     objWithSetting.difficulty = toNumber(selectDifficulty.value);
   }
   setTimeout(pollOfElections, TIME_CALL_FN_POLLOFEL);
-}
+};
 
 const onNavigate = (pathname: string) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
@@ -61,33 +61,33 @@ const onNavigate = (pathname: string) => {
   pollOfElections();
 };
 
-function deleteClassNameAtLink(): void {
+const deleteClassNameAtLink = function deleteClassNameLink(): void {
   navbarLinks.forEach((link) => {
     link.className = 'navbar-link';
   });
-}
+};
 
-function callFnStopGame(): void {
+const callFnStopGame = function callStopGame(): void {
   if (!checkClass(btnStopGame, HIDDEN)) {
     stopGame();
   }
-}
+};
 
-function goHome(): boolean {
+const goHome = function homePage(): boolean {
   deleteClassNameAtLink();
   addClassList(linkNavbarAbout, ACTIVE);
   onNavigate('/');
   callFnStopGame();
   return false;
-}
+};
 
-function goScore(): boolean {
+const goScore = function scorePage(): boolean {
   deleteClassNameAtLink();
   addClassList(linkNavbarScore, ACTIVE);
   onNavigate('/score');
   callFnStopGame();
   return false;
-}
+};
 
 btnStartGame.onclick = () => {
   deleteClassNameAtLink();

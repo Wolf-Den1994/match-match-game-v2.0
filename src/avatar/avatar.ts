@@ -6,7 +6,7 @@ import { removeClassList } from '../utils/remove-class';
 const input = <HTMLInputElement>document.querySelector('#user-avatar');
 const label = <HTMLLabelElement>document.querySelector('.label-user-avatar');
 
-function imageLoad() {
+const image = function imageLoad() {
   return new Promise((res) => {
     if (input.files) {
       const file = input.files[zero];
@@ -19,10 +19,10 @@ function imageLoad() {
       };
     }
   });
-}
+};
 
 input.onchange = () => {
-  imageLoad().then((res) => {
+  image().then((res) => {
     const userPhoto = `${res}`;
     localStorage.setItem('avatar', userPhoto);
     const avatar = localStorage.getItem('avatar');

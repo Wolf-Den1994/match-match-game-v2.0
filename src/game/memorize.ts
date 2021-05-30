@@ -7,7 +7,7 @@ import { setWidth } from './set-width';
 
 const TIME_TO_MEMORIZE = 3000;
 
-export function toMemorizeCards(): void {
+export const toMemorizeCards = function memorizeCards(): void {
   const objArrsCard = getObjArrsCard();
   setWidth();
   setTimeout(() => {
@@ -15,4 +15,4 @@ export function toMemorizeCards(): void {
     followTheCard();
     time.start();
   }, TIME_TO_MEMORIZE);
-}
+};

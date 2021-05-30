@@ -1,3 +1,3 @@
-export function toNumber(value: string | number): number {
+export const toNumber = function goNumber(value: string | number): number {
   return +value;
-}
+};

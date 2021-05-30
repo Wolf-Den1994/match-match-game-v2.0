@@ -3,7 +3,11 @@ import { person } from '../indexeddb/indexeddb';
 import { zero } from '../utils/consts';
 import { toNumber } from '../utils/toNumber';
 
-export function toScore(hour: string, min: string, sec: string): void {
+export const toScore = function score(
+  hour: string,
+  min: string,
+  sec: string,
+): void {
   const CLOCK_FACE = 60;
   const time = `${hour}:${min}:${sec}`;
   let timeResult = zero;
@@ -18,4 +22,4 @@ export function toScore(hour: string, min: string, sec: string): void {
       100 -
     timeResult * 10;
   person.score = scoreValue > zero ? `${scoreValue}` : `0`;
-}
+};

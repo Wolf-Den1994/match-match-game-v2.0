@@ -8,7 +8,7 @@ interface IArrsCard {
   arrBackDivs: HTMLElement[];
 }
 
-export function getObjArrsCard(): IArrsCard {
+export const getObjArrsCard = function objArrsCard(): IArrsCard {
   const arrCards: HTMLElement[] = Array.prototype.slice.call(cardDivs);
   const arrFrontDivs: HTMLElement[] = Array.prototype.slice.call(frontDivs);
   const arrBackDivs: HTMLElement[] = Array.prototype.slice.call(backDivs);
@@ -18,4 +18,4 @@ export function getObjArrsCard(): IArrsCard {
     arrFrontDivs,
     arrBackDivs,
   };
-}
+};

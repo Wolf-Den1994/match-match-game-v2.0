@@ -13,7 +13,7 @@ import { btnFormCancel, btnFormSubmit, modal } from './register-html';
 
 const objElemsReg = getObjElemsRegister();
 
-export function handlerUserRegistration(): void {
+export const handlerUserRegistration = function handlerUserRegistr(): void {
   if (checkClass(modal, OPEN_MODAL)) {
     closeModalRegister();
     if (checkClass(btnStartGame, HIDDEN)) {
@@ -30,6 +30,6 @@ export function handlerUserRegistration(): void {
     isValidateEmail();
   });
   btnFormCancel.removeEventListener('click', resetInput);
-}
+};
 
 btnFormSubmit.addEventListener('click', handlerUserRegistration);

@@ -10,9 +10,9 @@ const avatarEmpry = require('../assets/image/avatar-ellipse.png');
 
 let db: IDBDatabase;
 
-function idbOK(): boolean {
+const idbOK = function idbOk(): boolean {
   return 'indexedDB' in window && !/iPad|iPhone|iPod/.test(navigator.platform);
-}
+};
 
 interface IObjPerson {
   [key: string]: string;
@@ -26,11 +26,11 @@ export const person: IObjPerson = {
   avatar: '',
 };
 
-function sortByAge(arr: IObjPerson[]): void {
+const sortByAge = function sortByScore(arr: IObjPerson[]): void {
   arr.sort((a: IObjPerson, b: IObjPerson) => (a.score < b.score ? 1 : -1));
-}
+};
 
-function putPeopleInTheTable(): void {
+const putPeopleInTheTable = function putPeopleInTable(): void {
   let output = '';
   if (checkClass(linkNavbarScore, 'active')) {
     const transaction = db.transaction(['people'], 'readonly');
@@ -89,9 +89,9 @@ function putPeopleInTheTable(): void {
       mainDiv.innerHTML = output;
     };
   }
-}
+};
 
-function personToBase(): void {
+const personToBase = function personAddToBase(): void {
   const email = document.querySelector('#user-email') as HTMLInputElement;
   const key = email.value;
   if (!key) return;
@@ -135,9 +135,9 @@ function personToBase(): void {
   setTimeout(() => {
     putPeopleInTheTable();
   }, TIME_AFTER_WHICH_CALL_FN_PUT);
-}
+};
 
-export function indexedDBcall(): void {
+export const indexedDBcall = function indexDB(): void {
   if (!idbOK()) return;
 
   const openRequest = indexedDB.open(nameDB, versionDB);
@@ -161,4 +161,4 @@ export function indexedDBcall(): void {
     btnFinal.addEventListener('click', personToBase);
     linkNavbarScore.addEventListener('click', putPeopleInTheTable);
   };
-}
+};

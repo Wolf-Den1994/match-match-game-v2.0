@@ -4,7 +4,7 @@ export const gameField = `
   <main class='main-field'></main>
 `;
 
-export function createField(): void {
+export const createField = function createFieldTime(): void {
   const field = <HTMLElement>document.querySelector('.main-field');
   const wrapper = document.createElement('section');
   wrapper.className = TIME;
@@ -37,7 +37,7 @@ export function createField(): void {
   sec.id = 'sec';
   sec.innerHTML = '00';
   stopwatch.append(sec);
-}
+};
 
 interface IPeriod {
   hour: HTMLElement;
@@ -45,7 +45,7 @@ interface IPeriod {
   sec: HTMLElement;
 }
 
-export function getObjPeriod(): IPeriod {
+export const getObjPeriod = function getObjTime(): IPeriod {
   const hour = <HTMLElement>document.getElementById('hour');
   const min = <HTMLElement>document.getElementById('min');
   const sec = <HTMLElement>document.getElementById('sec');
@@ -55,4 +55,4 @@ export function getObjPeriod(): IPeriod {
     min,
     sec,
   };
-}
+};

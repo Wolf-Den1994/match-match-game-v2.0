@@ -10,7 +10,7 @@ interface IElemsReg {
   ArraypErrors: HTMLElement[];
 }
 
-export function getObjElemsRegister(): IElemsReg {
+export const getObjElemsRegister = function objElemsRegister(): IElemsReg {
   const userName = <HTMLElement>document.getElementById('user-name');
   const userLastname = <HTMLElement>document.getElementById('user-lastname');
   const userEmail = <HTMLElement>document.getElementById('user-email');
@@ -39,4 +39,4 @@ export function getObjElemsRegister(): IElemsReg {
     pError,
     ArraypErrors,
   };
-}
+};

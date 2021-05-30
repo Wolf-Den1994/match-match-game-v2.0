@@ -3,7 +3,7 @@ import { toScore } from '../score/to-score';
 import { addClassList } from '../utils/add-class';
 import { OPEN_MODAL } from '../utils/consts';
 
-export function congratulateTheWinner(): void {
+export const congratulateTheWinner = function congratulateWinner(): void {
   const modalCongratulate = <HTMLElement>(
     document.querySelector('.modal-congratulate')
   );
@@ -23,4 +23,4 @@ export function congratulateTheWinner(): void {
   timeFromSpan.innerHTML = `${h}:${m}:${s}`;
 
   toScore(h, m, s);
-}
+};

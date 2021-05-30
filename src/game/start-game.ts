@@ -6,13 +6,13 @@ import { HIDDEN } from '../utils/consts';
 import { updateClassList } from '../utils/update-class';
 import { createField } from './field-time';
 
-function toRunStartGame(): void {
+const toRunStartGame = function runStartGame(): void {
   if (checkClass(btnStopGame, HIDDEN)) {
     updateClassList(btnStartGame, btnStopGame, HIDDEN);
 
     createField();
   }
   btnFormSubmit.removeEventListener('click', handlerUserRegistration);
-}
+};
 
 btnStartGame.addEventListener('click', toRunStartGame);

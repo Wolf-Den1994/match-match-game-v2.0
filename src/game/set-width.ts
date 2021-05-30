@@ -6,7 +6,7 @@ import { objWithSetting } from './obj-setting';
 const EASY_DIFF = 4;
 const MIDDLE_DIFF = 6;
 
-function setClasses(arr: HTMLElement[]): void {
+const setClasses = function setClassesCards(arr: HTMLElement[]): void {
   arr.forEach((card) => {
     if (objWithSetting.difficulty === EASY_DIFF) {
       addClassList(card, Difficulty.Easy);
@@ -16,12 +16,12 @@ function setClasses(arr: HTMLElement[]): void {
       addClassList(card, Difficulty.Hard);
     }
   });
-}
+};
 
-export function setWidth(): void {
+export const setWidth = function setWidthField(): void {
   const objArrsCard = getObjArrsCard();
 
   setClasses(objArrsCard.arrCards);
   setClasses(objArrsCard.arrFrontDivs);
   setClasses(objArrsCard.arrBackDivs);
-}
+};

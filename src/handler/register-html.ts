@@ -86,10 +86,10 @@ export const overlayHTML = `
   <div class="overlay" id="overlay"></div>
 `;
 
-function renderingModalRegister(): void {
+const renderingModalRegister = function renderModalRegister(): void {
   root.insertAdjacentHTML('beforebegin', registerHTML);
   root.insertAdjacentHTML('afterend', overlayHTML);
-}
+};
 renderingModalRegister();
 
 export const modal = <HTMLElement>document.querySelector('.modal-register');
