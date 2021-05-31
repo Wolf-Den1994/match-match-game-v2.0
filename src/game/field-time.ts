@@ -56,3 +56,15 @@ export const getObjPeriod = function getObjTime(): IPeriod {
     sec,
   };
 };
+
+interface ITimeField {
+  timeField: HTMLElement | null;
+}
+
+export const getObjTimeField = function getObjectTimeField(): ITimeField {
+  const timeField = <HTMLElement>document.querySelector('.stopwatch');
+
+  return {
+    timeField,
+  };
+};
