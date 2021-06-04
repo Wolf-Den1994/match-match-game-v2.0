@@ -1,6 +1,6 @@
 import { objWithSetting } from './obj-setting';
 import { toMemorizeCards } from './memorize';
-import { CardNumber, FaceType, StateCard } from '../utils/enum';
+import { CardNumber, FaceType, StateCard, Tags } from '../utils/enum';
 import { FIELD } from '../utils/consts';
 
 const imageBack = require('../assets/image/back-card.png');
@@ -31,7 +31,7 @@ export const renderField = function renderGameField(
 
   const cardon = function fieldCardon(): void {
     const random = generatorRandom();
-    const wrapper = document.createElement('div');
+    const wrapper = document.createElement(Tags.Div);
     wrapper.className = FIELD;
     wrapper.id = FIELD;
     cardonField.append(wrapper);
@@ -46,16 +46,16 @@ export const renderField = function renderGameField(
     }
 
     for (let i = 0; i <= random.length - 1; i++) {
-      const div = document.createElement('div');
+      const div = document.createElement(Tags.Div);
       div.className = `card cardn${random[i]} turn`;
       wrapper.append(div);
 
-      const fliper = document.createElement('div');
+      const fliper = document.createElement(Tags.Div);
       fliper.className = StateCard.Flipper;
       div.append(fliper);
 
-      const front = document.createElement('div');
-      const back = document.createElement('div');
+      const front = document.createElement(Tags.Div);
+      const back = document.createElement(Tags.Div);
       front.className = StateCard.Front;
       front.innerHTML = `
         <img 

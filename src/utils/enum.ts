@@ -48,3 +48,16 @@ export enum StopWatchTime {
   Min = 'min',
   Sec = 'sec',
 }
+
+export enum Tags {
+  Div = 'div',
+  Span = 'span',
+  Paragraph = 'p',
+  Button = 'button',
+  Section = 'section',
+  Header = 'header',
+  UlList = 'ul',
+  LiItem = 'li',
+  Link = 'a',
+  Svg = 'svg',
+}

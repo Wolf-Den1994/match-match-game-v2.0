@@ -1,8 +1,10 @@
-export const modalCongratulate = document.createElement('div');
+import { Tags } from '../utils/enum';
+
+export const modalCongratulate = document.createElement(Tags.Div);
 modalCongratulate.className = 'modal-congratulate';
 document.body.append(modalCongratulate);
 
-const congratulateText = document.createElement('p');
+const congratulateText = document.createElement(Tags.Paragraph);
 congratulateText.className = 'congratulate-text';
 congratulateText.innerHTML = `
     Congratulations! You successfully found all the matches. 
@@ -10,7 +12,7 @@ congratulateText.innerHTML = `
   `;
 modalCongratulate.append(congratulateText);
 
-export const btnFinal = document.createElement('button');
+export const btnFinal = document.createElement(Tags.Button);
 btnFinal.className = 'congratulate-button';
 btnFinal.innerHTML = 'ok';
 modalCongratulate.append(btnFinal);

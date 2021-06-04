@@ -10,7 +10,7 @@ import { linkNavbarSettings } from '../header/navbar-settings';
 import { stopGame } from '../stop/stop-game';
 import { addClassList } from '../utils/add-class';
 import { checkClass } from '../utils/check-class';
-import { ElemClasses } from '../utils/enum';
+import { ElemClasses, Tags } from '../utils/enum';
 import { toNumber } from '../utils/toNumber';
 import { about } from './about';
 import { score } from './score';
@@ -29,7 +29,7 @@ const routes: IRoutes = {
   '/game': gameField,
 };
 
-export const root = document.createElement('div');
+export const root = document.createElement(Tags.Div);
 root.id = 'root';
 document.body.append(root);
 root.innerHTML = routes[window.location.pathname];
