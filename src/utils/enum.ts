@@ -26,3 +26,16 @@ export enum PointerEvent {
   None = 'none',
   Auto = 'auto',
 }
+
+export enum ElemClasses {
+  OPEN_MODAL = 'open-modal',
+  PAINT_CORRECT = 'paint-green',
+  PAINT_WRONG = 'paint-red',
+  HIDDEN = 'hidden',
+  INVALID = 'invalid',
+  TURN = 'turn',
+  CHECK_HIDDEN = 'check-hidden',
+  WARNING = 'warning',
+  LOCK = 'lock',
+  ACTIVE = 'active',
+}

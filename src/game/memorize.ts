@@ -1,5 +1,5 @@
 import { time } from '../stopwatch/stopwatch';
-import { TURN } from '../utils/consts';
+import { ElemClasses } from '../utils/enum';
 import { removeClassList } from '../utils/remove-class';
 import { getObjArrsCard } from '../utils/utils';
 import { getObjTimeField } from './field-time';
@@ -14,7 +14,9 @@ export const toMemorizeCards = function memorizeCards(): void {
   setTimeout(() => {
     const objTimeField = getObjTimeField();
     if (!objTimeField.timeField) return;
-    objArrsCard.arrCards.forEach((item) => removeClassList(item, TURN));
+    objArrsCard.arrCards.forEach((item) =>
+      removeClassList(item, ElemClasses.TURN),
+    );
     followTheCard();
     time.start();
   }, TIME_TO_MEMORIZE);

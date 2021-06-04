@@ -4,7 +4,7 @@ import {
   checkingConditionValidSurname,
 } from '../shared/checkig-user';
 import { addClassList } from '../utils/add-class';
-import { CHECK_HIDDEN, INVALID, WARNING } from '../utils/consts';
+import { ElemClasses } from '../utils/enum';
 import { isInputElement } from '../utils/errors';
 import { getObjElemsRegister } from '../utils/reg-utils';
 import { removeClassList } from '../utils/remove-class';
@@ -26,10 +26,10 @@ const checkUser = function isValidateUser(): boolean {
 
 const isValidate = function validate(): void {
   if (checkUser()) {
-    removeClassList(btnFormSubmit, INVALID);
+    removeClassList(btnFormSubmit, ElemClasses.INVALID);
     btnFormSubmit.disabled = false;
   } else {
-    addClassList(btnFormSubmit, INVALID);
+    addClassList(btnFormSubmit, ElemClasses.INVALID);
     btnFormSubmit.disabled = true;
   }
 };
@@ -53,15 +53,25 @@ const changeOfState = function changeState(
 };
 
 const showIconCheck = function showIcon(id: number): void {
-  changeOfState(objElemsReg.ArrayImagesCheck, id, CHECK_HIDDEN, true);
-  changeOfState(objElemsReg.ArrayDivItemInputs, id, WARNING, true);
-  changeOfState(objElemsReg.ArraypErrors, id, CHECK_HIDDEN, false);
+  changeOfState(
+    objElemsReg.ArrayImagesCheck,
+    id,
+    ElemClasses.CHECK_HIDDEN,
+    true,
+  );
+  changeOfState(objElemsReg.ArrayDivItemInputs, id, ElemClasses.WARNING, true);
+  changeOfState(objElemsReg.ArraypErrors, id, ElemClasses.CHECK_HIDDEN, false);
 };
 
 const hideIconCheck = function hideIcon(id: number): void {
-  changeOfState(objElemsReg.ArrayImagesCheck, id, CHECK_HIDDEN, false);
-  changeOfState(objElemsReg.ArrayDivItemInputs, id, WARNING, false);
-  changeOfState(objElemsReg.ArraypErrors, id, CHECK_HIDDEN, true);
+  changeOfState(
+    objElemsReg.ArrayImagesCheck,
+    id,
+    ElemClasses.CHECK_HIDDEN,
+    false,
+  );
+  changeOfState(objElemsReg.ArrayDivItemInputs, id, ElemClasses.WARNING, false);
+  changeOfState(objElemsReg.ArraypErrors, id, ElemClasses.CHECK_HIDDEN, true);
 };
 
 export const isValidateName = function validateName(): void {
@@ -123,15 +133,15 @@ export const resetInput = function resetAllInputs(): void {
     objElemsReg.userEmail.value = '';
   }
   objElemsReg.ArrayImagesCheck.forEach((image) => {
-    addClassList(image, CHECK_HIDDEN);
+    addClassList(image, ElemClasses.CHECK_HIDDEN);
   });
   userNameIsValid = false;
   userSurnameIsValid = false;
   userEmailIsValid = false;
-  addClassList(btnFormSubmit, INVALID);
+  addClassList(btnFormSubmit, ElemClasses.INVALID);
   btnFormSubmit.disabled = true;
   objElemsReg.ArrayDivItemInputs.forEach((div) => {
-    removeClassList(div, WARNING);
+    removeClassList(div, ElemClasses.WARNING);
   });
 };
 

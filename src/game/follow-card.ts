@@ -2,8 +2,8 @@ import { congratulateTheWinner } from '../final/final';
 import { time } from '../stopwatch/stopwatch';
 import { addClassList } from '../utils/add-class';
 import { checkClass } from '../utils/check-class';
-import { PAINT_CORRECT, TURN, zero } from '../utils/consts';
-import { PointerEvent } from '../utils/enum';
+import { zero } from '../utils/consts';
+import { ElemClasses, PointerEvent } from '../utils/enum';
 import { toNumber } from '../utils/toNumber';
 import { getObjArrsCard } from '../utils/utils';
 import { objCountComparison } from './obj-count';
@@ -19,7 +19,7 @@ const final = function isFinal(): void {
   let count = zero;
   const objArrsCard = getObjArrsCard();
   objArrsCard.arrCards.forEach((item) => {
-    if (checkClass(item, PAINT_CORRECT)) {
+    if (checkClass(item, ElemClasses.PAINT_CORRECT)) {
       count++;
     }
   });
@@ -59,12 +59,12 @@ export const followTheCard = function followCard(): void {
     const flipper = <HTMLElement>back.parentElement;
     const card = <HTMLElement>flipper.parentElement;
     if (checkClass(card, 'card')) {
-      addClassList(card, TURN);
+      addClassList(card, ElemClasses.TURN);
       objArrsCard.arrCards.forEach((item: HTMLElement) => {
-        if (checkClass(item, TURN)) {
+        if (checkClass(item, ElemClasses.TURN)) {
           count++;
         }
-        if (checkClass(item, TURN) && count !== TWO_CARD) {
+        if (checkClass(item, ElemClasses.TURN) && count !== TWO_CARD) {
           firstCard = getNumberCard(item.className);
           firstItem = item;
         }

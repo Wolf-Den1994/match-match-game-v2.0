@@ -1,5 +1,5 @@
 import { checkClass } from '../utils/check-class';
-import { HIDDEN, OPEN_MODAL } from '../utils/consts';
+import { ElemClasses } from '../utils/enum';
 import { getObjElemsRegister } from '../utils/reg-utils';
 import { updateClassList } from '../utils/update-class';
 import {
@@ -14,10 +14,10 @@ import { btnFormCancel, btnFormSubmit, modal } from './register-html';
 const objElemsReg = getObjElemsRegister();
 
 export const handlerUserRegistration = function handlerUserRegistr(): void {
-  if (checkClass(modal, OPEN_MODAL)) {
+  if (checkClass(modal, ElemClasses.OPEN_MODAL)) {
     closeModalRegister();
-    if (checkClass(btnStartGame, HIDDEN)) {
-      updateClassList(btnRegister, btnStartGame, HIDDEN);
+    if (checkClass(btnStartGame, ElemClasses.HIDDEN)) {
+      updateClassList(btnRegister, btnStartGame, ElemClasses.HIDDEN);
     }
   }
   objElemsReg.userName.removeEventListener('input', () => {

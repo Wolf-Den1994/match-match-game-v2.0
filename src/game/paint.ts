@@ -1,5 +1,5 @@
 import { addClassList } from '../utils/add-class';
-import { PAINT_CORRECT, PAINT_WRONG, TURN } from '../utils/consts';
+import { ElemClasses } from '../utils/enum';
 import { removeClassList } from '../utils/remove-class';
 
 const TIME_AFTER_WHICH_IN_GREEN = 1000;
@@ -11,8 +11,8 @@ export const paintGreen = function changePaintGreen(
   secondItem: HTMLElement,
 ): void {
   function workWithClassList(elem: HTMLElement): void {
-    addClassList(elem, PAINT_CORRECT);
-    removeClassList(elem, TURN);
+    addClassList(elem, ElemClasses.PAINT_CORRECT);
+    removeClassList(elem, ElemClasses.TURN);
     addClassList(elem, 'turnface');
   }
   setTimeout(() => {
@@ -28,10 +28,10 @@ export const paintRed = function changePaintRed(
   secondItem: HTMLElement,
 ): void {
   function addRedColor(elem: HTMLElement): void {
-    addClassList(elem, PAINT_WRONG);
+    addClassList(elem, ElemClasses.PAINT_WRONG);
   }
   function removeRedColor(elem: HTMLElement): void {
-    removeClassList(elem, PAINT_WRONG);
+    removeClassList(elem, ElemClasses.PAINT_WRONG);
   }
   setTimeout(() => {
     if (firstItem) {

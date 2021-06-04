@@ -1,7 +1,7 @@
 import { indexedDBcall } from '../indexeddb/indexeddb';
 import { addClassList } from '../utils/add-class';
 import { checkClass } from '../utils/check-class';
-import { LOCK, OPEN_MODAL } from '../utils/consts';
+import { ElemClasses } from '../utils/enum';
 import { removeClassList } from '../utils/remove-class';
 import { btnFormSubmit, modal, overlay } from './register-html';
 
@@ -16,26 +16,26 @@ export const btnStopGame = <HTMLButtonElement>(
 );
 
 export const openModalRegister = function openModalReg(): void {
-  addClassList(modal, OPEN_MODAL);
-  addClassList(overlay, OPEN_MODAL);
-  addClassList(document.body, LOCK);
+  addClassList(modal, ElemClasses.OPEN_MODAL);
+  addClassList(overlay, ElemClasses.OPEN_MODAL);
+  addClassList(document.body, ElemClasses.LOCK);
 };
 
 export const closeModalRegister = function closeModalReg(): void {
-  removeClassList(modal, OPEN_MODAL);
-  removeClassList(overlay, OPEN_MODAL);
-  removeClassList(document.body, LOCK);
+  removeClassList(modal, ElemClasses.OPEN_MODAL);
+  removeClassList(overlay, ElemClasses.OPEN_MODAL);
+  removeClassList(document.body, ElemClasses.LOCK);
 };
 
 window.onload = () => {
   const checkOpenModalRegister = function checkOpenModalReg(): void {
-    if (!checkClass(modal, OPEN_MODAL)) {
+    if (!checkClass(modal, ElemClasses.OPEN_MODAL)) {
       openModalRegister();
     }
   };
 
   const checkCloseModalRegister = function checkCloseModalReg(): void {
-    if (checkClass(modal, OPEN_MODAL)) {
+    if (checkClass(modal, ElemClasses.OPEN_MODAL)) {
       closeModalRegister();
     }
   };
