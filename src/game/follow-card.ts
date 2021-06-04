@@ -2,7 +2,7 @@ import { congratulateTheWinner } from '../final/final';
 import { time } from '../stopwatch/stopwatch';
 import { addClassList } from '../utils/add-class';
 import { checkClass } from '../utils/check-class';
-import { PAINT_GREEN, TURN, zero } from '../utils/consts';
+import { PAINT_CORRECT, TURN, zero } from '../utils/consts';
 import { PointerEvent } from '../utils/enum';
 import { toNumber } from '../utils/toNumber';
 import { getObjArrsCard } from '../utils/utils';
@@ -19,7 +19,7 @@ const final = function isFinal(): void {
   let count = zero;
   const objArrsCard = getObjArrsCard();
   objArrsCard.arrCards.forEach((item) => {
-    if (checkClass(item, PAINT_GREEN)) {
+    if (checkClass(item, PAINT_CORRECT)) {
       count++;
     }
   });

@@ -1,6 +1,6 @@
 import { divAvatar } from '../header/div-avatar';
 import { person } from '../indexeddb/indexeddb';
-import { zero } from '../utils/consts';
+import { AVATAR, zero } from '../utils/consts';
 import { removeClassList } from '../utils/remove-class';
 
 const input = <HTMLInputElement>document.querySelector('#user-avatar');
@@ -24,12 +24,12 @@ const image = function imageLoad() {
 input.onchange = () => {
   image().then((res) => {
     const userPhoto = `${res}`;
-    localStorage.setItem('avatar', userPhoto);
-    const avatar = localStorage.getItem('avatar');
+    localStorage.setItem(AVATAR, userPhoto);
+    const avatarBase64 = localStorage.getItem(AVATAR);
     removeClassList(divAvatar, 'hide');
     label.children[zero]?.remove();
-    person.avatar = `${avatar}`;
-    divAvatar.style.backgroundImage = `url('${avatar}')`;
-    label.style.backgroundImage = `url('${avatar}')`;
+    person.avatar = `${avatarBase64}`;
+    divAvatar.style.backgroundImage = `url('${avatarBase64}')`;
+    label.style.backgroundImage = `url('${avatarBase64}')`;
   });
 };
