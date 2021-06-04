@@ -28,14 +28,23 @@ export enum PointerEvent {
 }
 
 export enum ElemClasses {
-  OPEN_MODAL = 'open-modal',
-  PAINT_CORRECT = 'paint-green',
-  PAINT_WRONG = 'paint-red',
-  HIDDEN = 'hidden',
-  INVALID = 'invalid',
-  TURN = 'turn',
-  CHECK_HIDDEN = 'check-hidden',
-  WARNING = 'warning',
-  LOCK = 'lock',
-  ACTIVE = 'active',
+  OpenModal = 'open-modal',
+  PaintCorrect = 'paint-green',
+  PaintWrong = 'paint-red',
+  Hidden = 'hidden',
+  Invalid = 'invalid',
+  Tutn = 'turn',
+  CheckHidden = 'check-hidden',
+  Warning = 'warning',
+  Lock = 'lock',
+  Active = 'active',
+}
+
+export enum StopWatchTime {
+  Time = 'time',
+  Begin = '00',
+  Separator = ':',
+  Hour = 'hour',
+  Min = 'min',
+  Sec = 'sec',
 }

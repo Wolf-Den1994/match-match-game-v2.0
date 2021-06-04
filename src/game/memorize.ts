@@ -15,7 +15,7 @@ export const toMemorizeCards = function memorizeCards(): void {
     const objTimeField = getObjTimeField();
     if (!objTimeField.timeField) return;
     objArrsCard.arrCards.forEach((item) =>
-      removeClassList(item, ElemClasses.TURN),
+      removeClassList(item, ElemClasses.Tutn),
     );
     followTheCard();
     time.start();

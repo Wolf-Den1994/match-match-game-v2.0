@@ -1,4 +1,4 @@
-import { TIME } from '../utils/consts';
+import { StopWatchTime } from '../utils/enum';
 
 export const gameField = `
   <main class='main-field'></main>
@@ -7,8 +7,8 @@ export const gameField = `
 export const createField = function createFieldTime(): void {
   const field = <HTMLElement>document.querySelector('.main-field');
   const wrapper = document.createElement('section');
-  wrapper.className = TIME;
-  wrapper.id = TIME;
+  wrapper.className = StopWatchTime.Time;
+  wrapper.id = StopWatchTime.Time;
   if (field) field.prepend(wrapper);
 
   const stopwatch = document.createElement('div');
@@ -16,26 +16,26 @@ export const createField = function createFieldTime(): void {
   wrapper.append(stopwatch);
 
   const hour = document.createElement('span');
-  hour.id = 'hour';
-  hour.innerHTML = '00';
+  hour.id = StopWatchTime.Hour;
+  hour.innerHTML = StopWatchTime.Begin;
   stopwatch.append(hour);
 
   const colonOne = document.createElement('span');
-  colonOne.innerHTML = ':';
+  colonOne.innerHTML = StopWatchTime.Separator;
   stopwatch.append(colonOne);
 
   const min = document.createElement('span');
-  min.id = 'min';
-  min.innerHTML = '00';
+  min.id = StopWatchTime.Min;
+  min.innerHTML = StopWatchTime.Begin;
   stopwatch.append(min);
 
   const colonTwo = document.createElement('span');
-  colonTwo.innerHTML = ':';
+  colonTwo.innerHTML = StopWatchTime.Separator;
   stopwatch.append(colonTwo);
 
   const sec = document.createElement('span');
-  sec.id = 'sec';
-  sec.innerHTML = '00';
+  sec.id = StopWatchTime.Sec;
+  sec.innerHTML = StopWatchTime.Begin;
   stopwatch.append(sec);
 };
 
@@ -46,9 +46,9 @@ interface IPeriod {
 }
 
 export const getObjPeriod = function getObjTime(): IPeriod {
-  const hour = <HTMLElement>document.getElementById('hour');
-  const min = <HTMLElement>document.getElementById('min');
-  const sec = <HTMLElement>document.getElementById('sec');
+  const hour = <HTMLElement>document.getElementById(StopWatchTime.Hour);
+  const min = <HTMLElement>document.getElementById(StopWatchTime.Min);
+  const sec = <HTMLElement>document.getElementById(StopWatchTime.Sec);
 
   return {
     hour,

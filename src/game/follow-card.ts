@@ -19,7 +19,7 @@ const final = function isFinal(): void {
   let count = zero;
   const objArrsCard = getObjArrsCard();
   objArrsCard.arrCards.forEach((item) => {
-    if (checkClass(item, ElemClasses.PAINT_CORRECT)) {
+    if (checkClass(item, ElemClasses.PaintCorrect)) {
       count++;
     }
   });
@@ -59,12 +59,12 @@ export const followTheCard = function followCard(): void {
     const flipper = <HTMLElement>back.parentElement;
     const card = <HTMLElement>flipper.parentElement;
     if (checkClass(card, 'card')) {
-      addClassList(card, ElemClasses.TURN);
+      addClassList(card, ElemClasses.Tutn);
       objArrsCard.arrCards.forEach((item: HTMLElement) => {
-        if (checkClass(item, ElemClasses.TURN)) {
+        if (checkClass(item, ElemClasses.Tutn)) {
           count++;
         }
-        if (checkClass(item, ElemClasses.TURN) && count !== TWO_CARD) {
+        if (checkClass(item, ElemClasses.Tutn) && count !== TWO_CARD) {
           firstCard = getNumberCard(item.className);
           firstItem = item;
         }

@@ -7,8 +7,8 @@ import { updateClassList } from '../utils/update-class';
 import { createField } from './field-time';
 
 const toRunStartGame = function runStartGame(): void {
-  if (checkClass(btnStopGame, ElemClasses.HIDDEN)) {
-    updateClassList(btnStartGame, btnStopGame, ElemClasses.HIDDEN);
+  if (checkClass(btnStopGame, ElemClasses.Hidden)) {
+    updateClassList(btnStartGame, btnStopGame, ElemClasses.Hidden);
 
     createField();
   }

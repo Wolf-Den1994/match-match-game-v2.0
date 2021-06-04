@@ -18,8 +18,8 @@ export const congratulateTheWinner = function congratulateWinner(): void {
   const m = time.min.innerText;
   const s = time.sec.innerText;
 
-  addClassList(modalCongratulate, ElemClasses.OPEN_MODAL);
-  addClassList(overlay, ElemClasses.OPEN_MODAL);
+  addClassList(modalCongratulate, ElemClasses.OpenModal);
+  addClassList(overlay, ElemClasses.OpenModal);
 
   timeFromSpan.innerHTML = `${h}:${m}:${s}`;
 

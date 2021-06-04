@@ -8,7 +8,7 @@ export const reverseBack = function reverseBackCard(
 ): void {
   setTimeout(() => {
     arrCards.forEach((item) => {
-      removeClassList(item, ElemClasses.TURN);
+      removeClassList(item, ElemClasses.Tutn);
     });
   }, TIME_AFTER_WHICH_TO_RUN_BACK);
 };

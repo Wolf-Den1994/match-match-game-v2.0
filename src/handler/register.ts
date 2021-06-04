@@ -16,26 +16,26 @@ export const btnStopGame = <HTMLButtonElement>(
 );
 
 export const openModalRegister = function openModalReg(): void {
-  addClassList(modal, ElemClasses.OPEN_MODAL);
-  addClassList(overlay, ElemClasses.OPEN_MODAL);
-  addClassList(document.body, ElemClasses.LOCK);
+  addClassList(modal, ElemClasses.OpenModal);
+  addClassList(overlay, ElemClasses.OpenModal);
+  addClassList(document.body, ElemClasses.Lock);
 };
 
 export const closeModalRegister = function closeModalReg(): void {
-  removeClassList(modal, ElemClasses.OPEN_MODAL);
-  removeClassList(overlay, ElemClasses.OPEN_MODAL);
-  removeClassList(document.body, ElemClasses.LOCK);
+  removeClassList(modal, ElemClasses.OpenModal);
+  removeClassList(overlay, ElemClasses.OpenModal);
+  removeClassList(document.body, ElemClasses.Lock);
 };
 
 window.onload = () => {
   const checkOpenModalRegister = function checkOpenModalReg(): void {
-    if (!checkClass(modal, ElemClasses.OPEN_MODAL)) {
+    if (!checkClass(modal, ElemClasses.OpenModal)) {
       openModalRegister();
     }
   };
 
   const checkCloseModalRegister = function checkCloseModalReg(): void {
-    if (checkClass(modal, ElemClasses.OPEN_MODAL)) {
+    if (checkClass(modal, ElemClasses.OpenModal)) {
       closeModalRegister();
     }
   };

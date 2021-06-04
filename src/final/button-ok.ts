@@ -5,9 +5,9 @@ import { removeClassList } from '../utils/remove-class';
 import { btnFinal, modalCongratulate } from './final-html';
 
 const hideModFinal = function hideModalFinal(): void {
-  if (checkClass(modalCongratulate, ElemClasses.OPEN_MODAL)) {
-    removeClassList(modalCongratulate, ElemClasses.OPEN_MODAL);
-    removeClassList(overlay, ElemClasses.OPEN_MODAL);
+  if (checkClass(modalCongratulate, ElemClasses.OpenModal)) {
+    removeClassList(modalCongratulate, ElemClasses.OpenModal);
+    removeClassList(overlay, ElemClasses.OpenModal);
   }
 };
 

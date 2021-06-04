@@ -14,10 +14,10 @@ import { btnFormCancel, btnFormSubmit, modal } from './register-html';
 const objElemsReg = getObjElemsRegister();
 
 export const handlerUserRegistration = function handlerUserRegistr(): void {
-  if (checkClass(modal, ElemClasses.OPEN_MODAL)) {
+  if (checkClass(modal, ElemClasses.OpenModal)) {
     closeModalRegister();
-    if (checkClass(btnStartGame, ElemClasses.HIDDEN)) {
-      updateClassList(btnRegister, btnStartGame, ElemClasses.HIDDEN);
+    if (checkClass(btnStartGame, ElemClasses.Hidden)) {
+      updateClassList(btnRegister, btnStartGame, ElemClasses.Hidden);
     }
   }
   objElemsReg.userName.removeEventListener('input', () => {

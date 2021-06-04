@@ -37,7 +37,7 @@ root.innerHTML = routes[window.location.pathname];
 const navbarLinks = document.querySelectorAll('.navbar-link');
 
 root.innerHTML = routes[window.location.pathname];
-addClassList(linkNavbarAbout, ElemClasses.ACTIVE);
+addClassList(linkNavbarAbout, ElemClasses.Active);
 
 export const pollOfElections = function pollElections(): void {
   const selectCard = document.querySelector('#select-card');
@@ -68,14 +68,14 @@ const deleteClassNameAtLink = function deleteClassNameLink(): void {
 };
 
 const callFnStopGame = function callStopGame(): void {
-  if (!checkClass(btnStopGame, ElemClasses.HIDDEN)) {
+  if (!checkClass(btnStopGame, ElemClasses.Hidden)) {
     stopGame();
   }
 };
 
 const goHome = function homePage(): boolean {
   deleteClassNameAtLink();
-  addClassList(linkNavbarAbout, ElemClasses.ACTIVE);
+  addClassList(linkNavbarAbout, ElemClasses.Active);
   onNavigate('/');
   callFnStopGame();
   return false;
@@ -83,7 +83,7 @@ const goHome = function homePage(): boolean {
 
 const goScore = function scorePage(): boolean {
   deleteClassNameAtLink();
-  addClassList(linkNavbarScore, ElemClasses.ACTIVE);
+  addClassList(linkNavbarScore, ElemClasses.Active);
   onNavigate('/score');
   callFnStopGame();
   return false;
@@ -111,7 +111,7 @@ linkNavbarScore.onclick = () => {
 };
 linkNavbarSettings.onclick = () => {
   deleteClassNameAtLink();
-  addClassList(linkNavbarSettings, ElemClasses.ACTIVE);
+  addClassList(linkNavbarSettings, ElemClasses.Active);
   onNavigate('/settings');
   callFnStopGame();
   return false;

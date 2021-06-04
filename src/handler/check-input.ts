@@ -26,10 +26,10 @@ const checkUser = function isValidateUser(): boolean {
 
 const isValidate = function validate(): void {
   if (checkUser()) {
-    removeClassList(btnFormSubmit, ElemClasses.INVALID);
+    removeClassList(btnFormSubmit, ElemClasses.Invalid);
     btnFormSubmit.disabled = false;
   } else {
-    addClassList(btnFormSubmit, ElemClasses.INVALID);
+    addClassList(btnFormSubmit, ElemClasses.Invalid);
     btnFormSubmit.disabled = true;
   }
 };
@@ -56,22 +56,22 @@ const showIconCheck = function showIcon(id: number): void {
   changeOfState(
     objElemsReg.ArrayImagesCheck,
     id,
-    ElemClasses.CHECK_HIDDEN,
+    ElemClasses.CheckHidden,
     true,
   );
-  changeOfState(objElemsReg.ArrayDivItemInputs, id, ElemClasses.WARNING, true);
-  changeOfState(objElemsReg.ArraypErrors, id, ElemClasses.CHECK_HIDDEN, false);
+  changeOfState(objElemsReg.ArrayDivItemInputs, id, ElemClasses.Warning, true);
+  changeOfState(objElemsReg.ArraypErrors, id, ElemClasses.CheckHidden, false);
 };
 
 const hideIconCheck = function hideIcon(id: number): void {
   changeOfState(
     objElemsReg.ArrayImagesCheck,
     id,
-    ElemClasses.CHECK_HIDDEN,
+    ElemClasses.CheckHidden,
     false,
   );
-  changeOfState(objElemsReg.ArrayDivItemInputs, id, ElemClasses.WARNING, false);
-  changeOfState(objElemsReg.ArraypErrors, id, ElemClasses.CHECK_HIDDEN, true);
+  changeOfState(objElemsReg.ArrayDivItemInputs, id, ElemClasses.Warning, false);
+  changeOfState(objElemsReg.ArraypErrors, id, ElemClasses.CheckHidden, true);
 };
 
 export const isValidateName = function validateName(): void {
@@ -133,15 +133,15 @@ export const resetInput = function resetAllInputs(): void {
     objElemsReg.userEmail.value = '';
   }
   objElemsReg.ArrayImagesCheck.forEach((image) => {
-    addClassList(image, ElemClasses.CHECK_HIDDEN);
+    addClassList(image, ElemClasses.CheckHidden);
   });
   userNameIsValid = false;
   userSurnameIsValid = false;
   userEmailIsValid = false;
-  addClassList(btnFormSubmit, ElemClasses.INVALID);
+  addClassList(btnFormSubmit, ElemClasses.Invalid);
   btnFormSubmit.disabled = true;
   objElemsReg.ArrayDivItemInputs.forEach((div) => {
-    removeClassList(div, ElemClasses.WARNING);
+    removeClassList(div, ElemClasses.Warning);
   });
 };
 

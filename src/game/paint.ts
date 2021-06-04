@@ -11,8 +11,8 @@ export const paintGreen = function changePaintGreen(
   secondItem: HTMLElement,
 ): void {
   function workWithClassList(elem: HTMLElement): void {
-    addClassList(elem, ElemClasses.PAINT_CORRECT);
-    removeClassList(elem, ElemClasses.TURN);
+    addClassList(elem, ElemClasses.PaintCorrect);
+    removeClassList(elem, ElemClasses.Tutn);
     addClassList(elem, 'turnface');
   }
   setTimeout(() => {
@@ -28,10 +28,10 @@ export const paintRed = function changePaintRed(
   secondItem: HTMLElement,
 ): void {
   function addRedColor(elem: HTMLElement): void {
-    addClassList(elem, ElemClasses.PAINT_WRONG);
+    addClassList(elem, ElemClasses.PaintWrong);
   }
   function removeRedColor(elem: HTMLElement): void {
-    removeClassList(elem, ElemClasses.PAINT_WRONG);
+    removeClassList(elem, ElemClasses.PaintWrong);
   }
   setTimeout(() => {
     if (firstItem) {
