@@ -1,6 +1,6 @@
 import { objCountComparison } from '../game/obj-count';
 import { person } from '../indexeddb/indexeddb';
-import { zero } from '../utils/consts';
+import { ZERO } from '../utils/consts';
 import { toNumber } from '../utils/toNumber';
 
 export const toScore = function score(
@@ -10,7 +10,7 @@ export const toScore = function score(
 ): void {
   const CLOCK_FACE = 60;
   const time = `${hour}:${min}:${sec}`;
-  let timeResult = zero;
+  let timeResult = ZERO;
   const arrTime = time.split(':');
   timeResult =
     toNumber(arrTime[0]) * CLOCK_FACE * CLOCK_FACE +
@@ -21,5 +21,5 @@ export const toScore = function score(
       objCountComparison.countErroneousСomparison) *
       100 -
     timeResult * 10;
-  person.score = scoreValue > zero ? `${scoreValue}` : `0`;
+  person.score = scoreValue > ZERO ? `${scoreValue}` : `0`;
 };

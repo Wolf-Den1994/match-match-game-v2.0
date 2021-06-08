@@ -2,7 +2,7 @@ import { congratulateTheWinner } from '../final/final';
 import { time } from '../stopwatch/stopwatch';
 import { addClassList } from '../utils/add-class';
 import { checkClass } from '../utils/check-class';
-import { zero } from '../utils/consts';
+import { ZERO } from '../utils/consts';
 import { ElemClasses, PointerEvent } from '../utils/enum';
 import { toNumber } from '../utils/toNumber';
 import { getObjArrsCard } from '../utils/utils';
@@ -16,7 +16,7 @@ const TIME_TURN_ON_THE_MOUSE = 1300;
 const TWO_CARD = 2;
 
 const final = function isFinal(): void {
-  let count = zero;
+  let count = ZERO;
   const objArrsCard = getObjArrsCard();
   objArrsCard.arrCards.forEach((item) => {
     if (checkClass(item, ElemClasses.PaintCorrect)) {
@@ -28,7 +28,7 @@ const final = function isFinal(): void {
     congratulateTheWinner();
     return;
   }
-  count = zero;
+  count = ZERO;
   setTimeout(final, TIME_CALL_FN_FINAL);
 };
 
@@ -50,7 +50,7 @@ const getNumberCard = function numberCard(elem: string): string {
 export const followTheCard = function followCard(): void {
   const cardonField = <HTMLElement>document.getElementById('field');
   const objArrsCard = getObjArrsCard();
-  let count = zero;
+  let count = ZERO;
   let firstCard: null | string = null;
   let firstItem: null | HTMLElement = null;
   cardonField.addEventListener('click', (event) => {
@@ -69,7 +69,7 @@ export const followTheCard = function followCard(): void {
           firstItem = item;
         }
         if (count === TWO_CARD) {
-          count = zero;
+          count = ZERO;
           objCountComparison.countComparison++;
           const secondCard = getNumberCard(item.className);
           cardonField.style.pointerEvents = PointerEvent.None;
@@ -83,11 +83,11 @@ export const followTheCard = function followCard(): void {
             paintRed(firstItem, item);
             reverseBack(objArrsCard.arrCards);
           }
-          count = zero;
+          count = ZERO;
           firstItem = null;
         }
       });
-      count = zero;
+      count = ZERO;
     }
   });
   cardonField.addEventListener('click', final, { once: true });

@@ -1,5 +1,5 @@
 import { getObjPeriod } from '../game/field-time';
-import { zero } from '../utils/consts';
+import { ZERO } from '../utils/consts';
 
 export class CountTime {
   flag: number | null;
@@ -21,7 +21,7 @@ export class CountTime {
       period.sec.innerHTML = `${s}`;
     }
     if (s === CLOCK_FACE) {
-      s = zero;
+      s = ZERO;
       period.sec.innerHTML = `0${s}`;
       let m = parseInt(period.min.innerHTML, 10);
       m += 1;
@@ -31,7 +31,7 @@ export class CountTime {
         period.min.innerHTML = `${m}`;
       }
       if (m === CLOCK_FACE) {
-        m = zero;
+        m = ZERO;
         period.min.innerHTML = `0${m}`;
         let h = parseInt(period.hour.innerHTML, 10);
         h += 1;
